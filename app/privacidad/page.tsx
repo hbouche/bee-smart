@@ -1,43 +1,24 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import type { Metadata } from "next";
+import { contact, SiteFooter, SiteHeader } from "../site-chrome";
 
-test("renders production metadata and contact experience", async () => {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+export const metadata: Metadata = { title: "Privacidad | BEE SMART" };
 
-  const response = await worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
+export default function PrivacyPage() {
+  return (
+    <main className="privacy-page">
+      <SiteHeader />
+      <article className="section privacy-copy">
+        <p className="eyebrow">PRIVACIDAD</p>
+        <h1>Uso responsable de tus datos.</h1>
+        <p>Los datos enviados mediante los formularios de BEE SMART se utilizan únicamente para responder solicitudes de información, reservas, diagnósticos o conversaciones comerciales.</p>
+        <h2>Qué recibimos</h2>
+        <p>Nombre, información de contacto, empresa cuando aplique y los detalles que decidas compartir sobre tu interés o necesidad.</p>
+        <h2>Para qué los usamos</h2>
+        <p>Para responderte, coordinar una conversación y recomendar el servicio o siguiente paso adecuado. No vendemos tus datos.</p>
+        <h2>Contacto</h2>
+        <p>Si deseas corregir o eliminar tu información, escribe a <a href={`mailto:${contact.email}`}>{contact.email}</a>.</p>
+      </article>
+      <SiteFooter />
+    </main>
   );
-
-  assert.equal(response.status, 200);
-  assert.match(
-    response.headers.get("content-type") ?? "",
-    /^text\/html\b/i,
-  );
-  const homeHtml = await response.text();
-  assert.match(homeHtml, /BEE SMART \| Inteligencia Artificial para Todos/i);
-  assert.doesNotMatch(homeHtml, /codex-preview/i);
-
-  const contactResponse = await worker.fetch(
-    new Request("http://localhost/contacto", { headers: { accept: "text/html" } }),
-    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
-    { waitUntil() {}, passThroughOnException() {} },
-  );
-  assert.equal(contactResponse.status, 200);
-  const contactHtml = await contactResponse.text();
-  assert.match(contactHtml, /DETRÁS DE BEE SMART/i);
-  assert.match(contactHtml, /Humberto Bouche/i);
-  assert.match(contactHtml, /formsubmit\.co\/hb@bee-smart\.ai/i);
-});
+}
