@@ -2,7 +2,7 @@
 import type { ReactNode } from "react";
 
 type HeaderProps = {
-  active?: "home" | "learn" | "business";
+  active?: "home" | "learn" | "business" | "contact";
   ctaHref?: string;
   ctaLabel?: string;
 };
@@ -31,6 +31,7 @@ export function SiteHeader({ active = "home", ctaHref = "/contacto", ctaLabel = 
         <a className={active === "learn" ? "active" : ""} href="/ai-para-todos">AI para Todos</a>
         <a className={active === "business" ? "active" : ""} href="/empresas">Empresas</a>
         <a href="/#metodo">Cómo trabajamos</a>
+        <a className={active === "contact" ? "active" : ""} href="/contacto">Contáctenos</a>
       </nav>
       <a className="button button-small button-dark" href={ctaHref}>{ctaLabel}</a>
     </header>
