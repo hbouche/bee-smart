@@ -1,3 +1,6 @@
+// Cloudflare provides this virtual module at runtime. Render only performs a
+// static-site type check, where the virtual module is intentionally absent.
+// @ts-expect-error -- resolved by the Cloudflare Workers runtime.
 import { env } from "cloudflare:workers";
 import { drizzle } from "drizzle-orm/d1";
 import * as schema from "./schema";
