@@ -34,6 +34,27 @@ export function SiteHeader({ active = "home", ctaHref = "/contacto", ctaLabel = 
         <a className={active === "contact" ? "active" : ""} href="/contacto">Contáctenos</a>
       </nav>
       <a className="button button-small button-dark" href={ctaHref}>{ctaLabel}</a>
+      <details className="mobile-menu">
+        <summary aria-label="Abrir menú de navegación">
+          <span>MENÚ</span>
+          <i aria-hidden="true" />
+          <i aria-hidden="true" />
+        </summary>
+        <div className="mobile-menu-panel">
+          <nav className="mobile-nav" aria-label="Navegación móvil">
+            <a className={active === "home" ? "active" : ""} href="/">Inicio <b>01</b></a>
+            <a className={active === "learn" ? "active" : ""} href="/ai-para-todos">AI para Todos <b>02</b></a>
+            <a className={active === "business" ? "active" : ""} href="/empresas">Empresas <b>03</b></a>
+            <a href="/#metodo">Cómo trabajamos <b>04</b></a>
+            <a className={active === "contact" ? "active" : ""} href="/contacto">Contáctenos <b>05</b></a>
+          </nav>
+          <a className="button button-primary mobile-menu-cta" href={ctaHref}>{ctaLabel}</a>
+          <div className="mobile-menu-contact">
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <a href={contact.whatsapp} target="_blank" rel="noreferrer">{contact.phoneDisplay}</a>
+          </div>
+        </div>
+      </details>
     </header>
   );
 }
