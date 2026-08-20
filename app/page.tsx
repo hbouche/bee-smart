@@ -140,7 +140,7 @@ export default function Home() {
 
       <section className="section final-cta" id="contacto">
         <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Aprende a usarla.<br />Ponla a trabajar.</h2><p>Escoge la ruta que corresponde a tu momento y comienza con una experiencia diseñada para producir claridad y resultados.</p>
-        <div className="contact-options"><a className="button button-primary" href="/ai-para-todos">Quiero aprender AI</a><a className="button button-outline" href="/empresas">Quiero transformar mi empresa</a></div>
+        <div className="contact-options"><a className="button button-primary" href="/contacto#ai-para-todos">Quiero aprender AI</a><a className="button button-outline" href="/contacto#empresas">Quiero transformar mi empresa</a></div>
       </section>
 
       <SiteFooter />

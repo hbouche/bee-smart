@@ -7,6 +7,13 @@ type HeaderProps = {
   ctaLabel?: string;
 };
 
+export const contact = {
+  email: "hb@bee-smart.ai",
+  phoneDisplay: "+507 6430-1378",
+  phone: "50764301378",
+  whatsapp: "https://wa.me/50764301378?text=Hola%20Humberto%2C%20vi%20BEE%20SMART%20y%20quiero%20conversar.",
+};
+
 export function Brand({ footer = false }: { footer?: boolean }) {
   return (
     <a className={`brand${footer ? " brand-footer" : ""}`} href="/" aria-label="BEE SMART, inicio">
@@ -16,7 +23,7 @@ export function Brand({ footer = false }: { footer?: boolean }) {
   );
 }
 
-export function SiteHeader({ active = "home", ctaHref = "#contacto", ctaLabel = "Hablemos" }: HeaderProps) {
+export function SiteHeader({ active = "home", ctaHref = "/contacto", ctaLabel = "Hablemos" }: HeaderProps) {
   return (
     <header className="site-header">
       <Brand />
@@ -34,10 +41,18 @@ export function SiteFooter() {
   return (
     <footer>
       <Brand footer />
-      <p>Inteligencia artificial para la vida, el trabajo y los negocios.</p>
-      <div className="footer-links"><a href="/ai-para-todos">AI para Todos</a><a href="/empresas">Empresas</a><span>Panamá · 2026</span></div>
+      <div className="footer-contact">
+        <strong>Humberto Bouche · AI Scientist</strong>
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <a href={contact.whatsapp} target="_blank" rel="noreferrer">{contact.phoneDisplay}</a>
+      </div>
+      <div className="footer-links"><a href="/ai-para-todos">AI para Todos</a><a href="/empresas">Empresas</a><a href="/contacto">Contacto</a><a href="/privacidad">Privacidad</a><span>Panamá · 2026</span></div>
     </footer>
   );
+}
+
+export function WhatsAppButton() {
+  return <a className="whatsapp-float" href={contact.whatsapp} target="_blank" rel="noreferrer" aria-label="Conversar con Humberto por WhatsApp"><span aria-hidden="true">↗</span> WhatsApp</a>;
 }
 
 export function VisualLabel({ children }: { children: ReactNode }) {

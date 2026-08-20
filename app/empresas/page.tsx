@@ -59,14 +59,14 @@ const investments = [
 export default function EmpresasPage() {
   return (
     <main className="enterprise-page">
-      <SiteHeader active="business" ctaHref="#diagnostico" ctaLabel="Solicitar diagnóstico" />
+      <SiteHeader active="business" ctaHref="/contacto#empresas" ctaLabel="Solicitar diagnóstico" />
 
       <section className="enterprise-hero" id="inicio">
         <div className="enterprise-hero-copy">
           <p className="eyebrow light">BEE SMART PARA EMPRESAS</p>
           <h1>Convierte la AI en una <em>capacidad interna.</em></h1>
           <p className="enterprise-lead">Alineamos a tu equipo, diseñamos la arquitectura y construimos soluciones alrededor de la operación real de tu empresa.</p>
-          <div className="hero-actions"><a className="button button-primary" href="#diagnostico">Solicitar diagnóstico</a><a className="text-link light-link" href="#ruta">Conocer la ruta <span>↓</span></a></div>
+          <div className="hero-actions"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="text-link light-link" href="#ruta">Conocer la ruta <span>↓</span></a></div>
           <div className="enterprise-hero-proof"><span>CAPACITACIÓN</span><span>ARQUITECTURA</span><span>IMPLEMENTACIÓN</span></div>
         </div>
         <div className="enterprise-hero-media">
@@ -130,7 +130,7 @@ export default function EmpresasPage() {
       </section>
 
       <section className="section enterprise-final" id="diagnostico">
-        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Una sesión inicial para entender el contexto, identificar oportunidades y recomendar un primer paso realista de capacitación o implementación.</p><div className="contact-options"><a className="button button-primary" href="#inicio">Solicitar diagnóstico</a><a className="button button-outline" href="/ai-para-todos">Ver AI 101 corporativo</a></div>
+        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Una sesión inicial para entender el contexto, identificar oportunidades y recomendar un primer paso realista de capacitación o implementación.</p><div className="contact-options"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="button button-outline" href="/ai-para-todos">Ver AI para Todos corporativo</a></div>
       </section>
 
       <SiteFooter />

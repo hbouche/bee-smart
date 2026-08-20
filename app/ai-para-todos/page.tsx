@@ -68,7 +68,7 @@ const toolGroups = [
 export default function AiParaTodosPage() {
   return (
     <main className="learn-page">
-      <SiteHeader active="learn" ctaHref="#reserva" ctaLabel="Reservar" />
+      <SiteHeader active="learn" ctaHref="/contacto#ai-para-todos" ctaLabel="Reservar" />
 
       <section className="product-hero learn-hero-v2" id="inicio">
         <div className="product-hero-copy">
@@ -77,7 +77,7 @@ export default function AiParaTodosPage() {
           <h1>para<br /><em>Todos.</em></h1>
           <p>Entiende la revolución. Aprende a usar sus herramientas. Empieza a construir con criterio.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#reserva">Quiero tomar el entrenamiento</a>
+            <a className="button button-primary" href="/contacto#ai-para-todos">Quiero tomar el entrenamiento</a>
             <a className="text-link" href="#programa">Ver el programa <span>↓</span></a>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function AiParaTodosPage() {
       </section>
 
       <section className="section final-cta learn-final" id="reserva">
-        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Entra al mundo de la AI<br />con un mapa claro.</h2><p>Disponible online, presencial y para grupos privados. Próximamente incorporaremos las fechas, el precio y el canal directo de reserva.</p><div className="contact-options"><a className="button button-primary" href="#formatos">Ver formatos</a><a className="button button-outline" href="/empresas">Busco la versión empresarial</a></div>
+        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Entra al mundo de la AI<br />con un mapa claro.</h2><p>Disponible online, presencial y para grupos privados. Déjanos tus datos y te contactaremos con las próximas fechas y opciones.</p><div className="contact-options"><a className="button button-primary" href="/contacto#ai-para-todos">Quiero reservar</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
       </section>
 
       <SiteFooter />
