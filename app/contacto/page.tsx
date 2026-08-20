@@ -28,7 +28,7 @@ export default function ContactPage() {
 
       <section className="section contact-profile">
         <div className="contact-profile-media">
-          <img src="/images/humberto-bouche-contact.png" alt="Humberto Bouche guiando una sesión de trabajo sobre inteligencia artificial" />
+          <img src="/images/humberto-bouche-ai-para-todos.png" alt="Humberto Bouche presentando IA para Todos ante un equipo empresarial" />
         </div>
         <div className="contact-profile-copy">
           <p className="eyebrow">DETRÁS DE BEE SMART</p>
