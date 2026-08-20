@@ -12,7 +12,7 @@ const formAction = `https://formsubmit.co/${contact.email}`;
 export default function ContactPage() {
   return (
     <main className="contact-page">
-      <SiteHeader ctaHref={contact.whatsapp} ctaLabel="WhatsApp" />
+      <SiteHeader active="contact" ctaHref={contact.whatsapp} ctaLabel="WhatsApp" />
 
       <section className="contact-hero">
         <div>
