@@ -7,6 +7,15 @@ const capabilities = [
   ["Construir soluciones", "Crear dashboards, aplicaciones, agentes y micro-SaaS."],
 ];
 
+const clients = [
+  { name: "Ingredienta", image: "/images/client-ingredienta.png", className: "client-ingredienta" },
+  { name: "Casa Mahana", image: "/images/client-casa-mahana.webp", className: "client-casa-mahana" },
+  { name: "Surf Shack", image: "/images/client-surf-shack.webp", className: "client-surf-shack" },
+  { name: "Soluciones Express", image: "/images/client-soluciones-express.png", className: "client-soluciones" },
+  { name: "Mahana Tours", image: "/images/client-mahana-tours.png", className: "client-mahana-tours" },
+  { name: "Academia Nacional de Surf", className: "client-ans" },
+];
+
 export default function Home() {
   return (
     <main>
@@ -98,6 +107,30 @@ export default function Home() {
                 <span><img src="/brands/render.png" alt="Render" /><b>RENDER</b></span>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="client-marquee" aria-labelledby="client-marquee-title">
+        <div className="client-marquee-heading">
+          <p className="eyebrow">EXPERIENCIA APLICADA</p>
+          <h2 id="client-marquee-title">Empresas que están construyendo capacidad interna con BEE SMART.</h2>
+        </div>
+        <div className="client-marquee-window">
+          <div className="client-marquee-track">
+            {[0, 1].map((group) => (
+              <div className="client-marquee-group" aria-hidden={group === 1} key={group}>
+                {clients.map((client) => (
+                  <div className={`client-logo-card ${client.className}`} key={`${group}-${client.name}`}>
+                    {client.image ? (
+                      <img src={client.image} alt={group === 0 ? client.name : ""} />
+                    ) : (
+                      <span className="ans-wordmark"><strong>ANS</strong><small>Academia Nacional de Surf</small></span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
