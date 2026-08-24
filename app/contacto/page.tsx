@@ -74,6 +74,24 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="section contact-work" aria-labelledby="contact-work-title">
+        <div className="contact-work-copy">
+          <p className="eyebrow">TRABAJO CON EQUIPOS REALES</p>
+          <h2 id="contact-work-title">La capacidad interna se construye trabajando juntos.</h2>
+          <p>Diseñamos la arquitectura, acompañamos la implementación y ayudamos al equipo a convertir la inteligencia artificial en una herramienta cotidiana.</p>
+        </div>
+        <div className="contact-work-gallery">
+          <figure className="contact-work-main">
+            <img src="/images/ingredienta-session.webp" alt="Sesión de trabajo de BEE SMART con el equipo de Ingredienta" />
+            <figcaption>Arquitectura e implementación · Ingredienta</figcaption>
+          </figure>
+          <figure className="contact-work-secondary">
+            <img src="/images/capacidad-interna-session.webp" alt="Sesión de capacitación sobre capacidad interna con inteligencia artificial" />
+            <figcaption>Capacitación de equipos</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="section contact-close">
         <p className="eyebrow light">SIN FORMULARIOS, SIN VUELTAS</p><h2>¿Prefieres hablar ahora?</h2><p>Escríbele directamente a Humberto y cuéntale en una línea qué quieres resolver.</p><a className="button button-primary" href={contact.whatsapp} target="_blank" rel="noreferrer">Abrir WhatsApp</a>
       </section>
