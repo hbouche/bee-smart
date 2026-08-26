@@ -502,17 +502,28 @@
 }
 
 /* Client motion strip */
-.client-marquee{padding:68px 0 76px;background:#fff;border-top:1px solid var(--line);overflow:hidden}
+.client-marquee{padding:68px 0 76px;background:linear-gradient(180deg,#fff 0%,#f7f4ec 100%);border-top:1px solid var(--line);overflow:hidden}
 .client-marquee-heading{padding:0 7vw;display:grid;grid-template-columns:.65fr 1.35fr;gap:5vw;align-items:end;margin-bottom:40px}
 .client-marquee-heading .eyebrow{margin:0}
 .client-marquee-heading h2{max-width:920px;margin:0;font-size:clamp(28px,2.8vw,43px);line-height:1.05;letter-spacing:-.045em}
 .client-marquee-window{position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.client-marquee-track{display:flex;width:max-content;animation:client-scroll 28s linear infinite;will-change:transform}
+.client-marquee-track{display:flex;width:max-content;animation:client-scroll 46s linear infinite;will-change:transform}
 .client-marquee:hover .client-marquee-track{animation-play-state:paused}
 .client-marquee-group{display:flex;gap:18px;padding-right:18px}
-.client-logo-card{width:220px;height:118px;padding:18px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:var(--paper);border:1px solid var(--line);border-radius:4px}
-.client-logo-card img{display:block;width:auto;height:auto;max-width:100%;max-height:78px;object-fit:contain}
-.client-ingredienta img{max-width:164px}.client-casa-mahana img{max-height:86px}.client-surf-shack img{max-height:92px}.client-soluciones img{max-width:132px}.client-mahana-tours img{max-height:82px}
+.client-logo-card{--client-accent:var(--teal);--client-wash:rgba(24,142,139,.08);position:relative;width:248px;height:154px;flex:0 0 auto;display:grid;grid-template-rows:32px 1fr 31px;background:linear-gradient(145deg,#fff 15%,var(--client-wash));border:1px solid color-mix(in srgb,var(--client-accent) 25%,var(--line));border-radius:8px;overflow:hidden;box-shadow:0 12px 32px rgba(16,42,67,.07);transition:transform .25s ease,box-shadow .25s ease}
+.client-logo-card:before{content:"";position:absolute;z-index:2;left:0;top:0;bottom:0;width:5px;background:var(--client-accent)}
+.client-logo-card:after{content:"";position:absolute;right:-38px;top:-48px;width:120px;height:120px;border:18px solid color-mix(in srgb,var(--client-accent) 13%,transparent);border-radius:50%;pointer-events:none}
+.client-logo-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(16,42,67,.12)}
+.client-card-top,.client-card-meta{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:0 15px 0 18px}
+.client-card-top{color:var(--client-accent);font-size:8px;font-weight:900;letter-spacing:.11em}
+.client-card-top strong{padding:5px 7px;background:color-mix(in srgb,var(--client-accent) 11%,#fff);border:1px solid color-mix(in srgb,var(--client-accent) 24%,transparent);border-radius:999px;font-size:7px;letter-spacing:.1em}
+.client-logo-wrap{position:relative;z-index:1;min-height:0;padding:7px 20px;display:flex;align-items:center;justify-content:center}
+.client-logo-card img{display:block;width:auto;height:auto;max-width:100%;max-height:69px;object-fit:contain}
+.client-card-meta{border-top:1px solid color-mix(in srgb,var(--client-accent) 18%,var(--line));color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.client-card-meta i{color:var(--client-accent);font-size:13px;font-style:normal}
+.client-ingredienta img{max-width:166px}.client-casa-mahana img{max-height:72px}.client-surf-shack img{max-height:76px}.client-soluciones img{max-height:66px;max-width:128px}.client-mahana-tours img{max-height:69px}
+.client-clinica img,.client-frutas img,.client-abonos img,.client-martinez img{width:100%;max-width:202px;max-height:67px}
+.client-tone-coral{--client-accent:#df6d59;--client-wash:rgba(223,109,89,.08)}.client-tone-gold{--client-accent:#c99010;--client-wash:rgba(239,183,42,.12)}.client-tone-teal{--client-accent:#188e8b;--client-wash:rgba(24,142,139,.09)}.client-tone-blue{--client-accent:#2f8fbd;--client-wash:rgba(47,143,189,.08)}.client-tone-navy{--client-accent:#24465f;--client-wash:rgba(36,70,95,.08)}.client-tone-ink{--client-accent:#242b31;--client-wash:rgba(36,43,49,.07)}.client-tone-lime{--client-accent:#6fae22;--client-wash:rgba(111,174,34,.1)}.client-tone-forest{--client-accent:#28713b;--client-wash:rgba(40,113,59,.1)}.client-tone-aqua{--client-accent:#169fb5;--client-wash:rgba(22,159,181,.1)}
 .ans-wordmark{display:flex;align-items:center;gap:12px;color:#111}
 .ans-wordmark strong{font-size:34px;line-height:1;letter-spacing:-.06em}
 .ans-wordmark small{max-width:86px;font-size:8px;font-weight:900;line-height:1.2;letter-spacing:.08em;text-transform:uppercase}
@@ -540,11 +551,14 @@
   .client-marquee-heading{padding:0 20px;margin-bottom:30px}
   .client-marquee-heading h2{font-size:30px}
   .client-marquee-window{mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-  .client-marquee-track{animation-duration:23s}
+  .client-marquee-track{animation-duration:36s}
   .client-marquee-group{gap:12px;padding-right:12px}
-  .client-logo-card{width:165px;height:94px;padding:12px}
-  .client-logo-card img{max-height:63px}
-  .client-ingredienta img{max-width:125px}.client-soluciones img{max-width:103px}.client-surf-shack img{max-height:68px}
+  .client-logo-card{width:190px;height:124px;grid-template-rows:27px 1fr 27px;border-radius:7px}
+  .client-card-top,.client-card-meta{padding-left:15px;padding-right:11px}
+  .client-logo-wrap{padding:5px 14px}
+  .client-logo-card img{max-height:54px}
+  .client-ingredienta img{max-width:132px}.client-soluciones img{max-width:100px}.client-surf-shack img{max-height:55px}
+  .client-clinica img,.client-frutas img,.client-abonos img,.client-martinez img{max-width:158px;max-height:52px}
   .ans-wordmark strong{font-size:29px}.ans-wordmark small{font-size:7px}
   .contact-work{gap:40px}
   .contact-work-copy h2{font-size:44px}

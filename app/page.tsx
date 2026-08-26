@@ -8,12 +8,16 @@ const capabilities = [
 ];
 
 const clients = [
-  { name: "Ingredienta", image: "/images/client-ingredienta.png", className: "client-ingredienta" },
-  { name: "Casa Mahana", image: "/images/client-casa-mahana.webp", className: "client-casa-mahana" },
-  { name: "Surf Shack", image: "/images/client-surf-shack.webp", className: "client-surf-shack" },
-  { name: "Soluciones Express", image: "/images/client-soluciones-express.png", className: "client-soluciones" },
-  { name: "Mahana Tours", image: "/images/client-mahana-tours.png", className: "client-mahana-tours" },
-  { name: "Academia Nacional de Surf", className: "client-ans" },
+  { name: "Ingredienta", sector: "Alimentos · Operaciones", image: "/images/client-ingredienta.png", className: "client-ingredienta client-tone-coral" },
+  { name: "Casa Mahana", sector: "Hospitalidad", image: "/images/client-casa-mahana.webp", className: "client-casa-mahana client-tone-gold" },
+  { name: "Surf Shack", sector: "Hospitalidad · Turismo", image: "/images/client-surf-shack.webp", className: "client-surf-shack client-tone-teal" },
+  { name: "Soluciones Express", sector: "Servicios empresariales", image: "/images/client-soluciones-express.png", className: "client-soluciones client-tone-blue" },
+  { name: "Mahana Tours", sector: "Turismo", image: "/images/client-mahana-tours.png", className: "client-mahana-tours client-tone-navy" },
+  { name: "Academia Nacional de Surf", sector: "Educación deportiva", className: "client-ans client-tone-ink" },
+  { name: "Clínica de la Piel López", sector: "Salud · Bienestar", image: "/images/client-clinica-piel-lopez.png", className: "client-clinica client-tone-coral" },
+  { name: "Frutas Hoy Panamá", sector: "Alimentos · Distribución", image: "/images/client-frutas-hoy-panama.png", className: "client-frutas client-tone-lime" },
+  { name: "Abonos Industriales del Istmo", sector: "Agroindustria", image: "/images/client-abonos-industriales-istmo.png", className: "client-abonos client-tone-forest" },
+  { name: "Grupo Martínez · Acuacultura Chame", sector: "Acuacultura", image: "/images/client-grupo-martinez-acuacultura-chame.png", className: "client-martinez client-tone-aqua" },
 ];
 
 export default function Home() {
@@ -120,13 +124,17 @@ export default function Home() {
           <div className="client-marquee-track">
             {[0, 1].map((group) => (
               <div className="client-marquee-group" aria-hidden={group === 1} key={group}>
-                {clients.map((client) => (
+                {clients.map((client, index) => (
                   <div className={`client-logo-card ${client.className}`} key={`${group}-${client.name}`}>
-                    {client.image ? (
-                      <img src={client.image} alt={group === 0 ? client.name : ""} />
-                    ) : (
-                      <span className="ans-wordmark"><strong>ANS</strong><small>Academia Nacional de Surf</small></span>
-                    )}
+                    <div className="client-card-top"><span>{String(index + 1).padStart(2, "0")}</span><strong>AI READY</strong></div>
+                    <div className="client-logo-wrap">
+                      {client.image ? (
+                        <img src={client.image} alt={group === 0 ? client.name : ""} />
+                      ) : (
+                        <span className="ans-wordmark"><strong>ANS</strong><small>Academia Nacional de Surf</small></span>
+                      )}
+                    </div>
+                    <div className="client-card-meta"><span>{client.sector}</span><i aria-hidden="true">↗</i></div>
                   </div>
                 ))}
               </div>
