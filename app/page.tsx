@@ -116,7 +116,7 @@ export default function Home() {
       </section>
 
       <section className="upcoming-sessions" aria-labelledby="upcoming-sessions-title">
-        <div className="upcoming-sessions-copy"><p className="eyebrow">PRÓXIMAS SESIONES</p><h2 id="upcoming-sessions-title">AI para Todos · Septiembre</h2></div>
+        <div className="upcoming-sessions-copy"><p className="eyebrow">PRÓXIMAS SESIONES</p><h2 id="upcoming-sessions-title">IA para Todos · Septiembre</h2></div>
         <div className="upcoming-session-dates"><span><b>10 SEP</b>ONLINE · 7:30 P. M.</span><span><b>24 SEP</b>ONLINE · 7:30 P. M.</span><span><b>30 SEP</b>PRESENCIAL · 7:00 P. M.</span></div>
         <a className="button button-primary" href="/ai-para-todos#fechas">Ver fechas y reservar</a>
       </section>
@@ -161,11 +161,11 @@ export default function Home() {
         <div className="path-grid">
           <a className="path-card visual-path-card path-1" href="/ai-para-todos">
             <div className="path-art photo-path-art learn-photo-art" aria-hidden="true"><img src="/images/home-learning-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">PERSONA / APRENDIZAJE</span><strong className="path-photo-note">APRENDE · USA · CONSTRUYE</strong></div>
-            <div className="path-content"><p className="eyebrow">PERSONAS Y PROFESIONALES</p><h3>AI para Todos</h3><p>Entiende la revolución. Aprende a usarla. Empieza a construir.</p><span className="card-action">Ver fechas y programa <b>→</b></span></div>
+            <div className="path-content"><p className="eyebrow">PERSONAS Y PROFESIONALES</p><h3>IA para Todos</h3><p>Entiende la revolución. Aprende a usarla. Empieza a construir.</p><span className="card-action">Ver fechas y programa <b>→</b></span></div>
           </a>
           <a className="path-card visual-path-card path-2" href="/empresas">
             <div className="path-art photo-path-art company-photo-art" aria-hidden="true"><img src="/images/home-business-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">EMPRESA / CAPACIDAD</span><strong className="path-photo-note">CAPACITA · INTEGRA · ESCALA</strong></div>
-            <div className="path-content"><p className="eyebrow">EMPRESAS Y EQUIPOS</p><h3>BEE SMART Empresas</h3><p>Capacitación, arquitectura, agentes y herramientas alrededor de tu negocio.</p><span className="card-action">Explorar soluciones <b>→</b></span></div>
+            <div className="path-content"><p className="eyebrrow">EMPRESAS Y EQUIPOS</p><h3>BEE SMART Empresas</h3><p>Capacitación, arquitectura, agentes y herramientas alrededor de tu negocio.</p><span className="card-action">Explorar soluciones <b>→</b></span></div>
           </a>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function Home() {
       </section>
 
       <section className="section agent-statement">
-        <div className="agent-copy"><p className="eyebrow light">LA ERA DE LOS AGENTES</p><h2>Una AI que entiende,<br /><em>conecta y actúa.</em></h2><p>Diseñamos capacidad interna para que personas y equipos puedan construir, automatizar y mejorar procesos con autonomía, seguridad y control.</p><a className="text-link light-link" href="/empresas">Descubre cómo funciona <span>→</span></a><div className="agent-platforms" aria-label="Ecosistema actual de agentes"><span><img src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span><span><img src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span><span><img src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span><span><img src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span><span><img src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span></div></div>
+        <div className="agent-copy"><p className="eyebrow light">LA ERA DE LOS AGENTES</p><h2>Una IA que entiende,<br /><em>conecta y actúa.</em></h2><p>Diseñamos capacidad interna para que personas y equipos puedan construir, automatizar y mejorar procesos con autonomía, seguridad y control.</p><a className="text-link light-link" href="/empresas">Descubre cómo funciona <span>→</span></a><div className="agent-platforms" aria-label="Ecosistema actual de agentes"><span><img src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span><span><img src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span><span><img src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span><span><img src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE</b></span><span><img src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span></div></div>
         <div className="agent-map" aria-label="Representación gráfica de un agente conectado con herramientas"><span className="visual-label">ANATOMÍA DE UN AGENTE</span><div className="agent-core">AGENTE<span>Meta + contexto</span></div>{["DATOS","CORREO","WEB","SISTEMAS"].map((item,i)=><div className={`agent-tool tool-${i+1}`} key={item}>{item}</div>)}</div>
       </section>
 
@@ -186,7 +186,7 @@ export default function Home() {
         <div className="section-intro compact"><p className="eyebrow">MÉTODO BEE SMART</p><h2>Del problema<br />al resultado.</h2><p>La tecnología se selecciona después de comprender qué debe mejorar y cómo vamos a medirlo.</p></div>
         <div className="method-visual"><img src="/images/home-method-v1.png" alt="" /><div className="method-visual-shade" aria-hidden="true" /><div><span>PROCESO APLICADO</span><strong>Evidencia → decisión → piloto → resultado</strong></div></div>
         <div className="method-flow">
-          {[["01","Escuchar","Dolor y contexto"],["02","Diseñar","Proceso y control"],["03","Probar","Piloto funcional"],["04","Medir","Resultado y aprendizaje"],["05","Escalar","Autonomía y módulos"]].map(([n,title,text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
+          {[["01","Escuchar","Dolor y contexto"],["02","Diseñar","Proceso y control"],["03","Probar","Piloto funcional"],["04","Medir","Resultado y aprendizaje"],["05","Escalar","Autonomía y módulos"]].map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
         </div>
       </section>
 
