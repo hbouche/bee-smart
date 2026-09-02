@@ -4,7 +4,7 @@ import { contact, SiteFooter, SiteHeader } from "../site-chrome";
 
 export const metadata: Metadata = {
   title: "Contacto | BEE SMART",
-  description: "Conversemos sobre AI para Todos, capacitación corporativa, agentes e implementación de inteligencia artificial.",
+  description: "Conversemos sobre IA para Todos, capacitación corporativa, agentes e implementación de inteligencia artificial.",
 };
 
 const formAction = `https://formsubmit.co/${contact.email}`;
@@ -41,9 +41,9 @@ export default function ContactPage() {
 
       <section className="section contact-forms">
         <div className="contact-form-card" id="ai-para-todos">
-          <div className="contact-form-intro"><span>01</span><p className="eyebrow">AI PARA TODOS</p><h2>Quiero aprender AI.</h2><p>Para personas, profesionales, grupos privados y equipos que quieren comenzar con una base clara.</p></div>
+          <div className="contact-form-intro"><span>01</span><p className="eyebrow">IA PARA TODOS</p><h2>Quiero aprender IA.</h2><p>Para personas, profesionales, grupos privados y equipos que quieren comenzar con una base clara.</p></div>
           <form action={formAction} method="POST">
-            <input type="hidden" name="_subject" value="Nuevo interés · AI para Todos" />
+            <input type="hidden" name="_subject" value="Nuevo interés · IA para Todos" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_next" value="https://bee-smart.ai/contacto/gracias/" />
             <input className="form-honey" type="text" name="_honey" tabIndex={-1} autoComplete="off" />
@@ -67,7 +67,7 @@ export default function ContactPage() {
             <div className="form-row"><label>Cargo<input name="Cargo" type="text" autoComplete="organization-title" required /></label><label>WhatsApp<input name="WhatsApp" type="tel" autoComplete="tel" required /></label></div>
             <label>Correo corporativo<input name="email" type="email" autoComplete="email" required /></label>
             <label>¿Qué proceso, dolor u oportunidad quieres trabajar?<textarea name="Necesidad empresarial" rows={5} required /></label>
-            <label>Primer paso que te interesa<select name="Primer paso" required defaultValue=""><option value="" disabled>Selecciona</option><option>Capacitación AI para Todos</option><option>Diagnóstico y arquitectura</option><option>AI Head para el equipo</option><option>Agente interno o automatización</option><option>No estoy seguro todavía</option></select></label>
+            <label>Primer paso que te interesa<select name="Primer paso" required defaultValue=""><option value="" disabled>Selecciona</option><option>Capacitación IA para Todos</option><option>Diagnóstico y arquitectura</option><option>AI Head para el equipo</option><option>Agente interno o automatización</option><option>No estoy seguro todavía</option></select></label>
             <label className="privacy-check"><input type="checkbox" required /> <span>Acepto que BEE SMART use estos datos para responder a mi solicitud. <a href="/privacidad">Ver privacidad</a>.</span></label>
             <button className="button button-primary" type="submit">Solicitar diagnóstico</button>
           </form>
