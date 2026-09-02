@@ -102,7 +102,7 @@ export default function AiParaTodosPage() {
       <section className="section sessions-section" id="fechas">
         <div className="sessions-heading">
           <div><p className="eyebrow">PRÓXIMAS SESIONES</p><h2>Escoge tu fecha.<br />Reserva tu cupo.</h2></div>
-          <p>Tres horas para entender la IA, aprender a utilizar sus herramientas y comenzar a construir con criterio. No necesitas periencia previa.</p>
+          <p>Tres horas para entender la IA, aprender a utilizar sus herramientas y comenzar a construir con criterio. No necesitas experiencia previa.</p>
         </div>
         <div className="session-grid">
           {sessions.map((session, index) => (
@@ -128,20 +128,69 @@ export default function AiParaTodosPage() {
           <img src="/images/ai-todos-programa-taller-v1.png" alt="Grupo de adultos participando en un taller práctico de inteligencia artificial" />
           <div className="program-visual-shade" aria-hidden="true" />
           <div className="program-visual-copy"><span>RECORRIDO COMPLETO</span><strong>Del universo de la IA<br />a una acción que puedes repetir.</strong></div>
-          <div className="program-visual-track" aria-label="Etapas del entrenamiento"><span>ENTENDER</span><i>→</i><span>USAR</span><i>→</i><span>CREAR</span><i>→</i><span>ACTUAP������𽑥��(��������𽑥��(���������؁�����9���􉵽�ձ���ɥ�������ձ�̹�����m���ѥѱ���ѕ��t�������ѥ�������������������������������ѥѱ���������ѕ��������ѥ������𽑥��(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ������ɸ�ѽ��̵͕�ѥ����(���������؁�����9����͕�ѥ������ɼ�������Ј���������9����啉ɽ܈�!II5%9QL�I1L������Y�́����ѕ�����Ȁ���է������������������9���́չ�����ф������ɍ�́���ո�Ʌ�������́ո��������Ʉ�ɕ������ȁ�������Ʌ����ф��Օ�����Ց��є�͕�鸁����Ք��ե�ɕ́���Ʌȸ���𽑥��(���������؁�����9���􉱕�ɸ�ѽ����ɥ���(�����������ѽ��ɽ��̹������ɽ���������ѥ���������9����큱��ɸ�ѽ�����ɐ�ѽ�����ɐ���ɽ������􁭕���ɽ������(�������������؁�����9���􉱕�ɸ�ѽ���٥�Յ���񥵜��Ɍ��ɽ��������􁅱�􈈀���؁�ɥ�����������Ք�����������ɽ�����������𽑥��(�������������؁�����9���􉱕�ɸ�ѽ���������؁�����9���􉱕�ɸ�ѽ�������������ɽ���ѥѱ�����𽑥��(������������������ɽ���ѕ������(���������������؁�����9���􉱕�ɸ��Ʌ������Ր���ɽ����Ʌ��̹�����m�Ɍ������t������������������������Ɍ����񥵜��Ɍ���ɍ􁅱�􈈀���������������������𽑥��(������������𽑥��(������������ѥ������(��������𽑥��(����������������9���􉱕�ɸ�ѽ��̵��є��1�́���Ʌ����х́�ٽ�Ս�������������ѥټ��������ɕ������Ѽ��́�Ք���ѥ����́���ͥ�ѕ�����Օ��͕́�եȁ��ɕ�����������(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ������ɸ�����ɥ������(���������؁�����9���􉱕�ɸ�����ɥ������������������9����啉ɽ܁����Ј�AI9H�!
-%9<������1��ѕ������ѕ�ɥ��Ȁ�����չ��������Ʌ��͸�������Y���́�͵��չ������ͥ����͔����٥��є����ո�ɕ�ձх���х������聑�͑���ɝ����ȁ����ɵ���͸����ɕ�ȁ���ѕ��������ф�������եȁո����՗ż���͡���ɐ���չ�����Ʌ����ф����𽑥��(���������؁�����9�������ɥ�����٥�Յ���(����������񥵜��Ɍ􈽥����̽���ѽ��̵������Ʌ������Ĺ��������������Ʌ��͸�����ѥ����Ք��Ʌ�͙�ɵ����ѽ́������ͽ́���ո���͡���ɐ����(�����������؁�����9�������ɥ�����٥�Յ��͡������ɥ�����������Ք����(�������������������8�Y%Y<���������ɽ���9���ͥ�����H����ѕ�Ѽ��H�������Ս��͸��H�م������͸���ɽ���𽑥��(��������𽑥��(���������؁�����9�������ɥ������ɽ���̈��ɥ��������Aɽ��ͼ�������������Ʌ��͸�����ѥ����(�����������ml��Ĉ���9���ͥ��������������́���������ɕͽ�ٕ�͔��t��l��Ȉ����ɕ���͸�������́���ѕ�Ѽ�䁍ɥѕɥ�̸�t��l��̈���
-�����Ս��͸����1��%��ɽ�Ս��䁍����ф��t��l��Ј���Y�������͸����I�٥ͅ��́��ѕ́����ͅȸ�ut������m��ѥѱ��ѕ��t�������ѥ������������������������������ɽ����ѥѱ�����ɽ����͵�����ѕ����͵������ѥ������(��������𽑥��(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ���х���݅�̵͕�ѥ����(���������؁�����9����͕�ѥ������ɼ�������Ј���������9����啉ɽ܈�M1L�
-=8������
-��ɥ������Ʉ�Ȁ��͕�եȁ�م�酹���������������ѥټ��́�Ք�ɕ����鍅́�����չ�����̰��͍���́���Ʌ����х́䁍�������́��������ȁ%������������鄁䁍ɥѕɥ�����𽑥��(���������؁�����9����х���݅䵝ɥ����х���݅�̹�����mѥѱ��ѕ��t����������ѥ���������ѥѱ�������������������������؁�����9�����х���݅��嵉����嵉��������������ɥ�����������Ք��񤀼�񤀼�񤀼�𽑥������ѥѱ���������ѕ��������ѥ������𽑥��(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ���͍�����ѕ�͕Ȉ�(���������؁�����9����͕�ѥ������ɼ����������9����啉ɽ܈�	�M5IP�M
-!==0������%���Ʉ�Q�����Ȁ���́���������鼸�����������́�Օ��́�ɽ�չ���ȁ�������ɕ���Ք���͔́������ф������ԁ�Ʌ�������ԁ��������������Ք��ե�ɕ́������եȸ���𽑥��(���������؁�����9��������������Ʌ������������ѥ�̹�����mѥѱ�����������ѥ��t����������ѥ���������ѥѱ����؁�����9�������������٥�Յ���񥵜��Ɍ�������􁅱�􈈀��񤁅ɥ�����������Ք�������������������������𽑥���؁�����9������������䵍�������ɽ����ѥѱ�����ɽ������퍅�ѥ�������͵����AKMa%559Q�͵����𽑥����ѥ������𽑥��(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ�����ɵ�е͕�ѥ������􉙽ɵ�ѽ̈�(�������������������9����啉ɽ܈�=I5Q<�1a%	1����������͵��ɕ���ɥ����Ȁ���́����Ʌ́���٥٥ɱ�������������9���􉙽ɵ�е������������������Ʉ����ͽ��̰������́�ɥم��́䁕�ե��́�Ք��ե�ɕ��������ȁ����չ����͔����鸸���𽑥��(���������؁�����9���􉙽ɵ�е��ѥ��̈���ѥ���������������������=�����������ɽ���́��Ʌ́���٥ټ���ɽ������
-����хє���͑������������̸�%����唁������ѽ̰�������Ʌ��͸������ѥ����ե������ɕ�չх̸�����ѥ������ѥ���������������������Aɕ͕�����������ɽ���́��Ʌ́���
-�Ց������A��������ɽ������U�������ɥ��������ɍ���������ѥ�����Ʉ���ɕ���Ȱ��ɽ��ȁ���Ʌ����х́�ɕͽ�ٕȁ�Ց�́�����������Ѽ������ѥ����𽑥��(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ�����ĵ͕�ѥ����(�������������������9����啉ɽ܈�AIU9QL�I
-U9QL�������ѕ́���Ȁ��������ȸ���𽑥��(���������؁�����9���􉙅ĵ���Ј�(�����������х��́�������յ�����
-�9���ͥѼ�����ɥ�������ɕ٥����յ��������9���1��͕ͧ͸�������鄁��͑����́�չ�����ѽ́䁅م�鄁�����������́���ɽ̸���𽑕х����(�����������х������յ�����
-�Q������Ք�ͅ��ȁ�ɽ�Ʌ������յ��������9���Q�������ٕ��́�͵�����%���ɵ�є�������եȁͥ�����ѥȁ�������������ѽ́�������́�م�酑�̸���𽑕х����(�����������х������յ�����
-�́��Ʉ��ͼ����ͽ�������ɽ��ͥ�������յ��������A�Ʉ�����̸�1�́��ͽ́�Չɕ��٥������ɥ����Ʌ���������ѕ���������ɕ�������Ѽ�䁹������̸���𽑕х����(�����������х������յ�����
-�AՕ���ѽ���͔������������յ��������O�����є�ո���ɵ�Ѽ���Ʉ������́�ɥم��́�չ��ٕ�ͧ͸������Ʌѥل���Ʉ���ե��̸���𽑕х����(�����������х������յ�����
-�E�������ͥѼ���Ʉ����ѥ��������յ��������U��������х��Ʉ�������͸�����ѕɹ�Ё䁍�ɥ�ͥ������ѕ́������͕ͧ͸�ɕ������́չ�������͕�����������ɕ��Ʌ��͸����𽑕х����(�����������х������յ�����
-�͵����Ʌ�ѥ鼁����������յ��������
-�����ф������ɵձ�ɥ����������ȁe���䁼��Ʌ�͙�ɕ����������ɥ��䁅��չф��ԁ����ɽ���є��Q�������ɵ�ɕ��́���ɕ͕�ل�������́���م����ȁ�����������𽑕х����(��������𽑥��(�������͕�ѥ���((�������͕�ѥ��������9����͕�ѥ����������ф����ɸ�����������ɕ͕�ل��(����������������9����啉ɽ܁����Ј�QT�M%U%9Q�AM<������e��ѕ����́�����̸�Ȁ��͍���������儸������Qɕ͕́ͥ���́�����ɵ���́���͕�ѥ���ɔ�����������ɕ͕�������
-�����ф������ɵձ�ɥ���ɕ���鄁��������䁅��չф��ԁ����ɽ���є���Ʉ���Ʌ�ѥ�ȁ������������؁�����9���􉍽�х�е��ѥ��̈�񄁍����9������ѽ�����ѽ���ɥ���䈁�ɕ���ɕ����Ʌѥ���ɵUɱ�хɝ���}�������ɕ�􉹽ɕ���ɕȈ�I�͕�مȁ���������񄁍����9������ѽ�����ѽ����ѱ������ɕ�􈽍��х�Ѽ����ɕ̈ͅ�	�͍�����ٕ�ͧ͸����ɕͅɥ����𽑥��(�������͕�ѥ���((�������M�ѕ��ѕȀ��(����𽵅���(����)�
+          <div className="program-visual-track" aria-label="Etapas del entrenamiento"><span>ENTENDER</span><i>→</i><span>USAR</span><i>→</i><span>CREAR</span><i>→</i><span>ACTUAR</span></div>
+        </div>
+        <div className="module-grid">{modules.map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section learn-tools-section">
+        <div className="section-intro compact"><p className="eyebrow">HERRAMIENTAS REALES</p><h2>Vas a entender<br />quién hace qué.</h2><p>No es una lista de marcas ni un ranking. Es un mapa para reconocer qué herramienta puede ayudarte según lo que quieres lograr.</p></div>
+        <div className="learn-tool-grid">
+          {toolGroups.map((group) => <article className={`learn-tool-card tool-card-${group.n}`} key={group.n}>
+            <div className="learn-tool-visual"><img src={group.image} alt="" /><div aria-hidden="true" /><span>{group.n}</span></div>
+            <div className="learn-tool-body"><div className="learn-tool-head"><h3>{group.title}</h3></div>
+              <p>{group.text}</p>
+              <div className="learn-brand-cloud">{group.brands.map(([src, name]) => <span key={name}>{src && <img src={src} alt="" />}<b>{name}</b></span>)}</div>
+            </div>
+          </article>)}
+        </div>
+        <p className="learn-tools-note">Las herramientas evolucionan. El objetivo del entrenamiento es que entiendas el sistema y puedas seguir aprendiendo.</p>
+      </section>
+
+      <section className="section learn-experience">
+        <div className="learn-experience-copy"><p className="eyebrow light">APRENDER HACIENDO</p><h2>La teoría aterriza<br />en una demostración.</h2><p>Verás cómo una necesidad se convierte en un resultado tangible: desde organizar información o crear contenido hasta construir un pequeño dashboard o una herramienta.</p></div>
+        <div className="experience-visual">
+          <img src="/images/ai-todos-demostracion-v1.png" alt="Demostración práctica que transforma datos dispersos en un dashboard" />
+          <div className="experience-visual-shade" aria-hidden="true" />
+          <div><span>EN VIVO</span><strong>Necesidad → contexto → construcción → validación</strong></div>
+        </div>
+        <div className="experience-process" aria-label="Proceso de la demostración práctica">
+          {[["01", "Necesidad", "Definimos qué debe resolverse."], ["02", "Dirección", "Damos contexto y criterios."], ["03", "Construcción", "La IA produce y conecta."], ["04", "Validación", "Revisamos antes de usar."]].map(([n,title,text]) => <article key={n}><span>{n}</span><strong>{title}</strong><small>{text}</small></article>)}
+        </div>
+      </section>
+
+      <section className="section takeaways-section">
+        <div className="section-intro compact"><p className="eyebrow">SALES CON</p><h2>Claridad para<br />seguir avanzando.</h2><p>El objetivo es que reconozcas oportunidades, escojas herramientas y comiences a aplicar IA con confianza y criterio.</p></div>
+        <div className="takeaway-grid">{takeaways.map(([title,text],index)=><article key={title}><span>0{index+1}</span><div className={`takeaway-symbol symbol-${index+1}`} aria-hidden="true"><i /><i /><i /></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section school-teaser">
+        <div className="section-intro"><p className="eyebrow">BEE SMART SCHOOL</p><h2>IA para Todos<br />es el comienzo.</h2><p>Después puedes profundizar en el área que más se conecta con tu trabajo, tu negocio o lo que quieres construir.</p></div>
+        <div className="specialty-track">{specialties.map(([title,image,caption],index)=><article key={title}><div className="specialty-visual"><img src={image} alt="" /><i aria-hidden="true" /><span>0{index+1}</span></div><div className="specialty-copy"><strong>{title}</strong><p>{caption}</p><small>PRÓXIMAMENTE</small></div></article>)}</div>
+      </section>
+
+      <section className="section format-section" id="formatos">
+        <div><p className="eyebrow">FORMATO FLEXIBLE</p><h2>El mismo recorrido.<br />Dos maneras de vivirlo.</h2><p className="format-lead">Disponible para personas, grupos privados y equipos que quieren comenzar con una base común.</p></div>
+        <div className="format-options"><article><span>01</span><h3>Online</h3><strong>3 horas en vivo</strong><p>Conéctate desde donde estés. Incluye conceptos, demostración, práctica guiada y preguntas.</p></article><article><span>02</span><h3>Presencial</h3><strong>3 horas en Ciudad de Panamá</strong><p>Una experiencia cercana y práctica para aprender, probar herramientas y resolver dudas en el momento.</p></article></div>
+      </section>
+
+      <section className="section faq-section">
+        <div><p className="eyebrow">PREGUNTAS FRECUENTES</p><h2>Antes de<br />comenzar.</h2></div>
+        <div className="faq-list">
+          <details open><summary>¿Necesito experiencia previa?</summary><p>No. La sesión comienza desde los fundamentos y avanza con ejemplos claros.</p></details>
+          <details><summary>¿Tengo que saber programar?</summary><p>No. También verás cómo la IA permite construir sin partir de conocimientos técnicos avanzados.</p></details>
+          <details><summary>¿Es para uso personal o profesional?</summary><p>Para ambos. Los casos cubren vida diaria, trabajo, contenido, emprendimiento y negocios.</p></details>
+          <details><summary>¿Puede tomarse en grupo?</summary><p>Sí. Existe un formato para grupos privados y una versión corporativa para equipos.</p></details>
+          <details><summary>¿Qué necesito para participar?</summary><p>Una computadora, conexión a internet y curiosidad. Antes de la sesión recibirás una guía sencilla de preparación.</p></details>
+          <details><summary>¿Cómo garantizo mi cupo?</summary><p>Completa el formulario, paga por Yappy o transferencia bancaria y adjunta tu comprobante. Te confirmaremos la reserva después de validar el pago.</p></details>
+        </div>
+      </section>
+
+      <section className="section final-cta learn-final" id="reserva">
+        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Tres sesiones confirmadas en septiembre, online y presencial. Completa el formulario, realiza el pago y adjunta tu comprobante para garantizar el cupo.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
+      </section>
+
+      <SiteFooter />
+    </main>
+  );
+}
