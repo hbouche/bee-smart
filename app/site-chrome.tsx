@@ -28,7 +28,7 @@ export function SiteHeader({ active = "home", ctaHref = "/contacto", ctaLabel = 
     <header className="site-header">
       <Brand />
       <nav aria-label="Navegación principal">
-        <a className={active === "learn" ? "active" : ""} href="/ai-para-todos">AI para Todos</a>
+        <a className={active === "learn" ? "active" : ""} href="/ai-para-todos">IA para Todos</a>
         <a className={active === "business" ? "active" : ""} href="/empresas">Empresas</a>
         <a href="/#metodo">Cómo trabajamos</a>
         <a className={active === "contact" ? "active" : ""} href="/contacto">Contáctenos</a>
@@ -43,7 +43,7 @@ export function SiteHeader({ active = "home", ctaHref = "/contacto", ctaLabel = 
         <div className="mobile-menu-panel">
           <nav className="mobile-nav" aria-label="Navegación móvil">
             <a className={active === "home" ? "active" : ""} href="/">Inicio <b>01</b></a>
-            <a className={active === "learn" ? "active" : ""} href="/ai-para-todos">AI para Todos <b>02</b></a>
+            <a className={active === "learn" ? "active" : ""} href="/ai-para-todos">IA para Todos <b>02</b></a>
             <a className={active === "business" ? "active" : ""} href="/empresas">Empresas <b>03</b></a>
             <a href="/#metodo">Cómo trabajamos <b>04</b></a>
             <a className={active === "contact" ? "active" : ""} href="/contacto">Contáctenos <b>05</b></a>
@@ -68,7 +68,7 @@ export function SiteFooter() {
         <a href={`mailto:${contact.email}`}>{contact.email}</a>
         <a href={contact.whatsapp} target="_blank" rel="noreferrer">{contact.phoneDisplay}</a>
       </div>
-      <div className="footer-links"><a href="/ai-para-todos">AI para Todos</a><a href="/empresas">Empresas</a><a href="/contacto">Contacto</a><a href="/privacidad">Privacidad</a><span>Panamá · 2026</span></div>
+      <div className="footer-links"><a href="/ai-para-todos">IA para Todos</a><a href="/empresas">Empresas</a><a href="/contacto">Contacto</a><a href="/privacidad">Privacidad</a><span>Panamá · 2026</span></div>
     </footer>
   );
 }
