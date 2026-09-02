@@ -31,7 +31,7 @@ export default function Home() {
           <h1>La revolución de la inteligencia artificial es <em>para todos.</em></h1>
           <p className="hero-lead">Aprende a usarla en tu vida y profesión, o conviértela en una capacidad real dentro de tu empresa.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="/ai-para-todos">Quiero aprender AI</a>
+            <a className="button button-primary" href="/ai-para-todos#fechas">Ver fechas de septiembre</a>
             <a className="button button-quiet" href="/empresas">Soy empresa <span>↗</span></a>
           </div>
         </div>
@@ -115,6 +115,12 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="upcoming-sessions" aria-labelledby="upcoming-sessions-title">
+        <div className="upcoming-sessions-copy"><p className="eyebrow">PRÓXIMAS SESIONES</p><h2 id="upcoming-sessions-title">AI para Todos · Septiembre</h2></div>
+        <div className="upcoming-session-dates"><span><b>10 SEP</b>ONLINE · 7:30 P. M.</span><span><b>24 SEP</b>ONLINE · 7:30 P. M.</span><span><b>30 SEP</b>PRESENCIAL · 7:00 P. M.</span></div>
+        <a className="button button-primary" href="/ai-para-todos#fechas">Ver fechas y reservar</a>
+      </section>
+
       <section className="client-marquee" aria-labelledby="client-marquee-title">
         <div className="client-marquee-heading">
           <p className="eyebrow">EXPERIENCIA APLICADA</p>
@@ -155,7 +161,7 @@ export default function Home() {
         <div className="path-grid">
           <a className="path-card visual-path-card path-1" href="/ai-para-todos">
             <div className="path-art photo-path-art learn-photo-art" aria-hidden="true"><img src="/images/home-learning-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">PERSONA / APRENDIZAJE</span><strong className="path-photo-note">APRENDE · USA · CONSTRUYE</strong></div>
-            <div className="path-content"><p className="eyebrow">PERSONAS Y PROFESIONALES</p><h3>AI para Todos</h3><p>Entiende la revolución. Aprende a usarla. Empieza a construir.</p><span className="card-action">Conocer el entrenamiento <b>→</b></span></div>
+            <div className="path-content"><p className="eyebrow">PERSONAS Y PROFESIONALES</p><h3>AI para Todos</h3><p>Entiende la revolución. Aprende a usarla. Empieza a construir.</p><span className="card-action">Ver fechas y programa <b>→</b></span></div>
           </a>
           <a className="path-card visual-path-card path-2" href="/empresas">
             <div className="path-art photo-path-art company-photo-art" aria-hidden="true"><img src="/images/home-business-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">EMPRESA / CAPACIDAD</span><strong className="path-photo-note">CAPACITA · INTEGRA · ESCALA</strong></div>
@@ -186,7 +192,7 @@ export default function Home() {
 
       <section className="section final-cta" id="contacto">
         <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Aprende a usarla.<br />Ponla a trabajar.</h2><p>Escoge la ruta que corresponde a tu momento y comienza con una experiencia diseñada para producir claridad y resultados.</p>
-        <div className="contact-options"><a className="button button-primary" href="/contacto#ai-para-todos">Quiero aprender AI</a><a className="button button-outline" href="/contacto#empresas">Quiero transformar mi empresa</a></div>
+        <div className="contact-options"><a className="button button-primary" href="/ai-para-todos#fechas">Ver próximas fechas</a><a className="button button-outline" href="/contacto#empresas">Quiero transformar mi empresa</a></div>
       </section>
 
       <SiteFooter />
