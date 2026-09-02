@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../site-chrome";
 
 export const metadata: Metadata = {
-  title: "BEE SMART Empresas | Capacidad interna de AI",
+  title: "BEE SMART Empresas | Capacidad interna de IA",
   description: "Capacitación, arquitectura, AI Head y módulos de inteligencia artificial diseñados alrededor de la operación real de cada empresa.",
 };
 
@@ -16,7 +16,7 @@ const opportunities = [
 ];
 
 const route = [
-  ["01", "AI 101 corporativo", "Un lenguaje común para entender capacidades, límites y oportunidades."],
+  ["01", "IA 101 corporativo", "Un lenguaje común para entender capacidades, límites y oportunidades."],
   ["02", "Levantamiento abierto", "El equipo comparte dolores, procesos, datos y prioridades reales."],
   ["03", "Arquitectura ad hoc", "Definimos herramientas, accesos, infraestructura, seguridad y costos."],
   ["04", "Formación del AI Head", "Entrenamos a un responsable interno para dirigir y dar continuidad."],
@@ -50,7 +50,7 @@ const modules = [
 ];
 
 const investments = [
-  ["AI 101 corporativo", "Una sesión de 2½ horas o dos sesiones de 75 minutos.", "DESDE USD 500"],
+  ["IA 101 corporativo", "Una sesión de 2½ horas o dos sesiones de 75 minutos.", "DESDE USD 500"],
   ["Arquitectura ad hoc", "Levantamiento, diseño técnico, seguridad y ruta de implementación.", "SEGÚN ALCANCE"],
   ["AI Head + primer módulo", "Entrenamiento del responsable y construcción acompañada.", "SEGÚN ALCANCE"],
   ["Módulos adicionales", "Una capacidad nueva, entregable, documentada y medible.", "SEGÚN ALCANCE"],
@@ -64,7 +64,7 @@ export default function EmpresasPage() {
       <section className="enterprise-hero" id="inicio">
         <div className="enterprise-hero-copy">
           <p className="eyebrow light">BEE SMART PARA EMPRESAS</p>
-          <h1>Convierte la AI en una <em>capacidad interna.</em></h1>
+          <h1>Convierte la IA en una <em>capacidad interna.</em></h1>
           <p className="enterprise-lead">Alineamos a tu equipo, diseñamos la arquitectura y construimos soluciones alrededor de la operación real de tu empresa.</p>
           <div className="hero-actions"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="text-link light-link" href="#ruta">Conocer la ruta <span>↓</span></a></div>
           <div className="enterprise-hero-proof"><span>CAPACITACIÓN</span><span>ARQUITECTURA</span><span>IMPLEMENTACIÓN</span></div>
@@ -84,14 +84,14 @@ export default function EmpresasPage() {
       </section>
 
       <section className="section enterprise-route" id="ruta">
-        <div className="route-heading"><p className="eyebrow light">RUTA EMPRESARIAL</p><h2>De entender AI<br />a operarla.</h2><p>Una secuencia clara para que las ideas del equipo se conviertan en capacidades sostenibles.</p></div>
+        <div className="route-heading"><p className="eyebrow light">RUTA EMPRESARIAL</p><h2>De entender IA<br />a operarla.</h2><p>Una secuencia clara para que las ideas del equipo se conviertan en capacidades sostenibles.</p></div>
         <div className="enterprise-route-list">{route.map(([n, title, copy]) => <article key={n}><span>{n}</span><div><h3>{title}</h3><p>{copy}</p></div><b>→</b></article>)}</div>
       </section>
 
       <section className="section corporate-training">
         <div className="training-number">101</div>
-        <div className="training-copy"><p className="eyebrow">LA PUERTA DE ENTRADA</p><h2>AI 101 corporativo.</h2><p>Una experiencia ejecutiva y educativa para que todo el equipo vea el mismo universo: modelos, contenido, agentes, coding, costos, privacidad y aplicaciones reales.</p><div className="training-facts"><span>2½ HORAS</span><span>ONLINE O PRESENCIAL</span><span>OPEN MIC INCLUIDO</span></div><a className="text-link" href="/ai-para-todos">Conocer el programa completo <span>↗</span></a></div>
-        <div className="training-agenda">{["Entender el mapa de AI", "Ver herramientas y casos", "Identificar dolores del equipo", "Definir oportunidades iniciales"].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong></div>)}</div>
+        <div className="training-copy"><p className="eyebrow">LA PUERTA DE ENTRADA</p><h2>IA 101 corporativo.</h2><p>Una experiencia ejecutiva y educativa para que todo el equipo vea el mismo universo: modelos, contenido, agentes, coding, costos, privacidad y aplicaciones reales.</p><div className="training-facts"><span>2½ HORAS</span><span>ONLINE O PRESENCIAL</span><span>OPEN MIC INCLUIDO</span></div><a className="text-link" href="/ai-para-todos">Conocer el programa completo <span>↗</span></a></div>
+        <div className="training-agenda">{["Entender el mapa de IA", "Ver herramientas y casos", "Identificar dolores del equipo", "Definir oportunidades iniciales"].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong></div>)}</div>
       </section>
 
       <section className="section enterprise-aihead">
@@ -130,7 +130,7 @@ export default function EmpresasPage() {
       </section>
 
       <section className="section enterprise-final" id="diagnostico">
-        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Una sesión inicial para entender el contexto, identificar oportunidades y recomendar un primer paso realista de capacitación o implementación.</p><div className="contact-options"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="button button-outline" href="/ai-para-todos">Ver AI para Todos corporativo</a></div>
+        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Una sesión inicial para entender el contexto, identificar oportunidades y recomendar un primer paso realista de capacitación o implementación.</p><div className="contact-options"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="button button-outline" href="/ai-para-todos">Ver IA para Todos corporativo</a></div>
       </section>
 
       <SiteFooter />
