@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../site-chrome";
 
+const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdcJrolmjXe4thTcWSdB0weAgMqS1qknes9tA8mRw3HmPxFKg/viewform?usp=publish-editor";
+
+const sessions = [
+  { day: "10", month: "SEP", modality: "Online", time: "7:30 p. m.", place: "En vivo por videollamada" },
+  { day: "24", month: "SEP", modality: "Online", time: "7:30 p. m.", place: "En vivo por videollamada" },
+  { day: "30", month: "SEP", modality: "Presencial", time: "7:00 p. m.", place: "Ciudad de Panamá · lugar por definir" },
+];
+
 export const metadata: Metadata = {
   title: "AI para Todos | BEE SMART",
   description: "Una experiencia en vivo para entender la inteligencia artificial, usar sus herramientas y comenzar a construir con criterio.",
@@ -68,7 +76,7 @@ const toolGroups = [
 export default function AiParaTodosPage() {
   return (
     <main className="learn-page">
-      <SiteHeader active="learn" ctaHref="/contacto#ai-para-todos" ctaLabel="Reservar" />
+      <SiteHeader active="learn" ctaHref="#fechas" ctaLabel="Reservar" />
 
       <section className="product-hero learn-hero-v2" id="inicio">
         <div className="product-hero-copy">
@@ -77,7 +85,7 @@ export default function AiParaTodosPage() {
           <h1>para<br /><em>Todos.</em></h1>
           <p>Entiende la revolución. Aprende a usar sus herramientas. Empieza a construir con criterio.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="/contacto#ai-para-todos">Quiero tomar el entrenamiento</a>
+            <a className="button button-primary" href="#fechas">Ver fechas y reservar</a>
             <a className="text-link" href="#programa">Ver el programa <span>↓</span></a>
           </div>
         </div>
@@ -89,7 +97,25 @@ export default function AiParaTodosPage() {
         </div>
       </section>
 
-      <section className="product-facts"><span>2.5 HORAS</span><span>ONLINE O PRESENCIAL</span><span>EN VIVO</span><span>DEMOSTRACIÓN INCLUIDA</span></section>
+      <section className="product-facts"><span>3 HORAS</span><span>ONLINE O PRESENCIAL</span><span>EN VIVO</span><span>PRECIO DE LANZAMIENTO · $75</span></section>
+
+      <section className="section sessions-section" id="fechas">
+        <div className="sessions-heading">
+          <div><p className="eyebrow">PRÓXIMAS SESIONES</p><h2>Escoge tu fecha.<br />Reserva tu cupo.</h2></div>
+          <p>Tres horas para entender la AI, aprender a utilizar sus herramientas y comenzar a construir con criterio. No necesitas experiencia previa.</p>
+        </div>
+        <div className="session-grid">
+          {sessions.map((session, index) => (
+            <article className={`session-card session-${index + 1}`} key={session.day}>
+              <div className="session-card-top"><span>0{index + 1}</span><strong>{session.modality}</strong></div>
+              <div className="session-date"><b>{session.day}</b><span>{session.month}</span></div>
+              <div className="session-details"><strong>{session.time}</strong><p>{session.place}</p><small>3 HORAS · $75 · CUPOS LIMITADOS</small></div>
+              <a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar esta fecha</a>
+            </article>
+          ))}
+        </div>
+        <p className="sessions-payment-note">Tu cupo queda garantizado cuando completes el formulario y adjuntes el comprobante de pago.</p>
+      </section>
 
       <section className="section audience-section">
         <div className="section-intro"><p className="eyebrow">PARA QUIÉN ES</p><h2>Una entrada útil,<br />vengas de donde vengas.</h2><p>No necesitas saber programar. Comenzamos con los conceptos esenciales y llegamos hasta lo que ya puedes hacer hoy.</p></div>
@@ -145,7 +171,7 @@ export default function AiParaTodosPage() {
 
       <section className="section format-section" id="formatos">
         <div><p className="eyebrow">FORMATO FLEXIBLE</p><h2>El mismo recorrido.<br />Dos maneras de vivirlo.</h2><p className="format-lead">Disponible para personas, grupos privados y equipos que quieren comenzar con una base común.</p></div>
-        <div className="format-options"><article><span>01</span><h3>Una sesión</h3><strong>2 horas y 30 minutos</strong><p>Recorrido completo, demostración y preguntas en una sola experiencia.</p></article><article><span>02</span><h3>Dos sesiones</h3><strong>75 minutos cada una</strong><p>Más espacio entre bloques para practicar, procesar y regresar con preguntas.</p></article></div>
+        <div className="format-options"><article><span>01</span><h3>Online</h3><strong>3 horas en vivo</strong><p>Conéctate desde donde estés. Incluye conceptos, demostración, práctica guiada y preguntas.</p></article><article><span>02</span><h3>Presencial</h3><strong>3 horas en Ciudad de Panamá</strong><p>Una experiencia cercana y práctica para aprender, probar herramientas y resolver dudas en el momento.</p></article></div>
       </section>
 
       <section className="section faq-section">
@@ -156,11 +182,12 @@ export default function AiParaTodosPage() {
           <details><summary>¿Es para uso personal o profesional?</summary><p>Para ambos. Los casos cubren vida diaria, trabajo, contenido, emprendimiento y negocios.</p></details>
           <details><summary>¿Puede tomarse en grupo?</summary><p>Sí. Existe un formato para grupos privados y una versión corporativa para equipos.</p></details>
           <details><summary>¿Qué necesito para participar?</summary><p>Una computadora, conexión a internet y curiosidad. Antes de la sesión recibirás una guía sencilla de preparación.</p></details>
+          <details><summary>¿Cómo garantizo mi cupo?</summary><p>Completa el formulario, paga por Yappy o transferencia bancaria y adjunta tu comprobante. Te confirmaremos la reserva después de validar el pago.</p></details>
         </div>
       </section>
 
       <section className="section final-cta learn-final" id="reserva">
-        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Entra al mundo de la AI<br />con un mapa claro.</h2><p>Disponible online, presencial y para grupos privados. Déjanos tus datos y te contactaremos con las próximas fechas y opciones.</p><div className="contact-options"><a className="button button-primary" href="/contacto#ai-para-todos">Quiero reservar</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
+        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Tres sesiones confirmadas en septiembre, online y presencial. Completa el formulario, realiza el pago y adjunta tu comprobante para garantizar el cupo.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
       </section>
 
       <SiteFooter />
