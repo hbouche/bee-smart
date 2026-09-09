@@ -1,18 +1,10 @@
-import type { Metadata } from "next";
+import { SiteImage } from "../site-image";
 import { SiteFooter, SiteHeader } from "../site-chrome";
+import { registrationFormUrl } from "../site-data";
+import { SessionSchedule } from "../session-schedule";
+import { pageMetadata } from "../seo";
 
-const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdcJrolmjXe4thTcWSdB0weAgMqS1qknes9tA8mRw3HmPxFKg/viewform?usp=publish-editor";
-
-const sessions = [
-  { day: "10", month: "SEP", modality: "Online", time: "7:30 p. m.", place: "En vivo por videollamada" },
-  { day: "24", month: "SEP", modality: "Online", time: "7:30 p. m.", place: "En vivo por videollamada" },
-  { day: "30", month: "SEP", modality: "Presencial", time: "7:00 p. m.", place: "Ciudad de Panamá · lugar por definir" },
-];
-
-export const metadata: Metadata = {
-  title: "IA para Todos | BEE SMART",
-  description: "Una experiencia en vivo para entender la inteligencia artificial, usar sus herramientas y comenzar a construir con criterio.",
-};
+export const metadata = pageMetadata("IA para Todos | Curso de inteligencia artificial en Panamá", "Aprende IA desde cero con Humberto Bouche. Tres horas en vivo, online o presencial en San Francisco, Panamá. Sesiones y reserva por Google Forms.", "/ai-para-todos/", "/images/home-learning-path-v1-1536.webp");
 
 const audiences = [
   ["01", "Vida diaria", "Aprende, organiza, compara opciones y convierte información en decisiones."],
@@ -24,7 +16,7 @@ const audiences = [
 const modules = [
   ["01", "La revolución", "Qué cambió, por qué la IA se volvió accesible y dónde ya está transformando nuestra vida."],
   ["02", "Cómo funciona", "LLMs, tokens, parámetros, contexto, entrenamiento, multimodalidad y límites."],
-  ["03", "El mapa de herramientas", "Modelos, aplicaciones, creación de contenido, automatización, agentes y coding."],
+  ["03", "El mapa de herramientas", "Modelos, aplicaciones, creación de contenido, automatización, agentes y programación."],
   ["04", "Cómo dirigirla", "Objetivo, contexto, referencias, iteración, verificación, privacidad y criterio humano."],
   ["05", "Qué puedes crear", "Texto, imágenes, video, voz, workflows, dashboards, aplicaciones y agentes."],
   ["06", "Del caso al resultado", "Una demostración práctica y una ruta personal para comenzar a aplicarla."],
@@ -39,7 +31,7 @@ const takeaways = [
 
 const specialties = [
   ["IA para Marketing", "/images/home-business-path-v1.png", "Estrategia · campañas · medición"],
-  ["Content Generation", "/images/home-content-v1.png", "Texto · imagen · voz · video"],
+  ["Creación de contenido", "/images/home-content-v1.png", "Texto · imagen · voz · video"],
   ["IA para Finanzas", "/images/ai-todos-demostracion-v1.png", "Análisis · escenarios · control"],
   ["IA para Operaciones", "/images/home-implementation-v1.png", "Procesos · datos · automatización"],
   ["Construye con IA", "/images/home-coding-v1.png", "Apps · dashboards · micro-SaaS"],
@@ -81,8 +73,7 @@ export default function AiParaTodosPage() {
       <section className="product-hero learn-hero-v2" id="inicio">
         <div className="product-hero-copy">
           <p className="eyebrow">BEE SMART · ENTRENAMIENTO ESENCIAL</p>
-          <p className="display-kicker">IA</p>
-          <h1>para<br /><em>Todos.</em></h1>
+          <h1><span className="display-kicker">IA</span>para<br /><em>Todos.</em></h1>
           <p>Entiende la revolución. Aprende a usar sus herramientas. Empieza a construir con criterio.</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#fechas">Ver fechas y reservar</a>
@@ -90,7 +81,7 @@ export default function AiParaTodosPage() {
           </div>
         </div>
         <div className="learn-hero-photo" aria-label="Una persona aprendiendo y trabajando con inteligencia artificial en Ciudad de Panamá">
-          <img src="/images/home-learning-path-v1.png" alt="Persona trabajando con una computadora en Ciudad de Panamá" />
+          <SiteImage src="/images/home-learning-path-v1.png" alt="Persona trabajando con una computadora en Ciudad de Panamá" loading="eager" fetchPriority="high" />
           <div className="learn-hero-shade" aria-hidden="true" />
           <div className="learn-hero-badge"><span>UNA EXPERIENCIA EN VIVO</span><strong>ENTENDER<br />USAR<br />CREAR<br />ACTUAR</strong></div>
           <div className="learn-hero-note"><span>SIN EXPERIENCIA PREVIA</span><b>Conceptos + herramientas + demostración</b></div>
@@ -104,17 +95,18 @@ export default function AiParaTodosPage() {
           <div><p className="eyebrow">PRÓXIMAS SESIONES</p><h2>Escoge tu fecha.<br />Reserva tu cupo.</h2></div>
           <p>Tres horas para entender la IA, aprender a utilizar sus herramientas y comenzar a construir con criterio. No necesitas experiencia previa.</p>
         </div>
-        <div className="session-grid">
-          {sessions.map((session, index) => (
-            <article className={`session-card session-${index + 1}`} key={session.day}>
-              <div className="session-card-top"><span>0{index + 1}</span><strong>{session.modality}</strong></div>
-              <div className="session-date"><b>{session.day}</b><span>{session.month}</span></div>
-              <div className="session-details"><strong>{session.time}</strong><p>{session.place}</p><small>3 HORAS · $75 · CUPOS LIMITADOS</small></div>
-              <a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar esta fecha</a>
-            </article>
-          ))}
+        <SessionSchedule />
+        <p className="sessions-payment-note">Horarios de Panamá (UTC−5). Completa el formulario y adjunta tu comprobante. BEE SMART confirma tu reserva después de validar el pago.</p>
+        <div className="reservation-steps" aria-label="Cómo reservar">
+          <div><strong>01 · Solicita tu cupo</strong><p>Selecciona la sesión en Google Forms y completa tus datos.</p></div>
+          <div><strong>02 · Adjunta tu comprobante</strong><p>Las instrucciones de transferencia y Yappy están en el formulario. Subir el comprobante requiere iniciar sesión en Google.</p></div>
+          <div><strong>03 · Recibe la confirmación</strong><p>Validamos el pago antes de confirmar tu reserva. La sede exacta de San Francisco todavía está por definir.</p></div>
         </div>
-        <p className="sessions-payment-note">Tu cupo queda garantizado cuando completes el formulario y adjuntes el comprobante de pago.</p>
+      </section>
+
+      <section className="section instructor-summary" aria-labelledby="instructor-title">
+        <SiteImage src="/images/humberto-bouche-ai-para-todos.png" alt="Humberto Bouche · IA para Todos" />
+        <div><p className="eyebrow">QUIÉN TE ACOMPAÑA</p><h2 id="instructor-title">Humberto Bouche</h2><p>Combina experiencia ejecutiva, emprendimiento y construcción de soluciones con inteligencia artificial. Su enfoque es ayudarte a entender, probar y aplicar IA con criterio en tu vida y tu trabajo.</p><a className="text-link" href="/contacto/">Conoce a Humberto y conversemos <span>↗</span></a></div>
       </section>
 
       <section className="section audience-section">
@@ -125,7 +117,7 @@ export default function AiParaTodosPage() {
       <section className="section program-section" id="programa">
         <div className="program-title"><p className="eyebrow light">EL RECORRIDO</p><h2>Del panorama completo<br />a tu primer resultado.</h2><p>Una experiencia amplia y práctica: profundidad suficiente para entender la tecnología y claridad suficiente para comenzar a utilizarla.</p></div>
         <div className="program-visual">
-          <img src="/images/ai-todos-programa-taller-v1.png" alt="Grupo de adultos participando en un taller práctico de inteligencia artificial" />
+          <SiteImage src="/images/ai-todos-programa-taller-v1.png" alt="Grupo de adultos participando en un taller práctico de inteligencia artificial" />
           <div className="program-visual-shade" aria-hidden="true" />
           <div className="program-visual-copy"><span>RECORRIDO COMPLETO</span><strong>Del universo de la IA<br />a una acción que puedes repetir.</strong></div>
           <div className="program-visual-track" aria-label="Etapas del entrenamiento"><span>ENTENDER</span><i>→</i><span>USAR</span><i>→</i><span>CREAR</span><i>→</i><span>ACTUAR</span></div>
@@ -137,10 +129,10 @@ export default function AiParaTodosPage() {
         <div className="section-intro compact"><p className="eyebrow">HERRAMIENTAS REALES</p><h2>Vas a entender<br />quién hace qué.</h2><p>No es una lista de marcas ni un ranking. Es un mapa para reconocer qué herramienta puede ayudarte según lo que quieres lograr.</p></div>
         <div className="learn-tool-grid">
           {toolGroups.map((group) => <article className={`learn-tool-card tool-card-${group.n}`} key={group.n}>
-            <div className="learn-tool-visual"><img src={group.image} alt="" /><div aria-hidden="true" /><span>{group.n}</span></div>
+            <div className="learn-tool-visual"><SiteImage src={group.image} alt="" /><div aria-hidden="true" /><span>{group.n}</span></div>
             <div className="learn-tool-body"><div className="learn-tool-head"><h3>{group.title}</h3></div>
               <p>{group.text}</p>
-              <div className="learn-brand-cloud">{group.brands.map(([src, name]) => <span key={name}>{src && <img src={src} alt="" />}<b>{name}</b></span>)}</div>
+              <div className="learn-brand-cloud">{group.brands.map(([src, name]) => <span key={name}>{src && <SiteImage src={src} alt="" />}<b>{name}</b></span>)}</div>
             </div>
           </article>)}
         </div>
@@ -150,7 +142,7 @@ export default function AiParaTodosPage() {
       <section className="section learn-experience">
         <div className="learn-experience-copy"><p className="eyebrow light">APRENDER HACIENDO</p><h2>La teoría aterriza<br />en una demostración.</h2><p>Verás cómo una necesidad se convierte en un resultado tangible: desde organizar información o crear contenido hasta construir un pequeño dashboard o una herramienta.</p></div>
         <div className="experience-visual">
-          <img src="/images/ai-todos-demostracion-v1.png" alt="Demostración práctica que transforma datos dispersos en un dashboard" />
+          <SiteImage src="/images/ai-todos-demostracion-v1.png" alt="Demostración práctica que transforma datos dispersos en un dashboard" />
           <div className="experience-visual-shade" aria-hidden="true" />
           <div><span>EN VIVO</span><strong>Necesidad → contexto → construcción → validación</strong></div>
         </div>
@@ -166,7 +158,7 @@ export default function AiParaTodosPage() {
 
       <section className="section school-teaser">
         <div className="section-intro"><p className="eyebrow">BEE SMART SCHOOL</p><h2>IA para Todos<br />es el comienzo.</h2><p>Después puedes profundizar en el área que más se conecta con tu trabajo, tu negocio o lo que quieres construir.</p></div>
-        <div className="specialty-track">{specialties.map(([title,image,caption],index)=><article key={title}><div className="specialty-visual"><img src={image} alt="" /><i aria-hidden="true" /><span>0{index+1}</span></div><div className="specialty-copy"><strong>{title}</strong><p>{caption}</p><small>PRÓXIMAMENTE</small></div></article>)}</div>
+        <details className="school-details"><summary>Explorar futuras especializaciones · todavía no disponibles</summary><div className="specialty-track">{specialties.map(([title,image,caption],index)=><article key={title}><div className="specialty-visual"><SiteImage src={image} alt="" /><i aria-hidden="true" /><span>0{index+1}</span></div><div className="specialty-copy"><strong>{title}</strong><p>{caption}</p><small>PRÓXIMAMENTE</small></div></article>)}</div></details>
       </section>
 
       <section className="section format-section" id="formatos">
@@ -180,14 +172,15 @@ export default function AiParaTodosPage() {
           <details open><summary>¿Necesito experiencia previa?</summary><p>No. La sesión comienza desde los fundamentos y avanza con ejemplos claros.</p></details>
           <details><summary>¿Tengo que saber programar?</summary><p>No. También verás cómo la IA permite construir sin partir de conocimientos técnicos avanzados.</p></details>
           <details><summary>¿Es para uso personal o profesional?</summary><p>Para ambos. Los casos cubren vida diaria, trabajo, contenido, emprendimiento y negocios.</p></details>
-          <details><summary>¿Puede tomarse en grupo?</summary><p>Sí. Existe un formato para grupos privados y una versión corporativa para equipos.</p></details>
+          <details><summary>¿Puede tomarse en grupo?</summary><p>Sí. Estas sesiones abiertas duran 3 horas y cuestan $75 por persona. <a href="/empresas/#capacitacion">IA 101 corporativo</a> es una capacitación privada de 2½ horas, desde USD 500 según alcance.</p></details>
+          <details><summary>¿Dónde será la sesión presencial?</summary><p>El 3 de octubre de 2026, de 10:00 a. m. a 1:00 p. m., en San Francisco, Ciudad de Panamá. El lugar exacto está por definir. Si necesitas confirmar este detalle antes de pagar, <a href="/contacto/">consúltanos</a>.</p></details>
           <details><summary>¿Qué necesito para participar?</summary><p>Una computadora, conexión a internet y curiosidad. Antes de la sesión recibirás una guía sencilla de preparación.</p></details>
           <details><summary>¿Cómo garantizo mi cupo?</summary><p>Completa el formulario, paga por Yappy o transferencia bancaria y adjunta tu comprobante. Te confirmaremos la reserva después de validar el pago.</p></details>
         </div>
       </section>
 
       <section className="section final-cta learn-final" id="reserva">
-        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Tres sesiones confirmadas en septiembre, online y presencial. Completa el formulario, realiza el pago y adjunta tu comprobante para garantizar el cupo.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
+        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Sesiones online y presencial en San Francisco, Ciudad de Panamá. Completa el formulario y adjunta tu comprobante; confirmaremos tu cupo después de validar el pago.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
       </section>
 
       <SiteFooter />

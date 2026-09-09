@@ -4,6 +4,7 @@ import { WhatsAppButton } from "./site-chrome";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bee-smart.ai"),
+  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
   title: "BEE SMART | Inteligencia Artificial para Todos",
   description: "Educación e implementación de inteligencia artificial para personas, profesionales y empresas.",
   openGraph: {
@@ -30,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>{children}<WhatsAppButton /></body>
+      <body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", "@id": "https://bee-smart.ai/#organization", name: "BEE SMART", url: "https://bee-smart.ai/", email: "hb@bee-smart.ai", telephone: "+50764301378", areaServed: "Panamá" }) }} />{children}<WhatsAppButton /></body>
     </html>
   );
 }

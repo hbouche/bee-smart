@@ -1,4 +1,9 @@
+import { SiteImage } from "./site-image";
 import { SiteFooter, SiteHeader } from "./site-chrome";
+import { SessionSchedule } from "./session-schedule";
+import { pageMetadata } from "./seo";
+
+export const metadata = pageMetadata("BEE SMART | Capacitación e implementación de IA en Panamá", "Aprende a usar inteligencia artificial o desarrolla capacidad interna en tu empresa. Capacitación online y presencial e implementación a medida en Panamá.", "/");
 
 const capabilities = [
   ["Aprender y organizar", "Investigar, resumir, planificar y convertir información en decisiones."],
@@ -31,7 +36,7 @@ export default function Home() {
           <h1>La revolución de la inteligencia artificial es <em>para todos.</em></h1>
           <p className="hero-lead">Aprende a usarla en tu vida y profesión, o conviértela en una capacidad real dentro de tu empresa.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="/ai-para-todos#fechas">Ver fechas de septiembre</a>
+            <a className="button button-primary" href="/ai-para-todos#fechas">Ver próximas fechas</a>
             <a className="button button-quiet" href="/empresas">Soy empresa <span>↗</span></a>
           </div>
         </div>
@@ -40,75 +45,75 @@ export default function Home() {
           <div className="system-title"><span>UN UNIVERSO DE CAPACIDADES</span><strong>Una sola puerta de entrada.</strong></div>
           <div className="capability-grid">
             <article className="capability large models-card">
-              <img className="models-bg" src="/images/models-hardware-v2.png" alt="" />
+              <SiteImage className="models-bg" src="/images/models-hardware-v2.png" alt="" />
               <div className="models-shade" aria-hidden="true" />
               <div className="models-heading"><span>01</span><strong>Modelos</strong></div>
               <div className="model-logo-cloud" aria-label="Principales familias y laboratorios de modelos de inteligencia artificial">
-                <span className="model-brand brand-openai"><img src="/brands/openai.png" alt="OpenAI" /></span>
-                <span className="model-brand"><img src="/brands/google.png" alt="Google Gemini" /><b>GEMINI</b></span>
-                <span className="model-brand"><img src="/brands/anthropic.png" alt="Anthropic Claude" /><b>CLAUDE</b></span>
-                <span className="model-brand"><img src="/brands/meta.png" alt="Meta Llama" /><b>LLAMA</b></span>
-                <span className="model-brand"><img src="/brands/deepseek.png" alt="DeepSeek" /><b>DEEPSEEK</b></span>
-                <span className="model-brand"><img src="/brands/alibabacloud.png" alt="Alibaba Cloud Qwen" /><b>QWEN</b></span>
-                <span className="model-brand"><img src="/brands/x.png" alt="xAI Grok" /><b>GROK</b></span>
+                <span className="model-brand brand-openai"><SiteImage src="/brands/openai.png" alt="OpenAI" /></span>
+                <span className="model-brand"><SiteImage src="/brands/google.png" alt="Google Gemini" /><b>GEMINI</b></span>
+                <span className="model-brand"><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude" /><b>CLAUDE</b></span>
+                <span className="model-brand"><SiteImage src="/brands/meta.png" alt="Meta Llama" /><b>LLAMA</b></span>
+                <span className="model-brand"><SiteImage src="/brands/deepseek.png" alt="DeepSeek" /><b>DEEPSEEK</b></span>
+                <span className="model-brand"><SiteImage src="/brands/alibabacloud.png" alt="Alibaba Cloud Qwen" /><b>QWEN</b></span>
+                <span className="model-brand"><SiteImage src="/brands/x.png" alt="xAI Grok" /><b>GROK</b></span>
               </div>
               <small className="models-caption">Lenguaje · razonamiento · multimodalidad</small>
             </article>
             <article className="capability photo-capability micro-card content-card">
-              <img className="capability-photo" src="/images/home-content-v1.png" alt="" />
+              <SiteImage className="capability-photo" src="/images/home-content-v1.png" alt="" />
               <div className="capability-shade" aria-hidden="true" />
               <div className="capability-heading"><span>02</span><strong>Contenido</strong></div>
               <div className="compact-brand-grid content-brands" aria-label="Ejemplos de herramientas para crear y distribuir contenido">
-                <span><img src="/brands/openai.png" alt="OpenAI" /><b>CHATGPT</b></span>
-                <span><img src="/brands/google.png" alt="Google" /><b>FLOW · VEO</b></span>
-                <span><img src="/brands/elevenlabs.svg" alt="ElevenLabs" /><b>ELEVENLABS</b></span>
+                <span><SiteImage src="/brands/openai.png" alt="OpenAI" /><b>CHATGPT</b></span>
+                <span><SiteImage src="/brands/google.png" alt="Google" /><b>FLOW · VEO</b></span>
+                <span><SiteImage src="/brands/elevenlabs.svg" alt="ElevenLabs" /><b>ELEVENLABS</b></span>
                 <span className="word-chip"><b>HIGGSFIELD</b></span>
                 <span className="word-chip"><b>HEYGEN</b></span>
-                <span><img src="/brands/youtube.svg" alt="YouTube" /><b>YOUTUBE</b></span>
+                <span><SiteImage src="/brands/youtube.svg" alt="YouTube" /><b>YOUTUBE</b></span>
               </div>
               <small className="capability-caption">Texto · imagen · voz · video</small>
             </article>
             <article className="capability photo-capability micro-card agents-card">
-              <img className="capability-photo" src="/images/home-agents-v1.png" alt="" />
+              <SiteImage className="capability-photo" src="/images/home-agents-v1.png" alt="" />
               <div className="capability-shade" aria-hidden="true" />
               <div className="capability-heading"><span>03</span><strong>Agentes</strong></div>
               <div className="compact-brand-grid agent-brands" aria-label="Ejemplos de plataformas y agentes de inteligencia artificial">
-                <span><img src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span>
-                <span><img src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span>
-                <span><img src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span>
-                <span><img src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span>
-                <span><img src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span>
+                <span><SiteImage src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span>
+                <span><SiteImage src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span>
+                <span><SiteImage src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span>
+                <span><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span>
+                <span><SiteImage src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span>
               </div>
               <small className="capability-caption">Herramientas · acciones · autonomía</small>
             </article>
             <article className="capability photo-capability chart-card result-card" aria-hidden="true">
-              <img className="capability-photo" src="/images/ai-todos-demostracion-v1.png" alt="" />
+              <SiteImage className="capability-photo" src="/images/ai-todos-demostracion-v1.png" alt="" />
               <div className="capability-shade" />
               <div className="build-chain"><span>IDEA</span><i>→</i><span>APP</span></div>
               <small>DE LA INTENCIÓN AL RESULTADO</small>
             </article>
             <article className="capability photo-capability micro-card coding-card">
-              <img className="capability-photo" src="/images/home-coding-v1.png" alt="" />
+              <SiteImage className="capability-photo" src="/images/home-coding-v1.png" alt="" />
               <div className="capability-shade" aria-hidden="true" />
-              <div className="capability-heading"><span>04</span><strong>Coding</strong></div>
+              <div className="capability-heading"><span>04</span><strong>Programación</strong></div>
               <div className="compact-brand-grid coding-brands" aria-label="Ejemplos de herramientas para construir software con inteligencia artificial">
-                <span><img src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span>
-                <span><img src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span>
-                <span><img src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span>
-                <span><img src="/brands/github.png" alt="GitHub" /><b>GITHUB</b></span>
+                <span><SiteImage src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span>
+                <span><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span>
+                <span><SiteImage src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span>
+                <span><SiteImage src="/brands/github.png" alt="GitHub" /><b>GITHUB</b></span>
               </div>
               <small className="capability-caption">Apps · dashboards · SaaS</small>
             </article>
             <article className="capability wide photo-capability implementation-card">
-              <img className="capability-photo" src="/images/home-implementation-v1.png" alt="" />
+              <SiteImage className="capability-photo" src="/images/home-implementation-v1.png" alt="" />
               <div className="capability-shade implementation-shade" aria-hidden="true" />
               <div className="implementation-copy"><span>05</span><strong>Implementación</strong><small>Datos → proceso → herramienta → resultado</small></div>
               <div className="implementation-stack" aria-label="Ejemplos de herramientas de infraestructura e implementación">
-                <span><img src="/brands/ollama.png" alt="Ollama" /><b>OLLAMA</b></span>
-                <span><img src="/brands/openrouter.png" alt="OpenRouter" /><b>OPENROUTER</b></span>
-                <span><img src="/brands/github.png" alt="GitHub" /><b>GITHUB</b></span>
-                <span><img src="/brands/vercel.png" alt="Vercel" /><b>VERCEL</b></span>
-                <span><img src="/brands/render.png" alt="Render" /><b>RENDER</b></span>
+                <span><SiteImage src="/brands/ollama.png" alt="Ollama" /><b>OLLAMA</b></span>
+                <span><SiteImage src="/brands/openrouter.png" alt="OpenRouter" /><b>OPENROUTER</b></span>
+                <span><SiteImage src="/brands/github.png" alt="GitHub" /><b>GITHUB</b></span>
+                <span><SiteImage src="/brands/vercel.png" alt="Vercel" /><b>VERCEL</b></span>
+                <span><SiteImage src="/brands/render.png" alt="Render" /><b>RENDER</b></span>
               </div>
             </article>
           </div>
@@ -116,8 +121,8 @@ export default function Home() {
       </section>
 
       <section className="upcoming-sessions" aria-labelledby="upcoming-sessions-title">
-        <div className="upcoming-sessions-copy"><p className="eyebrow">PRÓXIMAS SESIONES</p><h2 id="upcoming-sessions-title">IA para Todos · Septiembre</h2></div>
-        <div className="upcoming-session-dates"><span><b>10 SEP</b>ONLINE · 7:30 P. M.</span><span><b>24 SEP</b>ONLINE · 7:30 P. M.</span><span><b>30 SEP</b>PRESENCIAL · 7:00 P. M.</span></div>
+        <div className="upcoming-sessions-copy"><p className="eyebrow">PRÓXIMAS SESIONES · 2026</p><h2 id="upcoming-sessions-title">IA para Todos</h2><p>Horarios de Panamá · UTC−5</p></div>
+        <SessionSchedule compact />
         <a className="button button-primary" href="/ai-para-todos#fechas">Ver fechas y reservar</a>
       </section>
 
@@ -125,6 +130,8 @@ export default function Home() {
         <div className="client-marquee-heading">
           <p className="eyebrow">EXPERIENCIA APLICADA</p>
           <h2 id="client-marquee-title">Empresas que están construyendo capacidad interna con BEE SMART.</h2>
+          <label className="marquee-control"><input type="checkbox" /> Pausar movimiento</label>
+          <p className="client-marquee-note">Empresas y proyectos con los que trabajamos en adopción de IA. Cada implementación tiene su propio alcance.</p>
         </div>
         <div className="client-marquee-window">
           <div className="client-marquee-track">
@@ -132,15 +139,15 @@ export default function Home() {
               <div className="client-marquee-group" aria-hidden={group === 1} key={group}>
                 {clients.map((client, index) => (
                   <div className={`client-logo-card ${client.className}`} key={`${group}-${client.name}`}>
-                    <div className="client-card-top"><span>{String(index + 1).padStart(2, "0")}</span><strong>AI READY</strong></div>
+                    <div className="client-card-top"><span>{String(index + 1).padStart(2, "0")}</span><strong>ADOPCIÓN DE IA</strong></div>
                     <div className="client-logo-wrap">
                       {client.image ? (
-                        <img src={client.image} alt={group === 0 ? client.name : ""} />
+                        <SiteImage src={client.image} alt={group === 0 ? client.name : ""} />
                       ) : (
                         <span className="ans-wordmark"><strong>ANS</strong><small>Academia Nacional de Surf</small></span>
                       )}
                     </div>
-                    <div className="client-card-meta"><span>{client.sector}</span><i aria-hidden="true">↗</i></div>
+                    <div className="client-card-meta"><span>{client.sector}</span></div>
                   </div>
                 ))}
               </div>
@@ -160,11 +167,11 @@ export default function Home() {
 
         <div className="path-grid">
           <a className="path-card visual-path-card path-1" href="/ai-para-todos">
-            <div className="path-art photo-path-art learn-photo-art" aria-hidden="true"><img src="/images/home-learning-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">PERSONA / APRENDIZAJE</span><strong className="path-photo-note">APRENDE · USA · CONSTRUYE</strong></div>
+            <div className="path-art photo-path-art learn-photo-art" aria-hidden="true"><SiteImage src="/images/home-learning-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">PERSONA / APRENDIZAJE</span><strong className="path-photo-note">APRENDE · USA · CONSTRUYE</strong></div>
             <div className="path-content"><p className="eyebrow">PERSONAS Y PROFESIONALES</p><h3>IA para Todos</h3><p>Entiende la revolución. Aprende a usarla. Empieza a construir.</p><span className="card-action">Ver fechas y programa <b>→</b></span></div>
           </a>
           <a className="path-card visual-path-card path-2" href="/empresas">
-            <div className="path-art photo-path-art company-photo-art" aria-hidden="true"><img src="/images/home-business-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">EMPRESA / CAPACIDAD</span><strong className="path-photo-note">CAPACITA · INTEGRA · ESCALA</strong></div>
+            <div className="path-art photo-path-art company-photo-art" aria-hidden="true"><SiteImage src="/images/home-business-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">EMPRESA / CAPACIDAD</span><strong className="path-photo-note">CAPACITA · INTEGRA · ESCALA</strong></div>
             <div className="path-content"><p className="eyebrrow">EMPRESAS Y EQUIPOS</p><h3>BEE SMART Empresas</h3><p>Capacitación, arquitectura, agentes y herramientas alrededor de tu negocio.</p><span className="card-action">Explorar soluciones <b>→</b></span></div>
           </a>
         </div>
@@ -178,13 +185,13 @@ export default function Home() {
       </section>
 
       <section className="section agent-statement">
-        <div className="agent-copy"><p className="eyebrow light">LA ERA DE LOS AGENTES</p><h2>Una IA que entiende,<br /><em>conecta y actúa.</em></h2><p>Diseñamos capacidad interna para que personas y equipos puedan construir, automatizar y mejorar procesos con autonomía, seguridad y control.</p><a className="text-link light-link" href="/empresas">Descubre cómo funciona <span>→</span></a><div className="agent-platforms" aria-label="Ecosistema actual de agentes"><span><img src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span><span><img src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span><span><img src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span><span><img src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE</b></span><span><img src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span></div></div>
+        <div className="agent-copy"><p className="eyebrow light">LA ERA DE LOS AGENTES</p><h2>Una IA que entiende,<br /><em>conecta y actúa.</em></h2><p>Diseñamos capacidad interna para que personas y equipos puedan construir, automatizar y mejorar procesos con autonomía, seguridad y control.</p><a className="text-link light-link" href="/empresas">Descubre cómo funciona <span>→</span></a><div className="agent-platforms" aria-label="Ecosistema actual de agentes"><span><SiteImage src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span><span><SiteImage src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span><span><SiteImage src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span><span><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE</b></span><span><SiteImage src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span></div></div>
         <div className="agent-map" aria-label="Representación gráfica de un agente conectado con herramientas"><span className="visual-label">ANATOMÍA DE UN AGENTE</span><div className="agent-core">AGENTE<span>Meta + contexto</span></div>{["DATOS","CORREO","WEB","SISTEMAS"].map((item,i)=><div className={`agent-tool tool-${i+1}`} key={item}>{item}</div>)}</div>
       </section>
 
       <section className="section method" id="metodo">
         <div className="section-intro compact"><p className="eyebrow">MÉTODO BEE SMART</p><h2>Del problema<br />al resultado.</h2><p>La tecnología se selecciona después de comprender qué debe mejorar y cómo vamos a medirlo.</p></div>
-        <div className="method-visual"><img src="/images/home-method-v1.png" alt="" /><div className="method-visual-shade" aria-hidden="true" /><div><span>PROCESO APLICADO</span><strong>Evidencia → decisión → piloto → resultado</strong></div></div>
+        <div className="method-visual"><SiteImage src="/images/home-method-v1.png" alt="" /><div className="method-visual-shade" aria-hidden="true" /><div><span>PROCESO APLICADO</span><strong>Evidencia → decisión → piloto → resultado</strong></div></div>
         <div className="method-flow">
           {[["01","Escuchar","Dolor y contexto"],["02","Diseñar","Proceso y control"],["03","Probar","Piloto funcional"],["04","Medir","Resultado y aprendizaje"],["05","Escalar","Autonomía y módulos"]].map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
         </div>

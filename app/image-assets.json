@@ -1,0 +1,245 @@
+{
+  "/images/ai-todos-demostracion-v1.png": {
+    "src": "/images/ai-todos-demostracion-v1-1600.webp",
+    "width": 1672,
+    "height": 941,
+    "srcSet": "/images/ai-todos-demostracion-v1-640.webp 640w, /images/ai-todos-demostracion-v1-1280.webp 1280w, /images/ai-todos-demostracion-v1-1600.webp 1600w"
+  },
+  "/images/ai-todos-programa-taller-v1.png": {
+    "src": "/images/ai-todos-programa-taller-v1-1600.webp",
+    "width": 1916,
+    "height": 821,
+    "srcSet": "/images/ai-todos-programa-taller-v1-640.webp 640w, /images/ai-todos-programa-taller-v1-1280.webp 1280w, /images/ai-todos-programa-taller-v1-1600.webp 1600w"
+  },
+  "/images/bee-smart-empresas-architecture-v1.png": {
+    "src": "/images/bee-smart-empresas-architecture-v1-1600.webp",
+    "width": 1896,
+    "height": 830,
+    "srcSet": "/images/bee-smart-empresas-architecture-v1-640.webp 640w, /images/bee-smart-empresas-architecture-v1-1280.webp 1280w, /images/bee-smart-empresas-architecture-v1-1600.webp 1600w"
+  },
+  "/images/bee-smart-empresas-hero-v1.png": {
+    "src": "/images/bee-smart-empresas-hero-v1-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "srcSet": "/images/bee-smart-empresas-hero-v1-640.webp 640w, /images/bee-smart-empresas-hero-v1-1280.webp 1280w, /images/bee-smart-empresas-hero-v1-1536.webp 1536w"
+  },
+  "/images/bee-smart-empresas-precosto-v1.png": {
+    "src": "/images/bee-smart-empresas-precosto-v1-1600.webp",
+    "width": 1672,
+    "height": 941,
+    "srcSet": "/images/bee-smart-empresas-precosto-v1-640.webp 640w, /images/bee-smart-empresas-precosto-v1-1280.webp 1280w, /images/bee-smart-empresas-precosto-v1-1600.webp 1600w"
+  },
+  "/images/capacidad-interna-session.webp": {
+    "src": "/images/capacidad-interna-session.webp",
+    "width": 770,
+    "height": 1600
+  },
+  "/images/client-abonos-industriales-istmo.png": {
+    "src": "/images/client-abonos-industriales-istmo-640.webp",
+    "width": 2172,
+    "height": 724
+  },
+  "/images/client-casa-mahana.webp": {
+    "src": "/images/client-casa-mahana.webp",
+    "width": 204,
+    "height": 192
+  },
+  "/images/client-clinica-piel-lopez.png": {
+    "src": "/images/client-clinica-piel-lopez-640.webp",
+    "width": 2172,
+    "height": 724
+  },
+  "/images/client-frutas-hoy-panama.png": {
+    "src": "/images/client-frutas-hoy-panama-640.webp",
+    "width": 2172,
+    "height": 724
+  },
+  "/images/client-grupo-martinez-acuacultura-chame.png": {
+    "src": "/images/client-grupo-martinez-acuacultura-chame-640.webp",
+    "width": 2172,
+    "height": 724
+  },
+  "/images/client-ingredienta.png": {
+    "src": "/images/client-ingredienta.png",
+    "width": 255,
+    "height": 65
+  },
+  "/images/client-mahana-tours.png": {
+    "src": "/images/client-mahana-tours.png",
+    "width": 148,
+    "height": 148
+  },
+  "/images/client-soluciones-express.png": {
+    "src": "/images/client-soluciones-express.png",
+    "width": 211,
+    "height": 219
+  },
+  "/images/client-surf-shack.webp": {
+    "src": "/images/client-surf-shack.webp",
+    "width": 260,
+    "height": 260
+  },
+  "/images/home-agents-v1.png": {
+    "src": "/images/home-agents-v1-1122.webp",
+    "width": 1122,
+    "height": 1402,
+    "srcSet": "/images/home-agents-v1-640.webp 640w, /images/home-agents-v1-1122.webp 1122w"
+  },
+  "/images/home-business-path-v1.png": {
+    "src": "/images/home-business-path-v1-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "srcSet": "/images/home-business-path-v1-640.webp 640w, /images/home-business-path-v1-1280.webp 1280w, /images/home-business-path-v1-1536.webp 1536w"
+  },
+  "/images/home-coding-v1.png": {
+    "src": "/images/home-coding-v1-1122.webp",
+    "width": 1122,
+    "height": 1402,
+    "srcSet": "/images/home-coding-v1-640.webp 640w, /images/home-coding-v1-1122.webp 1122w"
+  },
+  "/images/home-content-v1.png": {
+    "src": "/images/home-content-v1-1003.webp",
+    "width": 1003,
+    "height": 1568,
+    "srcSet": "/images/home-content-v1-640.webp 640w, /images/home-content-v1-1003.webp 1003w"
+  },
+  "/images/home-implementation-v1.png": {
+    "src": "/images/home-implementation-v1-1600.webp",
+    "width": 1983,
+    "height": 793,
+    "srcSet": "/images/home-implementation-v1-640.webp 640w, /images/home-implementation-v1-1280.webp 1280w, /images/home-implementation-v1-1600.webp 1600w"
+  },
+  "/images/home-learning-path-v1.png": {
+    "src": "/images/home-learning-path-v1-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "srcSet": "/images/home-learning-path-v1-640.webp 640w, /images/home-learning-path-v1-1280.webp 1280w, /images/home-learning-path-v1-1536.webp 1536w"
+  },
+  "/images/home-method-v1.png": {
+    "src": "/images/home-method-v1-1600.webp",
+    "width": 1914,
+    "height": 822,
+    "srcSet": "/images/home-method-v1-640.webp 640w, /images/home-method-v1-1280.webp 1280w, /images/home-method-v1-1600.webp 1600w"
+  },
+  "/images/home-mobile-hero.webp": {
+    "src": "/images/home-mobile-hero.webp",
+    "width": 1500,
+    "height": 843,
+    "srcSet": "/images/home-mobile-hero-640.webp 640w, /images/home-mobile-hero.webp 1500w"
+  },
+  "/images/humberto-bouche-ai-para-todos.png": {
+    "src": "/images/humberto-bouche-ai-para-todos-1600.webp",
+    "width": 1672,
+    "height": 941,
+    "srcSet": "/images/humberto-bouche-ai-para-todos-640.webp 640w, /images/humberto-bouche-ai-para-todos-1280.webp 1280w, /images/humberto-bouche-ai-para-todos-1600.webp 1600w"
+  },
+  "/images/humberto-bouche-contact.png": {
+    "src": "/images/humberto-bouche-contact-1600.webp",
+    "width": 1672,
+    "height": 941,
+    "srcSet": "/images/humberto-bouche-contact-640.webp 640w, /images/humberto-bouche-contact-1280.webp 1280w, /images/humberto-bouche-contact-1600.webp 1600w"
+  },
+  "/images/ingredienta-session.webp": {
+    "src": "/images/ingredienta-session.webp",
+    "width": 1672,
+    "height": 941,
+    "srcSet": "/images/ingredienta-session-640.webp 640w, /images/ingredienta-session.webp 1672w"
+  },
+  "/images/models-data-center-v1.png": {
+    "src": "/images/models-data-center-v1-1146.webp",
+    "width": 1146,
+    "height": 1372,
+    "srcSet": "/images/models-data-center-v1-640.webp 640w, /images/models-data-center-v1-1146.webp 1146w"
+  },
+  "/images/models-hardware-v2.png": {
+    "src": "/images/models-hardware-v2-1146.webp",
+    "width": 1146,
+    "height": 1373,
+    "srcSet": "/images/models-hardware-v2-640.webp 640w, /images/models-hardware-v2-1146.webp 1146w"
+  },
+  "/brands/alibabacloud.png": {
+    "src": "/brands/alibabacloud.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/anthropic.png": {
+    "src": "/brands/anthropic.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/deepseek.png": {
+    "src": "/brands/deepseek.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/elevenlabs.svg": {
+    "src": "/brands/elevenlabs.svg",
+    "width": 24,
+    "height": 24
+  },
+  "/brands/github.png": {
+    "src": "/brands/github.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/google.png": {
+    "src": "/brands/google.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/hermes.png": {
+    "src": "/brands/hermes-400.webp",
+    "width": 400,
+    "height": 400
+  },
+  "/brands/instagram.svg": {
+    "src": "/brands/instagram.svg",
+    "width": 24,
+    "height": 24
+  },
+  "/brands/meta.png": {
+    "src": "/brands/meta.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/ollama.png": {
+    "src": "/brands/ollama.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/openai.png": {
+    "src": "/brands/openai-640.webp",
+    "width": 3776,
+    "height": 1024
+  },
+  "/brands/openclaw.png": {
+    "src": "/brands/openclaw.png",
+    "width": 400,
+    "height": 400
+  },
+  "/brands/openrouter.png": {
+    "src": "/brands/openrouter.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/render.png": {
+    "src": "/brands/render.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/vercel.png": {
+    "src": "/brands/vercel.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/x.png": {
+    "src": "/brands/x.png",
+    "width": 512,
+    "height": 512
+  },
+  "/brands/youtube.svg": {
+    "src": "/brands/youtube.svg",
+    "width": 24,
+    "height": 24
+  }
+}

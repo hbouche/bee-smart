@@ -1,10 +1,8 @@
-import type { Metadata } from "next";
+import { SiteImage } from "../site-image";
 import { SiteFooter, SiteHeader } from "../site-chrome";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
-  title: "BEE SMART Empresas | Capacidad interna de IA",
-  description: "Capacitación, arquitectura, AI Head y módulos de inteligencia artificial diseñados alrededor de la operación real de cada empresa.",
-};
+export const metadata = pageMetadata("BEE SMART Empresas | Implementación de IA en Panamá", "Capacitación corporativa, arquitectura, formación del responsable interno e implementación de inteligencia artificial alrededor de tu operación.", "/empresas/", "/images/bee-smart-empresas-hero-v1-1536.webp");
 
 const opportunities = [
   ["01", "Compras e importaciones", "Precosto, comparación de proveedores, documentos y aprobaciones."],
@@ -12,7 +10,7 @@ const opportunities = [
   ["03", "Finanzas y contabilidad", "Reportes, presupuestos, conciliación, análisis y trazabilidad."],
   ["04", "Ventas y marketing", "Prospección, propuestas, CRM, campañas y producción de contenido."],
   ["05", "Servicio al cliente", "Clasificación de solicitudes, respuestas, seguimiento y escalamiento."],
-  ["06", "Talento y administración", "Recruiting, onboarding, manuales, agenda y conocimiento interno."],
+  ["06", "Talento y administración", "Selección e incorporación, manuales, agenda y conocimiento interno."],
 ];
 
 const route = [
@@ -70,7 +68,7 @@ export default function EmpresasPage() {
           <div className="enterprise-hero-proof"><span>CAPACITACIÓN</span><span>ARQUITECTURA</span><span>IMPLEMENTACIÓN</span></div>
         </div>
         <div className="enterprise-hero-media">
-          <img src="/images/bee-smart-empresas-hero-v1.png" alt="Equipo empresarial trabajando sobre un proceso operativo" />
+          <SiteImage src="/images/bee-smart-empresas-hero-v1.png" alt="Equipo empresarial trabajando sobre un proceso operativo" loading="eager" fetchPriority="high" />
           <div className="enterprise-hero-shade" />
           <div className="enterprise-hero-card"><span>RESULTADO</span><strong>Autonomía para crear, operar y escalar.</strong></div>
         </div>
@@ -88,9 +86,9 @@ export default function EmpresasPage() {
         <div className="enterprise-route-list">{route.map(([n, title, copy]) => <article key={n}><span>{n}</span><div><h3>{title}</h3><p>{copy}</p></div><b>→</b></article>)}</div>
       </section>
 
-      <section className="section corporate-training">
+      <section className="section corporate-training" id="capacitacion">
         <div className="training-number">101</div>
-        <div className="training-copy"><p className="eyebrow">LA PUERTA DE ENTRADA</p><h2>IA 101 corporativo.</h2><p>Una experiencia ejecutiva y educativa para que todo el equipo vea el mismo universo: modelos, contenido, agentes, coding, costos, privacidad y aplicaciones reales.</p><div className="training-facts"><span>2½ HORAS</span><span>ONLINE O PRESENCIAL</span><span>OPEN MIC INCLUIDO</span></div><a className="text-link" href="/ai-para-todos">Conocer el programa completo <span>↗</span></a></div>
+        <div className="training-copy"><p className="eyebrow">LA PUERTA DE ENTRADA</p><h2>IA 101 corporativo.</h2><p>Una capacitación privada para tu equipo: modelos, contenido, agentes, programación, costos, privacidad y aplicaciones reales. Dura 2½ horas y parte desde USD 500, según alcance. Es distinta de las sesiones abiertas de IA para Todos de 3 horas y $75 por persona.</p><div className="training-facts"><span>2½ HORAS</span><span>ONLINE O PRESENCIAL</span><span>PREGUNTAS Y CONVERSACIÓN</span></div><a className="text-link" href="/contacto/#empresas">Consultar capacitación para mi equipo <span>↗</span></a></div>
         <div className="training-agenda">{["Entender el mapa de IA", "Ver herramientas y casos", "Identificar dolores del equipo", "Definir oportunidades iniciales"].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong></div>)}</div>
       </section>
 
@@ -100,21 +98,21 @@ export default function EmpresasPage() {
       </section>
 
       <section className="enterprise-architecture" id="arquitectura">
-        <div className="architecture-photo"><img src="/images/bee-smart-empresas-architecture-v1.png" alt="Infraestructura tecnológica empresarial administrada por un especialista" /><div /><p><span>ARQUITECTURA AD HOC</span><strong>Cada pieza cumple una función.</strong></p></div>
+        <div className="architecture-photo"><SiteImage src="/images/bee-smart-empresas-architecture-v1.png" alt="Infraestructura tecnológica empresarial administrada por un especialista" /><div /><p><span>ARQUITECTURA AD HOC</span><strong>Cada pieza cumple una función.</strong></p></div>
         <div className="section architecture-content">
           <div className="architecture-intro"><h2>Herramientas, datos y control en una sola arquitectura.</h2><p>La combinación cambia según la tarea, la sensibilidad de la información, el presupuesto y la capacidad del equipo. La elección responde a la necesidad real.</p></div>
-          <div className="architecture-groups">{architectureGroups.map(group => <article key={group.label}><div><span>{group.label}</span><p>{group.copy}</p></div><div className="architecture-brands">{group.brands.map(([src, name]) => <span key={`${group.label}-${name}`}><img src={`/brands/${src}`} alt="" /><b>{name}</b></span>)}</div></article>)}</div>
+          <div className="architecture-groups">{architectureGroups.map(group => <article key={group.label}><div><span>{group.label}</span><p>{group.copy}</p></div><div className="architecture-brands">{group.brands.map(([src, name]) => <span key={`${group.label}-${name}`}><SiteImage src={`/brands/${src}`} alt="" /><b>{name}</b></span>)}</div></article>)}</div>
           <div className="architecture-locations"><span>NUBE</span><i>→</i><span>VPS</span><i>→</i><span>SERVIDOR PRIVADO</span><i>→</i><span>DISPOSITIVO LOCAL</span></div>
         </div>
       </section>
 
       <section className="section enterprise-modules" id="modulos">
         <div className="section-intro"><div><p className="eyebrow">MÓDULOS DE IMPLEMENTACIÓN</p><h2>Una necesidad.<br />Una capacidad nueva.</h2></div><p>Cada módulo se define por el resultado que entrega, los datos que necesita, sus responsables, controles y una métrica de adopción.</p></div>
-        <div className="enterprise-module-grid">{modules.map(([n, title, copy]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p><b>↗</b></article>)}</div>
+        <div className="enterprise-module-grid">{modules.map(([n, title, copy]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
       </section>
 
       <section className="section purchase-case" id="caso-practico">
-        <div className="purchase-case-media"><img src="/images/bee-smart-empresas-precosto-v1.png" alt="Equipo revisando documentos, costos y proveedores en un proceso de compras" /><div /><span>CASO PRÁCTICO · PRECOSTO + COMPRAS</span></div>
+        <div className="purchase-case-media"><SiteImage src="/images/bee-smart-empresas-precosto-v1.png" alt="Equipo revisando documentos, costos y proveedores en un proceso de compras" /><div /><span>CASO PRÁCTICO · PRECOSTO + COMPRAS</span></div>
         <div className="purchase-case-copy"><p className="eyebrow">DEL DOLOR AL MÓDULO</p><h2>Decidir antes,<br />con mejor información.</h2><p>Un primer módulo puede reunir cotizaciones, costos de importación, proveedores y reglas del negocio para comparar escenarios antes de aprobar una compra.</p><div className="case-flow">{["RECIBE", "EXTRAE", "CALCULA", "COMPARA", "APRUEBA"].map((item, i) => <span key={item}><b>0{i + 1}</b>{item}</span>)}</div><div className="case-result"><span>RESULTADO MEDIBLE</span><strong>Menos trabajo manual, decisiones trazables y conocimiento reutilizable.</strong></div></div>
       </section>
 
@@ -130,7 +128,7 @@ export default function EmpresasPage() {
       </section>
 
       <section className="section enterprise-final" id="diagnostico">
-        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Una sesión inicial para entender el contexto, identificar oportunidades y recomendar un primer paso realista de capacitación o implementación.</p><div className="contact-options"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="button button-outline" href="/ai-para-todos">Ver IA para Todos corporativo</a></div>
+        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Cuéntanos el contexto para identificar oportunidades y conversar sobre el alcance de una capacitación o implementación. Enviar la solicitud no confirma una contratación ni requiere pago.</p><div className="contact-options"><a className="button button-primary" href="/contacto#empresas">Solicitar diagnóstico</a><a className="button button-outline" href="#capacitacion">Ver capacitación corporativa</a></div>
       </section>
 
       <SiteFooter />
