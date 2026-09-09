@@ -4,6 +4,7 @@ import { WhatsAppButton } from "./site-chrome";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bee-smart.ai"),
+  verification: { google: "009Ef9qmTCHp2g1xC9dwR4uyoMgZulDKNBTHAzqIONE" },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
   title: "BEE SMART | Inteligencia Artificial para Todos",
   description: "Educación e implementación de inteligencia artificial para personas, profesionales y empresas.",
