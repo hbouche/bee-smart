@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { WhatsAppButton } from "./site-chrome";
+import { GoogleAnalytics } from "./google-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bee-smart.ai"),
@@ -32,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", "@id": "https://bee-smart.ai/#organization", name: "BEE SMART", url: "https://bee-smart.ai/", email: "hb@bee-smart.ai", telephone: "+50764301378", areaServed: "Panamá" }) }} />{children}<WhatsAppButton /></body>
+      <body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", "@id": "https://bee-smart.ai/#organization", name: "BEE SMART", url: "https://bee-smart.ai/", email: "hb@bee-smart.ai", telephone: "+50764301378", areaServed: "Panamá" }) }} />{children}<WhatsAppButton /><GoogleAnalytics /></body>
     </html>
   );
 }

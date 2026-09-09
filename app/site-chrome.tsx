@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import type { ReactNode } from "react";
 import { MobileNavigation } from "./mobile-navigation";
+import { AnalyticsPreferencesButton } from "./google-analytics";
 
 type HeaderProps = {
   active?: "home" | "learn" | "business" | "contact";
@@ -49,7 +50,7 @@ export function SiteFooter() {
         <a href={`mailto:${contact.email}`}>{contact.email}</a>
         <a href={contact.whatsapp} target="_blank" rel="noreferrer">{contact.phoneDisplay}</a>
       </div>
-      <div className="footer-links"><a href="/ai-para-todos">IA para Todos</a><a href="/empresas">Empresas</a><a href="/contacto">Contacto</a><a href="/privacidad">Privacidad</a><span>Panamá · 2026</span></div>
+      <div className="footer-links"><a href="/ai-para-todos">IA para Todos</a><a href="/empresas">Empresas</a><a href="/contacto">Contacto</a><a href="/privacidad">Privacidad</a><AnalyticsPreferencesButton /><span>Panamá · 2026</span></div>
     </footer>
   );
 }

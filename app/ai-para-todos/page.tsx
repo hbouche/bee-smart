@@ -180,7 +180,7 @@ export default function AiParaTodosPage() {
       </section>
 
       <section className="section final-cta learn-final" id="reserva">
-        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Sesiones online y presencial en San Francisco, Ciudad de Panamá. Completa el formulario y adjunta tu comprobante; confirmaremos tu cupo después de validar el pago.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
+        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Sesiones online y presencial en San Francisco, Ciudad de Panamá. Completa el formulario y adjunta tu comprobante; confirmaremos tu cupo después de validar el pago.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer" data-event="registration_click">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
       </section>
 
       <SiteFooter />
