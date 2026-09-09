@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { analyticsPageLocation, analyticsReferrer, contactEvent, isAnalyticsHost } from "../app/analytics-data.ts";
+import { analyticsPageLocation, analyticsReferrer, contactEvent, isAnalyticsHost, metaPixelId } from "../app/analytics-data.ts";
 
 test("analytics keeps campaign attribution and strips personal URL parameters", () => {
   const location = analyticsPageLocation("https://bee-smart.ai/contacto/?email=person@example.com&phone=1234&utm_source=instagram&utm_campaign=ia_septiembre#private-info");
@@ -23,4 +23,8 @@ test("analytics is limited to the public website", () => {
   assert.equal(isAnalyticsHost("bee-smart.ai"), true);
   assert.equal(isAnalyticsHost("www.bee-smart.ai"), true);
   for (const hostname of ["localhost", "terminal.local", "bee-smart-ai.onrender.com", "bee-smart.ai.example.com"]) assert.equal(isAnalyticsHost(hostname), false);
+});
+
+test("Meta Pixel uses the configured BEE SMART dataset", () => {
+  assert.equal(metaPixelId, "1353476229901137");
 });

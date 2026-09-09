@@ -5,7 +5,10 @@ import { GoogleAnalytics } from "./google-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bee-smart.ai"),
-  verification: { google: "009Ef9qmTCHp2g1xC9dwR4uyoMgZulDKNBTHAzqIONE" },
+  verification: {
+    google: "009Ef9qmTCHp2g1xC9dwR4uyoMgZulDKNBTHAzqIONE",
+    other: { "facebook-domain-verification": "i3tcb8vgly118g6jqf1kfx24eaxraz" },
+  },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
   title: "BEE SMART | Inteligencia Artificial para Todos",
   description: "Educación e implementación de inteligencia artificial para personas, profesionales y empresas.",

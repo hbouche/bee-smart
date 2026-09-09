@@ -1,5 +1,6 @@
 export const googleAnalyticsId = "G-XDFE688HHQ";
-export const analyticsPreferenceKey = "bee-smart.analytics.v1";
+export const metaPixelId = "1353476229901137";
+export const analyticsPreferenceKey = "bee-smart.measurement.v2";
 
 export function isAnalyticsHost(hostname: string) {
   return hostname === "bee-smart.ai" || hostname === "www.bee-smart.ai";
