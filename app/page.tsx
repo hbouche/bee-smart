@@ -28,7 +28,7 @@ const clients = [
 export default function Home() {
   return (
     <main>
-      <SiteHeader active="home" />
+      <SiteHeader active="home" ctaHref="/agenda" ctaLabel="Agenda una llamada" />
 
       <section className="hero" id="inicio">
         <div className="hero-copy">

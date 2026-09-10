@@ -145,12 +145,15 @@ export function GoogleAnalytics() {
         ...(courseSession ? { course_session: courseSession } : {}),
       });
       if (choice === "all") {
-        const contactType = name === "registration_click" ? "course_registration" : name === "business_form_click" ? "business_form" : name === "whatsapp_click" ? "whatsapp" : "email";
-        (window as MeasurementWindow).fbq?.("track", "Contact", {
-          contact_type: contactType,
-          cta_location: location,
-          ...(courseSession ? { course_session: courseSession } : {}),
-        });
+        if (name === "booking_click") (window as MeasurementWindow).fbq?.("track", "Schedule", { cta_location: location });
+        else {
+          const contactType = name === "registration_click" ? "course_registration" : name === "business_form_click" ? "business_form" : name === "whatsapp_click" ? "whatsapp" : "email";
+          (window as MeasurementWindow).fbq?.("track", "Contact", {
+            contact_type: contactType,
+            cta_location: location,
+            ...(courseSession ? { course_session: courseSession } : {}),
+          });
+        }
       }
     };
     document.addEventListener("click", trackClick);

@@ -4,12 +4,12 @@ import { contact, SiteFooter, SiteHeader } from "../site-chrome";
 import { businessFormUrl, registrationFormUrl } from "../site-data";
 import { pageMetadata } from "../seo";
 
-export const metadata = pageMetadata("Contacto | BEE SMART Panamá", "Contacta a Humberto Bouche: reserva IA para Todos o cuéntanos qué necesita tu empresa. Google Forms, WhatsApp y correo directo.", "/contacto/", "/images/humberto-bouche-ai-para-todos-1600.webp");
+export const metadata = pageMetadata("Contacto | BEE SMART Panamá", "Agenda una llamada con Humberto Bouche, reserva IA para Todos o cuéntanos qué necesita tu empresa.", "/contacto/", "/images/humberto-bouche-ai-para-todos-1600.webp");
 
 export default function ContactPage() {
   return (
     <main className="contact-page">
-      <SiteHeader active="contact" ctaHref={contact.whatsapp} ctaLabel="WhatsApp" />
+      <SiteHeader active="contact" ctaHref="/agenda" ctaLabel="Agenda una llamada" />
 
       <section className="contact-hero">
         <div>
@@ -18,8 +18,9 @@ export default function ContactPage() {
           <p>Cuéntanos qué quieres aprender, qué proceso necesita mejorar o qué oportunidad estás viendo. Elegimos contigo el mejor primer paso.</p>
         </div>
         <div className="contact-direct-grid">
-          <a href={contact.whatsapp} target="_blank" rel="noreferrer"><span>01</span><strong>Conversar ahora</strong><small>WhatsApp · {contact.phoneDisplay}</small><b>↗</b></a>
-          <a href={`mailto:${contact.email}`}><span>02</span><strong>Escribir por correo</strong><small>{contact.email}</small><b>↗</b></a>
+          <a href="/agenda"><span>01</span><strong>Agendar una llamada</strong><small>30 minutos · Google Meet</small><b>→</b></a>
+          <a href={contact.whatsapp} target="_blank" rel="noreferrer"><span>02</span><strong>Conversar ahora</strong><small>WhatsApp · {contact.phoneDisplay}</small><b>↗</b></a>
+          <a href={`mailto:${contact.email}`}><span>03</span><strong>Escribir por correo</strong><small>{contact.email}</small><b>↗</b></a>
         </div>
       </section>
 
@@ -49,8 +50,8 @@ export default function ContactPage() {
         <div className="contact-form-card business-form" id="empresas">
           <div className="contact-form-intro"><span>02</span><p className="eyebrow light">EMPRESAS</p><h2>Quiero transformar un proceso.</h2><p>Descríbenos el dolor o la oportunidad. La primera conversación sirve para ordenar el problema y recomendar una ruta realista.</p></div>
           <div className="contact-form-redirect">
-            <p>Completa la solicitud empresarial en Google Forms: servicio de interés, nombre, empresa, correo, WhatsApp y el proceso que quieres trabajar.</p>
-            {businessFormUrl ? <a className="button button-primary" href={businessFormUrl} target="_blank" rel="noreferrer" data-event="business_form_click">Abrir formulario empresarial ↗</a> : <p>El formulario empresarial está en preparación. Mientras tanto, <a href={contact.whatsapp} target="_blank" rel="noreferrer">conversemos por WhatsApp</a>.</p>}
+            <p>Si quieres conversar de inmediato, escoge una hora disponible. Si prefieres explicar el contexto primero, completa la solicitud empresarial.</p>
+            <div className="contact-options contact-form-actions"><a className="button button-primary" href="/agenda">Agendar llamada</a>{businessFormUrl ? <a className="button button-outline" href={businessFormUrl} target="_blank" rel="noreferrer" data-event="business_form_click">Enviar formulario ↗</a> : null}</div>
             <p>No requiere pago ni adjuntar documentos. Usaremos los datos para responder a tu solicitud. <a href="/privacidad/">Ver privacidad</a>.</p>
           </div>
         </div>
@@ -75,7 +76,7 @@ export default function ContactPage() {
       </section>
 
       <section className="section contact-close">
-        <p className="eyebrow light">SIN FORMULARIOS, SIN VUELTAS</p><h2>¿Prefieres hablar ahora?</h2><p>Escríbele directamente a Humberto y cuéntale en una línea qué quieres resolver.</p><a className="button button-primary" href={contact.whatsapp} target="_blank" rel="noreferrer">Abrir WhatsApp</a>
+        <p className="eyebrow light">ELIGE TU MOMENTO</p><h2>¿Prefieres hablar?</h2><p>Reserva una llamada de 30 minutos o escríbele directamente a Humberto y cuéntale en una línea qué quieres resolver.</p><div className="contact-options"><a className="button button-primary" href="/agenda">Agendar llamada</a><a className="button button-outline" href={contact.whatsapp} target="_blank" rel="noreferrer">Abrir WhatsApp</a></div>
       </section>
       <SiteFooter />
     </main>

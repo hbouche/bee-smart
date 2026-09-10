@@ -14,6 +14,9 @@ test("contact events are explicit clicks and do not expose destinations or form 
   assert.equal(contactEvent("mailto:hb@bee-smart.ai?body=private", undefined), "email_click");
   assert.equal(contactEvent("https://docs.google.com/forms/d/e/example/viewform", "registration_click"), "registration_click");
   assert.equal(contactEvent("https://docs.google.com/forms/d/e/example/viewform", "business_form_click"), "business_form_click");
+  assert.equal(contactEvent("https://bee-smart.ai/agenda/", undefined), "booking_click");
+  assert.equal(contactEvent("https://www.bee-smart.ai/agenda", undefined), "booking_click");
+  assert.equal(contactEvent("https://calendar.app.google/example", "booking_click"), "booking_click");
   assert.equal(contactEvent("https://elsewhere.example/", "registration_click"), null);
   assert.equal(contactEvent("https://wa.me/another-number", undefined), null);
   assert.equal(contactEvent("https://docs.google.com/forms/d/e/example/viewform", "purchase"), null);

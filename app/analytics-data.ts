@@ -27,6 +27,8 @@ export function contactEvent(href: string, hook: string | undefined) {
   if (url.hostname === "docs.google.com" && url.pathname.startsWith("/forms/")) {
     if (hook === "registration_click" || hook === "business_form_click") return hook;
   }
+  if ((url.hostname === "bee-smart.ai" || url.hostname === "www.bee-smart.ai") && url.pathname.replace(/\/$/, "") === "/agenda") return "booking_click";
+  if (url.hostname === "calendar.app.google" && hook === "booking_click") return "booking_click";
   if (url.hostname === "wa.me" && url.pathname === "/50764301378") return "whatsapp_click";
   if (url.protocol === "mailto:" && url.pathname.toLowerCase() === "hb@bee-smart.ai") return "email_click";
   return null;

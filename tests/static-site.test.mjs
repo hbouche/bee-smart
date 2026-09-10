@@ -3,7 +3,7 @@ import test from "node:test";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 const out = new URL("../out/", import.meta.url).pathname;
-const routes = ["", "ai-para-todos", "empresas", "contacto", "privacidad"];
+const routes = ["", "ai-para-todos", "empresas", "agenda", "contacto", "privacidad"];
 const read = route => readFileSync(join(out, route, "index.html"), "utf8");
 const markup = html => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
 for (const route of routes) {
@@ -41,6 +41,13 @@ test("captación personal y empresarial con Google Forms", () => {
   assert.match(html, /data-event="business_form_click"/);
   assert.match(html, /docs.google.com\/forms/);
 });
+test("agenda empresarial integrada y con alternativa pública", () => {
+  const html = markup(read("agenda"));
+  assert.match(html, /llamada de diagnóstico BEE SMART/i);
+  assert.match(html, /calendar\.google\.com\/calendar\/appointments\/schedules/);
+  assert.match(html, /calendar\.app\.google\/tuj9wB9Ka2h1kbLE9/);
+  assert.match(html, /data-event="booking_click"/);
+});
 test("indexación y artefactos de producción", () => {
   const robots = readFileSync(join(out, "robots.txt"), "utf8");
   const sitemap = readFileSync(join(out, "sitemap.xml"), "utf8");
@@ -50,4 +57,3 @@ test("indexación y artefactos de producción", () => {
   assert.match(read("contacto/gracias"), /noindex/);
   assert.equal(existsSync(join(out, "__qa-mobile.html")), false);
 });
-

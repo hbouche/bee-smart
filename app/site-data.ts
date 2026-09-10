@@ -4,6 +4,10 @@ export const registrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdc
 
 export const businessFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdSyG_Qu6xG0i9Ku15CBVlPXNr534N1RL1J-uf-AJqPBXD5SA/viewform?usp=publish-editor";
 
+export const bookingUrl = "https://calendar.app.google/tuj9wB9Ka2h1kbLE9";
+
+export const bookingEmbedUrl = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1cGh_8xhvSbPLGDccGc5cyUL1kiMB22H7pNIdavBf1aTdfLD8SeMYgM49HzyC6m6D1Bqkktyhv?gv=true";
+
 // One calendar for the homepage and the course landing page. All times are Panama time.
 export const sessions = [
   { id: "2026-09-10-online", day: "10", month: "SEP", dateLabel: "10 de septiembre de 2026", modality: "Online", time: "7:30–10:30 p. m.", place: "En vivo por videollamada", startsAt: "2026-09-10T19:30:00-05:00", endsAt: "2026-09-10T22:30:00-05:00" },
