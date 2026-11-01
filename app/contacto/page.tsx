@@ -1,83 +1,154 @@
-import { SiteImage } from "../site-image";
-/* eslint-disable @next/next/no-img-element */
-import { contact, SiteFooter, SiteHeader } from "../site-chrome";
+import type { Metadata } from "next";
+import { SiteHeader, SiteFooter } from "../site-chrome";
 import { businessFormUrl, registrationFormUrl } from "../site-data";
-import { pageMetadata } from "../seo";
 
-export const metadata = pageMetadata("Contacto | BEE SMART Panamá", "Agenda una llamada con Humberto Bouche, reserva IA para Todos o cuéntanos qué necesita tu empresa.", "/contacto/", "/images/humberto-bouche-ai-para-todos-1600.webp");
+export const metadata: Metadata = {
+  title: "Contacto | BEE SMART Panamá",
+  description: "Canales directos de contacto con Humberto Bouché. WhatsApp corporativo, correo y formularios oficiales de requerimiento.",
+  alternates: { canonical: "https://bee-smart.ai/contacto/" },
+};
 
-export default function ContactPage() {
+export default function ContactoPage() {
   return (
-    <main className="contact-page">
-      <SiteHeader active="contact" ctaHref="/agenda" ctaLabel="Agenda una llamada" />
+    <main className="content-wrapper">
+      <SiteHeader active="contact" ctaHref="/agenda/" ctaLabel="Agendar 30 min" />
 
+      {/* Contact Hero */}
       <section className="contact-hero">
+        <div className="eyebrow">CANALES DE ATENCIÓN DIRECTA</div>
+        <h1 className="contact-title">
+          Hablemos de tus proyectos con inteligencia artificial.
+        </h1>
+        <p className="contact-desc">
+          Elige el canal que mejor se adapte a tu necesidad: videollamada de 30 minutos, mensaje por WhatsApp o envío de requerimiento empresarial por formulario oficial.
+        </p>
+      </section>
+
+      {/* 3 Direct Channels */}
+      <section className="channels-grid" aria-label="Canales directos">
+        <a href="/agenda/" className="channel-card">
+          <div>
+            <span className="channel-tag">AGENDA 30 MIN</span>
+            <h2 className="channel-title">Google Meet</h2>
+            <p className="channel-desc">
+              Sesión uno a uno de diagnóstico con Humberto Bouché. Ideal para proyectos corporativos y comités ejecutivos.
+            </p>
+          </div>
+          <span className="channel-action">Reservar espacio en calendario →</span>
+        </a>
+
+        <a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer" className="channel-card">
+          <div>
+            <span className="channel-tag" style={{ color: "#10B981", background: "rgba(16,185,129,0.12)" }}>
+              CANAL DIRECTO
+            </span>
+            <h2 className="channel-title">WhatsApp Corporativo</h2>
+            <p className="channel-desc">
+              Consultas directas sobre fechas de cursos, modalidades in-company o presupuestos de referencia.
+            </p>
+          </div>
+          <span className="channel-action">+507 6430-1378 ↗</span>
+        </a>
+
+        <a href="mailto:hb@bee-smart.ai" className="channel-card">
+          <div>
+            <span className="channel-tag" style={{ color: "var(--gold-champagne)", background: "rgba(245,208,97,0.12)" }}>
+              CORREO DIRECTO
+            </span>
+            <h2 className="channel-title">hb@bee-smart.ai</h2>
+            <p className="channel-desc">
+              Para compartir pliegos técnicos, acuerdos de confidencialidad o invitaciones a propuestas formales.
+            </p>
+          </div>
+          <span className="channel-action">Enviar correo electrónico ↗</span>
+        </a>
+      </section>
+
+      {/* Profile Section */}
+      <section className="profile-card" aria-label="Perfil del director">
+        <div className="profile-avatar">
+          <span style={{ fontSize: "54px", fontWeight: 900, color: "var(--gold-champagne)" }}>HB</span>
+          <span style={{ fontSize: "10px", fontWeight: 800, color: "var(--cyan-bright)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            PANAMÁ
+          </span>
+        </div>
         <div>
-          <p className="eyebrow">HABLEMOS</p>
-          <h1>La próxima conversación<br /><em>puede cambiar tu forma de trabajar.</em></h1>
-          <p>Cuéntanos qué quieres aprender, qué proceso necesita mejorar o qué oportunidad estás viendo. Elegimos contigo el mejor primer paso.</p>
-        </div>
-        <div className="contact-direct-grid">
-          <a href="/agenda"><span>01</span><strong>Agendar una llamada</strong><small>30 minutos · Google Meet</small><b>→</b></a>
-          <a href={contact.whatsapp} target="_blank" rel="noreferrer"><span>02</span><strong>Conversar ahora</strong><small>WhatsApp · {contact.phoneDisplay}</small><b>↗</b></a>
-          <a href={`mailto:${contact.email}`}><span>03</span><strong>Escribir por correo</strong><small>{contact.email}</small><b>↗</b></a>
-        </div>
-      </section>
-
-      <section className="section contact-profile">
-        <div className="contact-profile-media">
-          <SiteImage src="/images/humberto-bouche-ai-para-todos.png" alt="Humberto Bouche presentando IA para Todos ante un equipo empresarial" />
-        </div>
-        <div className="contact-profile-copy">
-          <p className="eyebrow">DETRÁS DE BEE SMART</p>
-          <h2>Humberto Bouche</h2>
-          <strong>Especialista en inteligencia artificial</strong>
-          <p>Combina experiencia ejecutiva, emprendimiento y construcción de soluciones con inteligencia artificial para ayudar a personas y empresas a convertir la tecnología en capacidad útil, medible y propia.</p>
-          <div className="profile-links"><a href={contact.whatsapp} target="_blank" rel="noreferrer">WhatsApp <span>↗</span></a><a href={`mailto:${contact.email}`}>{contact.email} <span>↗</span></a></div>
-        </div>
-      </section>
-
-      <section className="section contact-forms">
-        <div className="contact-form-card" id="ai-para-todos">
-          <div className="contact-form-intro"><span>01</span><p className="eyebrow">IA PARA TODOS</p><h2>Quiero aprender IA.</h2><p>Para personas, profesionales, grupos privados y equipos que quieren comenzar con una base clara.</p></div>
-          <div className="contact-form-redirect">
-            <p>Para reservar una sesión abierta, completa el formulario de IA para Todos. Allí seleccionas tu fecha y adjuntas el comprobante. La reserva se confirma después de validar el pago.</p>
-            <a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer" data-event="registration_click">Abrir formulario de reserva ↗</a>
-            <p><a href="/ai-para-todos/#fechas">Ver fechas, horario y programa</a>. ¿Solo tienes una pregunta? <a href={contact.whatsapp} target="_blank" rel="noreferrer">Conversemos por WhatsApp</a>.</p>
-          </div>
-        </div>
-
-        <div className="contact-form-card business-form" id="empresas">
-          <div className="contact-form-intro"><span>02</span><p className="eyebrow light">EMPRESAS</p><h2>Quiero transformar un proceso.</h2><p>Descríbenos el dolor o la oportunidad. La primera conversación sirve para ordenar el problema y recomendar una ruta realista.</p></div>
-          <div className="contact-form-redirect">
-            <p>Si quieres conversar de inmediato, escoge una hora disponible. Si prefieres explicar el contexto primero, completa la solicitud empresarial.</p>
-            <div className="contact-options contact-form-actions"><a className="button button-primary" href="/agenda">Agendar llamada</a>{businessFormUrl ? <a className="button button-outline" href={businessFormUrl} target="_blank" rel="noreferrer" data-event="business_form_click">Enviar formulario ↗</a> : null}</div>
-            <p>No requiere pago ni adjuntar documentos. Usaremos los datos para responder a tu solicitud. <a href="/privacidad/">Ver privacidad</a>.</p>
+          <div className="eyebrow eyebrow-cyan" style={{ marginBottom: "8px" }}>DIRECCIÓN EJECUTIVA</div>
+          <h2 style={{ fontSize: "28px", fontWeight: 900, color: "var(--text-pure)", marginBottom: "4px" }}>
+            Humberto Bouché
+          </h2>
+          <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--cyan-bright)", textTransform: "uppercase", letterSpacing: "0.08em", display: "block", marginBottom: "14px" }}>
+            Estrategia e Implementación de Inteligencia Artificial
+          </span>
+          <p style={{ fontSize: "14.5px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "18px" }}>
+            Ingeniero y consultor enfocado en transformar procesos empresariales en flujos ágiles y supervisados. Todas las solicitudes son evaluadas personalmente antes de agendar.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            <a href="/agenda/" className="btn btn-gold" style={{ fontSize: "13px", padding: "8px 16px" }}>
+              Agendar 30 min
+            </a>
+            <a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer" className="btn btn-glass" style={{ fontSize: "13px", padding: "8px 16px" }}>
+              Escribir a WhatsApp
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="section contact-work" aria-labelledby="contact-work-title">
-        <div className="contact-work-copy">
-          <p className="eyebrow">NUESTRO ENFOQUE DE TRABAJO</p>
-          <h2 id="contact-work-title">La capacidad interna se construye trabajando juntos.</h2>
-          <p>Diseñamos la arquitectura, acompañamos la implementación y ayudamos al equipo a convertir la inteligencia artificial en una herramienta cotidiana.</p>
+      {/* Dual Forms Section (Official Links, No Simulation) */}
+      <section aria-label="Formularios oficiales de contacto">
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 36px" }}>
+          <div className="eyebrow">ENVÍO POR FORMULARIO OFICIAL</div>
+          <h2 className="section-title">Escríbenos según tu requerimiento</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            Canal formal para compartir los requerimientos de tu equipo a través de nuestros formularios oficiales en Google Forms.
+          </p>
         </div>
-        <div className="contact-work-gallery">
-          <figure className="contact-work-main">
-            <SiteImage src="/images/ingredienta-session.webp" alt="Sesión de trabajo de BEE SMART con el equipo de Ingredienta" />
-            <figcaption>Arquitectura e implementación · recreación visual</figcaption>
-          </figure>
-          <figure className="contact-work-secondary">
-            <SiteImage src="/images/capacidad-interna-session.webp" alt="Sesión de capacitación sobre capacidad interna con inteligencia artificial" />
-            <figcaption>Capacitación de equipos · recreación visual</figcaption>
-          </figure>
+
+        <div className="forms-grid">
+          {/* Form Card 1: Empresas */}
+          <div className="form-card highlight">
+            <div className="eyebrow" style={{ marginBottom: "10px" }}>BEE SMART EMPRESAS</div>
+            <h3 style={{ fontSize: "22px", fontWeight: 800, color: "var(--text-pure)", marginBottom: "8px" }}>
+              Requerimiento Corporativo
+            </h3>
+            <p style={{ fontSize: "13.5px", color: "var(--text-muted)", marginBottom: "24px" }}>
+              Para proyectos de automatización, diagnóstico operativo o talleres privados in-company adaptados a tu sector.
+            </p>
+            <a
+              href={businessFormUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-event="business_form_click"
+              className="btn btn-gold btn-block"
+              style={{ fontSize: "14px", padding: "14px 20px" }}
+            >
+              Abrir formulario corporativo en Google Forms (docs.google.com/forms) ↗
+            </a>
+          </div>
+
+          {/* Form Card 2: IA para Todos */}
+          <div className="form-card">
+            <div className="eyebrow eyebrow-cyan" style={{ marginBottom: "10px" }}>CURSO FORMATIVO</div>
+            <h3 style={{ fontSize: "22px", fontWeight: 800, color: "var(--text-pure)", marginBottom: "8px" }}>
+              Inscripción en IA para Todos
+            </h3>
+            <p style={{ fontSize: "13.5px", color: "var(--text-muted)", marginBottom: "24px" }}>
+              Para unirte a la lista de espera de las próximas cohortes presenciales u online con Humberto Bouché.
+            </p>
+            <a
+              href={registrationFormUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-event="registration_click"
+              className="btn btn-glass btn-block"
+              style={{ fontSize: "14px", padding: "14px 20px" }}
+            >
+              Abrir formulario de inscripción en Google Forms ↗
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="section contact-close">
-        <p className="eyebrow light">ELIGE TU MOMENTO</p><h2>¿Prefieres hablar?</h2><p>Reserva una llamada de 30 minutos o escríbele directamente a Humberto y cuéntale en una línea qué quieres resolver.</p><div className="contact-options"><a className="button button-primary" href="/agenda">Agendar llamada</a><a className="button button-outline" href={contact.whatsapp} target="_blank" rel="noreferrer">Abrir WhatsApp</a></div>
-      </section>
       <SiteFooter />
     </main>
   );

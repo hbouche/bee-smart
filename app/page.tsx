@@ -1,205 +1,181 @@
-import { SiteImage } from "./site-image";
-import { SiteFooter, SiteHeader } from "./site-chrome";
-import { SessionSchedule } from "./session-schedule";
-import { pageMetadata } from "./seo";
+import type { Metadata } from "next";
+import { SiteHeader, SiteFooter } from "./site-chrome";
+import { HeroVideoPlayer } from "./hero-video-player";
 
-export const metadata = pageMetadata("BEE SMART | Capacitación e implementación de IA en Panamá", "Aprende a usar inteligencia artificial o desarrolla capacidad interna en tu empresa. Capacitación online y presencial e implementación a medida en Panamá.", "/");
+export const metadata: Metadata = {
+  title: "BEE SMART | Inteligencia Artificial para Todos",
+  description: "Educación e implementación de inteligencia artificial para personas, profesionales y empresas en Panamá.",
+  alternates: { canonical: "https://bee-smart.ai/" },
+};
 
-const capabilities = [
-  ["Aprender y organizar", "Investigar, resumir, planificar y convertir información en decisiones."],
-  ["Crear contenido", "Pasar de una idea a texto, imagen, voz, video y publicación."],
-  ["Automatizar trabajo", "Conectar herramientas y ejecutar procesos con reglas y control."],
-  ["Construir soluciones", "Crear dashboards, aplicaciones, agentes y micro-SaaS."],
-];
-
-const clients = [
-  { name: "Ingredienta", sector: "Alimentos · Operaciones", image: "/images/client-ingredienta.png", className: "client-ingredienta client-tone-coral" },
-  { name: "Casa Mahana", sector: "Hospitalidad", image: "/images/client-casa-mahana.webp", className: "client-casa-mahana client-tone-gold" },
-  { name: "Surf Shack", sector: "Hospitalidad · Turismo", image: "/images/client-surf-shack.webp", className: "client-surf-shack client-tone-teal" },
-  { name: "Soluciones Express", sector: "Servicios empresariales", image: "/images/client-soluciones-express.png", className: "client-soluciones client-tone-blue" },
-  { name: "Mahana Tours", sector: "Turismo", image: "/images/client-mahana-tours.png", className: "client-mahana-tours client-tone-navy" },
-  { name: "Academia Nacional de Surf", sector: "Educación deportiva", className: "client-ans client-tone-ink" },
-  { name: "Clínica de la Piel López", sector: "Salud · Bienestar", image: "/images/client-clinica-piel-lopez.png", className: "client-clinica client-tone-coral" },
-  { name: "Frutas Hoy Panamá", sector: "Alimentos · Distribución", image: "/images/client-frutas-hoy-panama.png", className: "client-frutas client-tone-lime" },
-  { name: "Abonos Industriales del Istmo", sector: "Agroindustria", image: "/images/client-abonos-industriales-istmo.png", className: "client-abonos client-tone-forest" },
-  { name: "Grupo Martínez · Acuacultura Chame", sector: "Acuacultura", image: "/images/client-grupo-martinez-acuacultura-chame.png", className: "client-martinez client-tone-aqua" },
-];
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <main>
-      <SiteHeader active="home" ctaHref="/agenda" ctaLabel="Agenda una llamada" />
+    <main className="content-wrapper">
+      <SiteHeader active="home" ctaHref="/agenda/" ctaLabel="Agendar 30 min" />
 
-      <section className="hero" id="inicio">
-        <div className="hero-copy">
-          <p className="eyebrow">INTELIGENCIA ARTIFICIAL · EDUCACIÓN + IMPLEMENTACIÓN</p>
-          <h1>La revolución de la inteligencia artificial es <em>para todos.</em></h1>
-          <p className="hero-lead">Aprende a usarla en tu vida y profesión, o conviértela en una capacidad real dentro de tu empresa.</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="/ai-para-todos#fechas">Ver próximas fechas</a>
-            <a className="button button-quiet" href="/empresas">Soy empresa <span>↗</span></a>
+      {/* Home Hero */}
+      <section className="home-hero">
+        <div className="hero-left">
+          <div className="eyebrow">CAPACITACIÓN & IMPLEMENTACIÓN EN PANAMÁ</div>
+          <h1 className="hero-title">
+            Inteligencia artificial aplicada, <em>con criterio humano.</em>
+          </h1>
+          <p className="hero-desc">
+            Aprende a dirigir modelos y agentes o construye capacidad técnica interna en tu empresa. Formación ejecutiva e implementación a la medida de tu operación.
+          </p>
+          <div className="hero-buttons">
+            <a href="/empresas/" className="btn btn-gold">
+              Explorar Empresas →
+            </a>
+            <a href="/ai-para-todos/" className="btn btn-glass">
+              Curso IA para Todos ↗
+            </a>
           </div>
         </div>
 
-        <div className="hero-system" aria-label="Mapa visual de capacidades de inteligencia artificial">
-          <div className="system-title"><span>UN UNIVERSO DE CAPACIDADES</span><strong>Una sola puerta de entrada.</strong></div>
-          <div className="capability-grid">
-            <article className="capability large models-card">
-              <SiteImage className="models-bg" src="/images/models-hardware-v2.png" alt="" />
-              <div className="models-shade" aria-hidden="true" />
-              <div className="models-heading"><span>01</span><strong>Modelos</strong></div>
-              <div className="model-logo-cloud" aria-label="Principales familias y laboratorios de modelos de inteligencia artificial">
-                <span className="model-brand brand-openai"><SiteImage src="/brands/openai.png" alt="OpenAI" /></span>
-                <span className="model-brand"><SiteImage src="/brands/google.png" alt="Google Gemini" /><b>GEMINI</b></span>
-                <span className="model-brand"><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude" /><b>CLAUDE</b></span>
-                <span className="model-brand"><SiteImage src="/brands/meta.png" alt="Meta Llama" /><b>LLAMA</b></span>
-                <span className="model-brand"><SiteImage src="/brands/deepseek.png" alt="DeepSeek" /><b>DEEPSEEK</b></span>
-                <span className="model-brand"><SiteImage src="/brands/alibabacloud.png" alt="Alibaba Cloud Qwen" /><b>QWEN</b></span>
-                <span className="model-brand"><SiteImage src="/brands/x.png" alt="xAI Grok" /><b>GROK</b></span>
-              </div>
-              <small className="models-caption">Lenguaje · razonamiento · multimodalidad</small>
-            </article>
-            <article className="capability photo-capability micro-card content-card">
-              <SiteImage className="capability-photo" src="/images/home-content-v1.png" alt="" />
-              <div className="capability-shade" aria-hidden="true" />
-              <div className="capability-heading"><span>02</span><strong>Contenido</strong></div>
-              <div className="compact-brand-grid content-brands" aria-label="Ejemplos de herramientas para crear y distribuir contenido">
-                <span><SiteImage src="/brands/openai.png" alt="OpenAI" /><b>CHATGPT</b></span>
-                <span><SiteImage src="/brands/google.png" alt="Google" /><b>FLOW · VEO</b></span>
-                <span><SiteImage src="/brands/elevenlabs.svg" alt="ElevenLabs" /><b>ELEVENLABS</b></span>
-                <span className="word-chip"><b>HIGGSFIELD</b></span>
-                <span className="word-chip"><b>HEYGEN</b></span>
-                <span><SiteImage src="/brands/youtube.svg" alt="YouTube" /><b>YOUTUBE</b></span>
-              </div>
-              <small className="capability-caption">Texto · imagen · voz · video</small>
-            </article>
-            <article className="capability photo-capability micro-card agents-card">
-              <SiteImage className="capability-photo" src="/images/home-agents-v1.png" alt="" />
-              <div className="capability-shade" aria-hidden="true" />
-              <div className="capability-heading"><span>03</span><strong>Agentes</strong></div>
-              <div className="compact-brand-grid agent-brands" aria-label="Ejemplos de plataformas y agentes de inteligencia artificial">
-                <span><SiteImage src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span>
-                <span><SiteImage src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span>
-                <span><SiteImage src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span>
-                <span><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span>
-                <span><SiteImage src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span>
-              </div>
-              <small className="capability-caption">Herramientas · acciones · autonomía</small>
-            </article>
-            <article className="capability photo-capability chart-card result-card" aria-hidden="true">
-              <SiteImage className="capability-photo" src="/images/ai-todos-demostracion-v1.png" alt="" />
-              <div className="capability-shade" />
-              <div className="build-chain"><span>IDEA</span><i>→</i><span>APP</span></div>
-              <small>DE LA INTENCIÓN AL RESULTADO</small>
-            </article>
-            <article className="capability photo-capability micro-card coding-card">
-              <SiteImage className="capability-photo" src="/images/home-coding-v1.png" alt="" />
-              <div className="capability-shade" aria-hidden="true" />
-              <div className="capability-heading"><span>04</span><strong>Programación</strong></div>
-              <div className="compact-brand-grid coding-brands" aria-label="Ejemplos de herramientas para construir software con inteligencia artificial">
-                <span><SiteImage src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span>
-                <span><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE CODE</b></span>
-                <span><SiteImage src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span>
-                <span><SiteImage src="/brands/github.png" alt="GitHub" /><b>GITHUB</b></span>
-              </div>
-              <small className="capability-caption">Apps · dashboards · SaaS</small>
-            </article>
-            <article className="capability wide photo-capability implementation-card">
-              <SiteImage className="capability-photo" src="/images/home-implementation-v1.png" alt="" />
-              <div className="capability-shade implementation-shade" aria-hidden="true" />
-              <div className="implementation-copy"><span>05</span><strong>Implementación</strong><small>Datos → proceso → herramienta → resultado</small></div>
-              <div className="implementation-stack" aria-label="Ejemplos de herramientas de infraestructura e implementación">
-                <span><SiteImage src="/brands/ollama.png" alt="Ollama" /><b>OLLAMA</b></span>
-                <span><SiteImage src="/brands/openrouter.png" alt="OpenRouter" /><b>OPENROUTER</b></span>
-                <span><SiteImage src="/brands/github.png" alt="GitHub" /><b>GITHUB</b></span>
-                <span><SiteImage src="/brands/vercel.png" alt="Vercel" /><b>VERCEL</b></span>
-                <span><SiteImage src="/brands/render.png" alt="Render" /><b>RENDER</b></span>
-              </div>
-            </article>
+        <div className="hero-right">
+          <HeroVideoPlayer />
+        </div>
+      </section>
+
+      {/* Clients Bar */}
+      <section className="clients-section" aria-label="Empresas asesoradas">
+        <div className="clients-label">EMPRESAS Y PROYECTOS QUE HAN CONFIADO EN NUESTRA VISIÓN</div>
+        <div className="clients-grid">
+          <div className="client-badge">
+            INGREDIENTA
+            <small>Alimentos & Operaciones</small>
+          </div>
+          <div className="client-badge">
+            CASA MAHANA
+            <small>Hospitalidad</small>
+          </div>
+          <div className="client-badge">
+            SURF SHACK
+            <small>Turismo & Retail</small>
+          </div>
+          <div className="client-badge">
+            SOLUCIONES EXPRESS
+            <small>Servicios Corporativos</small>
+          </div>
+          <div className="client-badge">
+            MAHANA TOURS
+            <small>Turismo Receptivo</small>
           </div>
         </div>
       </section>
 
-      <section className="upcoming-sessions" aria-labelledby="upcoming-sessions-title">
-        <div className="upcoming-sessions-copy"><p className="eyebrow">PRÓXIMAS SESIONES · 2026</p><h2 id="upcoming-sessions-title">IA para Todos</h2><p>Horarios de Panamá · UTC−5</p></div>
-        <SessionSchedule compact />
-        <a className="button button-primary" href="/ai-para-todos#fechas">Ver fechas y reservar</a>
-      </section>
-
-      <section className="client-marquee" aria-labelledby="client-marquee-title">
-        <div className="client-marquee-heading">
-          <p className="eyebrow">EXPERIENCIA APLICADA</p>
-          <h2 id="client-marquee-title">Empresas que están construyendo capacidad interna con BEE SMART.</h2>
-          <label className="marquee-control"><input type="checkbox" /> Pausar movimiento</label>
-          <p className="client-marquee-note">Empresas y proyectos con los que trabajamos en adopción de IA. Cada implementación tiene su propio alcance.</p>
+      {/* 4 Capabilities */}
+      <section className="pillars-section" aria-label="Capacidades centrales">
+        <div className="pillars-header">
+          <div className="eyebrow eyebrow-cyan">CAPACIDADES CENTRALES</div>
+          <h2 className="section-title">Lo que desbloqueamos en tu equipo</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            Cuatro frentes de trabajo complementarios para transformar conocimiento disperso en ejecución sistemática.
+          </p>
         </div>
-        <div className="client-marquee-window">
-          <div className="client-marquee-track">
-            {[0, 1].map((group) => (
-              <div className="client-marquee-group" aria-hidden={group === 1} key={group}>
-                {clients.map((client, index) => (
-                  <div className={`client-logo-card ${client.className}`} key={`${group}-${client.name}`}>
-                    <div className="client-card-top"><span>{String(index + 1).padStart(2, "0")}</span><strong>ADOPCIÓN DE IA</strong></div>
-                    <div className="client-logo-wrap">
-                      {client.image ? (
-                        <SiteImage src={client.image} alt={group === 0 ? client.name : ""} />
-                      ) : (
-                        <span className="ans-wordmark"><strong>ANS</strong><small>Academia Nacional de Surf</small></span>
-                      )}
-                    </div>
-                    <div className="client-card-meta"><span>{client.sector}</span></div>
-                  </div>
-                ))}
-              </div>
-            ))}
+
+        <div className="pillars-grid">
+          <div className="pillar-card">
+            <div className="pillar-num">01 / ESTRATEGIA</div>
+            <h3 className="pillar-heading">Aprender y organizar</h3>
+            <p className="pillar-desc">
+              Investigar, resumir fuentes complejas, planificar proyectos y convertir flujos de datos en decisiones ejecutivas precisas.
+            </p>
+          </div>
+
+          <div className="pillar-card">
+            <div className="pillar-num">02 / PRODUCCIÓN</div>
+            <h3 className="pillar-heading">Crear contenido</h3>
+            <p className="pillar-desc">
+              Pasar de una idea a texto, imagen, voz, video y publicación multicanal manteniendo identidad de marca y tono editorial.
+            </p>
+          </div>
+
+          <div className="pillar-card">
+            <div className="pillar-num">03 / CONTROL</div>
+            <h3 className="pillar-heading">Automatizar trabajo</h3>
+            <p className="pillar-desc">
+              Conectar herramientas existentes (ERP, CRM, correo, hojas) y ejecutar procesos repetitivos con reglas y validación humana.
+            </p>
+          </div>
+
+          <div className="pillar-card">
+            <div className="pillar-num">04 / INGENIERÍA</div>
+            <h3 className="pillar-heading">Construir soluciones</h3>
+            <p className="pillar-desc">
+              Desarrollar paneles de control a medida, micro-aplicaciones internas, flujos de agentes y productos asistidos por IA.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="proof-strip"><p>UNA NUEVA FORMA DE APRENDER Y TRABAJAR.</p><strong>Desarrolla capacidades que ya puedes utilizar.</strong><span>↓</span></section>
+      {/* 2 Main Tracks */}
+      <section className="routes-section" aria-label="Rutas formativas y de implementación">
+        <div className="routes-grid">
+          {/* Track 1: Empresas */}
+          <div className="route-card highlight">
+            <div>
+              <div className="eyebrow">PARA EMPRESAS & EQUIPOS</div>
+              <h2 className="route-title">BEE SMART Empresas</h2>
+              <p className="route-desc">
+                Transformamos la operación de tu negocio mediante arquitectura ad hoc, compuertas de supervisión y formación del responsable interno.
+              </p>
+              <ul className="route-feature-list">
+                <li>Diagnóstico operativo y levantamiento de flujos</li>
+                <li>Orquestador Modular con supervisión humana</li>
+                <li>Integración a sistemas de gestión existentes</li>
+                <li>Acompañamiento directivo continuo</li>
+              </ul>
+            </div>
+            <a href="/empresas/" className="btn btn-gold">
+              Conoce la propuesta para empresas →
+            </a>
+          </div>
 
-      <section className="section paths visual-paths" id="rutas">
-        <div className="section-intro">
-          <p className="eyebrow">DOS FORMAS DE COMENZAR</p>
-          <h2>Elige tu puerta<br />de entrada.</h2>
-          <p>El aprendizaje comienza con una pregunta sencilla: ¿quieres transformar tu forma de trabajar o la capacidad de toda una organización?</p>
-        </div>
-
-        <div className="path-grid">
-          <a className="path-card visual-path-card path-1" href="/ai-para-todos">
-            <div className="path-art photo-path-art learn-photo-art" aria-hidden="true"><SiteImage src="/images/home-learning-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">PERSONA / APRENDIZAJE</span><strong className="path-photo-note">APRENDE · USA · CONSTRUYE</strong></div>
-            <div className="path-content"><p className="eyebrow">PERSONAS Y PROFESIONALES</p><h3>IA para Todos</h3><p>Entiende la revolución. Aprende a usarla. Empieza a construir.</p><span className="card-action">Ver fechas y programa <b>→</b></span></div>
-          </a>
-          <a className="path-card visual-path-card path-2" href="/empresas">
-            <div className="path-art photo-path-art company-photo-art" aria-hidden="true"><SiteImage src="/images/home-business-path-v1.png" alt="" /><div className="path-photo-shade" /><span className="visual-label">EMPRESA / CAPACIDAD</span><strong className="path-photo-note">CAPACITA · INTEGRA · ESCALA</strong></div>
-            <div className="path-content"><p className="eyebrrow">EMPRESAS Y EQUIPOS</p><h3>BEE SMART Empresas</h3><p>Capacitación, arquitectura, agentes y herramientas alrededor de tu negocio.</p><span className="card-action">Explorar soluciones <b>→</b></span></div>
-          </a>
+          {/* Track 2: IA para Todos */}
+          <div className="route-card">
+            <div>
+              <div className="eyebrow eyebrow-cyan">CURSO FORMATIVO INTENSIVO</div>
+              <h2 className="route-title">IA para Todos</h2>
+              <p className="route-desc">
+                Aprende a dirigir herramientas y modelos de inteligencia artificial desde cero en una sesión ejecutiva de 3 horas en vivo con Humberto Bouché.
+              </p>
+              <ul className="route-feature-list">
+                <li>Modalidad online o presencial en Ciudad de Panamá</li>
+                <li>Modelos de lenguaje, visión, agentes y automatización</li>
+                <li>Ejemplos prácticos aplicados a tu día a día</li>
+                <li>Sesiones reducidas con resolución de dudas</li>
+              </ul>
+            </div>
+            <a href="/ai-para-todos/" className="btn btn-glass">
+              Ver temario y fechas →
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="section capability-section">
-        <div className="section-intro compact"><p className="eyebrow">QUÉ PUEDES HACER HOY</p><h2>De la curiosidad<br />a la utilidad.</h2><p>La inteligencia artificial ya puede acompañar procesos completos, desde una primera idea hasta una acción en el mundo real.</p></div>
-        <div className="capability-list">
-          {capabilities.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><div className={`mini-graphic mg-${index + 1}`} aria-hidden="true"><i /><i /><i /></div><h3>{title}</h3><p>{text}</p></article>)}
+      {/* Convocatorias Section */}
+      <section className="section" id="fechas" style={{ paddingTop: 0 }} aria-label="Convocatorias de formación">
+        <div className="glass-card highlight" style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center", padding: "36px 28px" }}>
+          <div className="eyebrow">CONVOCATORIA EN CIUDAD DE PANAMÁ</div>
+          <h2 style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-pure)", marginBottom: "12px" }}>
+            Próximas Fechas por Confirmar
+          </h2>
+          <p style={{ fontSize: "15px", color: "var(--text-muted)", marginBottom: "20px" }}>
+            Nuevas sesiones grupales y corporativas en coordinación. Consulta disponibilidad para sumarte a la lista de espera o coordinar un taller privado:
+          </p>
+          <div style={{ display: "inline-flex", flexDirection: "column", gap: "8px", background: "rgba(7, 21, 43, 0.7)", padding: "20px 30px", borderRadius: "var(--radius-md)", border: "1px solid var(--border-gold)", marginBottom: "20px" }}>
+            <span style={{ fontSize: "18px", fontWeight: 800, color: "var(--gold-champagne)" }}>Modalidad Virtual y Presencial</span>
+            <span style={{ fontSize: "14px", color: "var(--text-high)" }}>San Francisco, Ciudad de Panamá</span>
+            <span style={{ fontSize: "12.5px", color: "var(--text-dim)" }}>Referencia de edición previa: 3 de octubre de 2026 (Finalizada)</span>
+          </div>
+          <div>
+            <a href="/ai-para-todos/#fechas" className="btn btn-gold">
+              Consultar convocatoria e inscripción →
+            </a>
+          </div>
         </div>
-      </section>
-
-      <section className="section agent-statement">
-        <div className="agent-copy"><p className="eyebrow light">LA ERA DE LOS AGENTES</p><h2>Una IA que entiende,<br /><em>conecta y actúa.</em></h2><p>Diseñamos capacidad interna para que personas y equipos puedan construir, automatizar y mejorar procesos con autonomía, seguridad y control.</p><a className="text-link light-link" href="/empresas">Descubre cómo funciona <span>→</span></a><div className="agent-platforms" aria-label="Ecosistema actual de agentes"><span><SiteImage src="/brands/openclaw.png" alt="OpenClaw" /><b>OPENCLAW</b></span><span><SiteImage src="/brands/hermes.png" alt="Hermes" /><b>HERMES</b></span><span><SiteImage src="/brands/openai.png" alt="OpenAI Codex" /><b>CODEX</b></span><span><SiteImage src="/brands/anthropic.png" alt="Anthropic Claude Code" /><b>CLAUDE</b></span><span><SiteImage src="/brands/google.png" alt="Google Antigravity" /><b>ANTIGRAVITY</b></span></div></div>
-        <div className="agent-map" aria-label="Representación gráfica de un agente conectado con herramientas"><span className="visual-label">ANATOMÍA DE UN AGENTE</span><div className="agent-core">AGENTE<span>Meta + contexto</span></div>{["DATOS","CORREO","WEB","SISTEMAS"].map((item,i)=><div className={`agent-tool tool-${i+1}`} key={item}>{item}</div>)}</div>
-      </section>
-
-      <section className="section method" id="metodo">
-        <div className="section-intro compact"><p className="eyebrow">MÉTODO BEE SMART</p><h2>Del problema<br />al resultado.</h2><p>La tecnología se selecciona después de comprender qué debe mejorar y cómo vamos a medirlo.</p></div>
-        <div className="method-visual"><SiteImage src="/images/home-method-v1.png" alt="" /><div className="method-visual-shade" aria-hidden="true" /><div><span>PROCESO APLICADO</span><strong>Evidencia → decisión → piloto → resultado</strong></div></div>
-        <div className="method-flow">
-          {[["01","Escuchar","Dolor y contexto"],["02","Diseñar","Proceso y control"],["03","Probar","Piloto funcional"],["04","Medir","Resultado y aprendizaje"],["05","Escalar","Autonomía y módulos"]].map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
-        </div>
-      </section>
-
-      <section className="section final-cta" id="contacto">
-        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Aprende a usarla.<br />Ponla a trabajar.</h2><p>Escoge la ruta que corresponde a tu momento y comienza con una experiencia diseñada para producir claridad y resultados.</p>
-        <div className="contact-options"><a className="button button-primary" href="/ai-para-todos#fechas">Ver próximas fechas</a><a className="button button-outline" href="/contacto#empresas">Quiero transformar mi empresa</a></div>
       </section>
 
       <SiteFooter />

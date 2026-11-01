@@ -1,135 +1,259 @@
-import { SiteImage } from "../site-image";
-import { SiteFooter, SiteHeader } from "../site-chrome";
-import { businessFormUrl } from "../site-data";
-import { pageMetadata } from "../seo";
+import type { Metadata } from "next";
+import { SiteHeader, SiteFooter } from "../site-chrome";
+import { EmpresasCanvas } from "./empresas-canvas";
+import { businessFormUrl, bookingUrl } from "../site-data";
 
-export const metadata = pageMetadata("BEE SMART Empresas | Implementación de IA en Panamá", "Capacitación corporativa, arquitectura, formación del responsable interno e implementación de inteligencia artificial alrededor de tu operación.", "/empresas/", "/images/bee-smart-empresas-hero-v1-1536.webp");
-
-const opportunities = [
-  ["01", "Compras e importaciones", "Precosto, comparación de proveedores, documentos y aprobaciones."],
-  ["02", "Inventario y operaciones", "Alertas, consultas, clasificación, proyección y control diario."],
-  ["03", "Finanzas y contabilidad", "Reportes, presupuestos, conciliación, análisis y trazabilidad."],
-  ["04", "Ventas y marketing", "Prospección, propuestas, CRM, campañas y producción de contenido."],
-  ["05", "Servicio al cliente", "Clasificación de solicitudes, respuestas, seguimiento y escalamiento."],
-  ["06", "Talento y administración", "Selección e incorporación, manuales, agenda y conocimiento interno."],
-];
-
-const route = [
-  ["01", "IA 101 corporativo", "Un lenguaje común para entender capacidades, límites y oportunidades."],
-  ["02", "Levantamiento abierto", "El equipo comparte dolores, procesos, datos y prioridades reales."],
-  ["03", "Arquitectura ad hoc", "Definimos herramientas, accesos, infraestructura, seguridad y costos."],
-  ["04", "Formación del AI Head", "Entrenamos a un responsable interno para dirigir y dar continuidad."],
-  ["05", "Primer módulo", "Construimos una solución pequeña, funcional, controlada y medible."],
-  ["06", "Expansión", "Sumamos módulos según impacto, aprendizaje y capacidad del equipo."],
-];
-
-const roadmap = [
-  ["DÍA 30", "Comprende", "Mapea procesos, datos, riesgos y herramientas. Aprende a conversar, evaluar y documentar."],
-  ["DÍA 60", "Construye", "Prototipa automatizaciones y aplicaciones pequeñas con un caso real del negocio."],
-  ["DÍA 90", "Dirige", "Prioriza oportunidades, coordina proveedores y sostiene la operación con autonomía."],
-];
-
-const architectureGroups = [
-  { label: "MODELOS Y TRABAJO", copy: "El modelo correcto para cada tarea, con acceso y costo visibles.", brands: [["openai.png", "ChatGPT"], ["google.png", "Gemini"], ["anthropic.png", "Claude"]] },
-  { label: "CONSTRUCCIÓN", copy: "Herramientas para convertir necesidades en código y aplicaciones.", brands: [["openai.png", "Codex"], ["anthropic.png", "Claude Code"], ["google.png", "Antigravity"]] },
-  { label: "AGENTES", copy: "Sistemas que consultan, deciden una ruta y usan herramientas con control.", brands: [["hermes.png", "Hermes"], ["openclaw.png", "OpenClaw"], ["openai.png", "OpenAI"]] },
-  { label: "ORQUESTACIÓN", copy: "Modelos locales, múltiples proveedores y consumo administrado.", brands: [["ollama.png", "Ollama"], ["openrouter.png", "OpenRouter"], ["google.png", "Google Cloud"]] },
-  { label: "CÓDIGO Y DESPLIEGUE", copy: "El código, su historia y el servicio que utiliza el equipo.", brands: [["github.png", "GitHub"], ["vercel.png", "Vercel"], ["render.png", "Render"]] },
-];
-
-const modules = [
-  ["01", "Precosto + Compras", "Documentos, costos, proveedores, escenarios y aprobación."],
-  ["02", "Inventario", "Consultas, movimientos, alertas y proyección de necesidades."],
-  ["03", "Finanzas", "Reportes, presupuestos, conciliación y análisis asistido."],
-  ["04", "Ventas + CRM", "Prospección, propuestas, seguimiento y próxima acción."],
-  ["05", "Marketing + Contenido", "Estrategia, producción, adaptación, publicación y medición."],
-  ["06", "Servicio", "Clasificación, respuesta, escalamiento y memoria del cliente."],
-  ["07", "Reportes ejecutivos", "Indicadores, explicaciones, alertas y tableros accionables."],
-  ["08", "Automatizaciones", "Rutas repetibles, integraciones, permisos y trazabilidad."],
-];
-
-const investments = [
-  ["IA 101 corporativo", "Una sesión de 2½ horas o dos sesiones de 75 minutos.", "DESDE USD 500"],
-  ["Arquitectura ad hoc", "Levantamiento, diseño técnico, seguridad y ruta de implementación.", "SEGÚN ALCANCE"],
-  ["AI Head + primer módulo", "Entrenamiento del responsable y construcción acompañada.", "SEGÚN ALCANCE"],
-  ["Módulos adicionales", "Una capacidad nueva, entregable, documentada y medible.", "SEGÚN ALCANCE"],
-];
+export const metadata: Metadata = {
+  title: "BEE SMART Empresas | Soluciones de Inteligencia Artificial para Negocios",
+  description: "Arquitectura e implementación de IA para empresas en Panamá. Automatización de procesos, consultoría estratégica y desarrollo a medida con supervisión humana.",
+  alternates: { canonical: "https://bee-smart.ai/empresas/" },
+};
 
 export default function EmpresasPage() {
   return (
-    <main className="enterprise-page">
-      <SiteHeader active="business" ctaHref="/agenda" ctaLabel="Agenda una llamada" />
+    <main className="content-wrapper">
+      <SiteHeader active="business" ctaHref="/agenda/" ctaLabel="Agendar 30 min" />
 
-      <section className="enterprise-hero" id="inicio">
-        <div className="enterprise-hero-copy">
-          <p className="eyebrow light">BEE SMART PARA EMPRESAS</p>
-          <h1>Convierte la IA en una <em>capacidad interna.</em></h1>
-          <p className="enterprise-lead">Alineamos a tu equipo, diseñamos la arquitectura y construimos soluciones alrededor de la operación real de tu empresa.</p>
-          <div className="hero-actions"><a className="button button-primary" href="/agenda">Agendar llamada de diagnóstico</a><a className="text-link light-link" href="#ruta">Conocer la ruta <span>↓</span></a></div>
-          <div className="enterprise-hero-proof"><span>CAPACITACIÓN</span><span>ARQUITECTURA</span><span>IMPLEMENTACIÓN</span></div>
+      {/* Section 1: Hero Empresas */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="eyebrow">BEE SMART EMPRESAS · PANAMÁ</div>
+          <h1 className="hero-headline">
+            Arquitectura de IA con supervisión humana para <em>operaciones críticas.</em>
+          </h1>
+          <p className="hero-subhead">
+            Diseñamos e implementamos sistemas de agentes y flujos de inteligencia artificial con compuertas de validación por tu equipo, integrados de forma gradual a tus herramientas y bases de datos actuales.
+          </p>
+
+          <div className="hero-ctas">
+            <a
+              href={businessFormUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-event="business_form_click"
+              className="btn btn-gold"
+            >
+              Solicitar propuesta en Google Forms ↗
+            </a>
+            <a href="#mecanismo" className="btn btn-glass">
+              Ver cómo funciona ↓
+            </a>
+          </div>
+
+          <div className="hero-facts-bar">
+            <div className="fact-item">
+              <span className="fact-number" style={{ fontSize: "18px" }}>Control</span>
+              <span className="fact-label">Supervisión Humana Activa</span>
+            </div>
+            <div className="fact-item">
+              <span className="fact-number" style={{ fontSize: "18px" }}>Gradual</span>
+              <span className="fact-label">Integración Sobre Tus Herramientas</span>
+            </div>
+            <div className="fact-item">
+              <span className="fact-number" style={{ fontSize: "18px" }}>Panamá</span>
+              <span className="fact-label">Sede & Acompañamiento</span>
+            </div>
+          </div>
         </div>
-        <div className="enterprise-hero-media">
-          <SiteImage src="/images/bee-smart-empresas-hero-v1.png" alt="Equipo empresarial trabajando sobre un proceso operativo" loading="eager" fetchPriority="high" />
-          <div className="enterprise-hero-shade" />
-          <div className="enterprise-hero-card"><span>RESULTADO</span><strong>Autonomía para crear, operar y escalar.</strong></div>
+
+        <div className="hero-visual">
+          <div className="hero-visual-card">
+            <div className="visual-card-badge">
+              <span>Orquestador Modular</span>
+              <span><span className="pulse-dot" /> Operación Asistida</span>
+            </div>
+
+            <div className="pipeline-preview">
+              <div className="pipeline-step">
+                <div className="step-icon">01</div>
+                <div className="step-body">
+                  <div className="step-title">Ingesta y Normalización</div>
+                  <div className="step-desc">Facturas, correos, inventario y solicitudes</div>
+                </div>
+                <span className="step-badge">Flujo Activo</span>
+              </div>
+
+              <div className="pipeline-step active-gate">
+                <div className="step-icon">⚡</div>
+                <div className="step-body">
+                  <div className="step-title">Compuerta de Supervisión Humana</div>
+                  <div className="step-desc">Aprobación obligatoria antes de ejecutar</div>
+                </div>
+                <span className="step-badge">Control Crítico</span>
+              </div>
+
+              <div className="pipeline-step">
+                <div className="step-icon">03</div>
+                <div className="step-body">
+                  <div className="step-title">Despacho hacia Sistemas Centrales</div>
+                  <div className="step-desc">ERP, CRM, contabilidad y mensajería</div>
+                </div>
+                <span className="step-badge">Salida Guiada</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="enterprise-manifesto"><p>CAPACIDAD INTERNA, CONECTADA Y SOSTENIBLE</p><strong>La tecnología se conecta con el negocio. El conocimiento se queda en el equipo.</strong><span>↘</span></section>
+      {/* Section 2: 6 Operational Opportunities */}
+      <section className="section-container" style={{ padding: "70px 0" }}>
+        <div className="section-header" style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 50px" }}>
+          <div className="eyebrow eyebrow-cyan">OPORTUNIDADES DE IMPACTO</div>
+          <h2 className="section-title">6 áreas donde la IA genera resultados tangibles</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            No reemplazamos a tu personal: eliminamos la fricción administrativa para que tu equipo se concentre en decisiones estratégicas.
+          </p>
+        </div>
 
-      <section className="section enterprise-opportunities">
-        <div className="section-intro"><div><p className="eyebrow">DÓNDE EMPEZAR</p><h2>Cada área tiene<br />un primer caso útil.</h2></div><p>Partimos de un proceso con fricción, información disponible y un resultado que pueda medirse.</p></div>
-        <div className="opportunity-grid">{opportunities.map(([n, title, copy]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p><i /></article>)}</div>
-      </section>
+        <div className="opportunities-grid">
+          <div className="opp-card">
+            <div className="opp-num">01 / ATENCIÓN & TRIAJE</div>
+            <h3 className="opp-title">Atención al cliente 24/7</h3>
+            <p className="opp-text">
+              Agentes que responden consultas frecuentes, recopilan datos de clientes y escalan casos sensibles a supervisores humanos con historial completo.
+            </p>
+          </div>
 
-      <section className="section enterprise-route" id="ruta">
-        <div className="route-heading"><p className="eyebrow light">RUTA EMPRESARIAL</p><h2>De entender IA<br />a operarla.</h2><p>Una secuencia clara para que las ideas del equipo se conviertan en capacidades sostenibles.</p></div>
-        <div className="enterprise-route-list">{route.map(([n, title, copy]) => <article key={n}><span>{n}</span><div><h3>{title}</h3><p>{copy}</p></div><b>→</b></article>)}</div>
-      </section>
+          <div className="opp-card">
+            <div className="opp-num">02 / COTIZACIONES</div>
+            <h3 className="opp-title">Cotizaciones y propuestas</h3>
+            <p className="opp-text">
+              Generación automática de presupuestos basados en listas de precios, inventario en tiempo real y reglas de margen preaprobadas por gerencia.
+            </p>
+          </div>
 
-      <section className="section corporate-training" id="capacitacion">
-        <div className="training-number">101</div>
-        <div className="training-copy"><p className="eyebrow">LA PUERTA DE ENTRADA</p><h2>IA 101 corporativo.</h2><p>Una capacitación privada para tu equipo: modelos, contenido, agentes, programación, costos, privacidad y aplicaciones reales. Dura 2½ horas y parte desde USD 500, según alcance. Es distinta de las sesiones abiertas de IA para Todos de 3 horas y $75 por persona.</p><div className="training-facts"><span>2½ HORAS</span><span>ONLINE O PRESENCIAL</span><span>PREGUNTAS Y CONVERSACIÓN</span></div><a className="text-link" href="/contacto/#empresas">Consultar capacitación para mi equipo <span>↗</span></a></div>
-        <div className="training-agenda">{["Entender el mapa de IA", "Ver herramientas y casos", "Identificar dolores del equipo", "Definir oportunidades iniciales"].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong></div>)}</div>
-      </section>
+          <div className="opp-card">
+            <div className="opp-num">03 / DOCUMENTOS</div>
+            <h3 className="opp-title">Procesamiento de facturas</h3>
+            <p className="opp-text">
+              Lectura, extracción y conciliación de documentos de compra y venta contra órdenes existentes sin captura manual de datos.
+            </p>
+          </div>
 
-      <section className="section enterprise-aihead">
-        <div className="aihead-lead"><p className="eyebrow light">MODELO AI HEAD</p><h2>Autonomía con<br />un responsable interno.</h2><p>Formamos a una persona que entiende el negocio y puede detectar oportunidades, dirigir herramientas, documentar decisiones y coordinar nuevas implementaciones.</p><div className="aihead-pillars"><span>NEGOCIO</span><span>DATOS</span><span>HERRAMIENTAS</span><span>CONTROL</span></div></div>
-        <div className="aihead-roadmap">{roadmap.map(([time, title, copy]) => <article key={time}><span>{time}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
-      </section>
+          <div className="opp-card">
+            <div className="opp-num">04 / COMPRAS & STOCK</div>
+            <h3 className="opp-title">Gestión de inventario</h3>
+            <p className="opp-text">
+              Predicción de reposición según estacionalidad y generación de borradores de órdenes de compra con umbrales de seguridad.
+            </p>
+          </div>
 
-      <section className="enterprise-architecture" id="arquitectura">
-        <div className="architecture-photo"><SiteImage src="/images/bee-smart-empresas-architecture-v1.png" alt="Infraestructura tecnológica empresarial administrada por un especialista" /><div /><p><span>ARQUITECTURA AD HOC</span><strong>Cada pieza cumple una función.</strong></p></div>
-        <div className="section architecture-content">
-          <div className="architecture-intro"><h2>Herramientas, datos y control en una sola arquitectura.</h2><p>La combinación cambia según la tarea, la sensibilidad de la información, el presupuesto y la capacidad del equipo. La elección responde a la necesidad real.</p></div>
-          <div className="architecture-groups">{architectureGroups.map(group => <article key={group.label}><div><span>{group.label}</span><p>{group.copy}</p></div><div className="architecture-brands">{group.brands.map(([src, name]) => <span key={`${group.label}-${name}`}><SiteImage src={`/brands/${src}`} alt="" /><b>{name}</b></span>)}</div></article>)}</div>
-          <div className="architecture-locations"><span>NUBE</span><i>→</i><span>VPS</span><i>→</i><span>SERVIDOR PRIVADO</span><i>→</i><span>DISPOSITIVO LOCAL</span></div>
+          <div className="opp-card">
+            <div className="opp-num">05 / EQUIPO</div>
+            <h3 className="opp-title">Onboarding y capacitación</h3>
+            <p className="opp-text">
+              Sistemas de consulta interna entrenados exclusivamente sobre los manuales, políticas y procedimientos operativos de tu negocio.
+            </p>
+          </div>
+
+          <div className="opp-card">
+            <div className="opp-num">06 / CONTROL</div>
+            <h3 className="opp-title">Auditoría y cumplimiento</h3>
+            <p className="opp-text">
+              Supervisión continua de transacciones para detectar desviaciones, anomalías o incumplimiento de directivas internas en tiempo real.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="section enterprise-modules" id="modulos">
-        <div className="section-intro"><div><p className="eyebrow">MÓDULOS DE IMPLEMENTACIÓN</p><h2>Una necesidad.<br />Una capacidad nueva.</h2></div><p>Cada módulo se define por el resultado que entrega, los datos que necesita, sus responsables, controles y una métrica de adopción.</p></div>
-        <div className="enterprise-module-grid">{modules.map(([n, title, copy]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
-      </section>
+      {/* Section 3: Anatomy Canvas */}
+      <section className="anatomy-section" id="mecanismo" aria-label="Mecanismo de supervisión">
+        <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto" }}>
+          <div className="eyebrow">EL MECANISMO DE CONTROL</div>
+          <h2 className="section-title">Anatomía del Orquestador Modular</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            Ejemplo conceptual de puntos de aprobación humana antes de acciones críticas.
+          </p>
+        </div>
 
-      <section className="section purchase-case" id="caso-practico">
-        <div className="purchase-case-media"><SiteImage src="/images/bee-smart-empresas-precosto-v1.png" alt="Equipo revisando documentos, costos y proveedores en un proceso de compras" /><div /><span>CASO PRÁCTICO · PRECOSTO + COMPRAS</span></div>
-        <div className="purchase-case-copy"><p className="eyebrow">DEL DOLOR AL MÓDULO</p><h2>Decidir antes,<br />con mejor información.</h2><p>Un primer módulo puede reunir cotizaciones, costos de importación, proveedores y reglas del negocio para comparar escenarios antes de aprobar una compra.</p><div className="case-flow">{["RECIBE", "EXTRAE", "CALCULA", "COMPARA", "APRUEBA"].map((item, i) => <span key={item}><b>0{i + 1}</b>{item}</span>)}</div><div className="case-result"><span>RESULTADO MEDIBLE</span><strong>Menos trabajo manual, decisiones trazables y conocimiento reutilizable.</strong></div></div>
-      </section>
+        <EmpresasCanvas />
 
-      <section className="section enterprise-investment">
-        <div className="section-intro"><div><p className="eyebrow">INVERSIÓN DE REFERENCIA</p><h2>Comenzar pequeño.<br />Construir con dirección.</h2></div><p>La propuesta separa con claridad el servicio profesional, la implementación y el costo tecnológico recurrente.</p></div>
-        <div className="enterprise-investment-list">{investments.map(([name, detail, price], i) => <article key={name}><span>0{i + 1}</span><div><h3>{name}</h3><p>{detail}</p></div><strong>{price}</strong></article>)}</div>
-        <div className="cost-model">
-          <article><span>01</span><h3>Servicios profesionales</h3><p>Diagnóstico, diseño, entrenamiento, documentación y acompañamiento.</p></article>
-          <article><span>02</span><h3>Implementación</h3><p>Construcción, pruebas, integración, despliegue y transferencia.</p></article>
-          <article><span>03</span><h3>Operación mensual</h3><p>Acompañamiento, mantenimiento, mejoras y soporte acordado.</p></article>
-          <article><span>04</span><h3>Tecnología</h3><p>Licencias, modelos, APIs, VPS, servidores y almacenamiento pagados directamente.</p></article>
+        <div className="anatomy-callouts-grid">
+          <div className="callout-box">
+            <div className="callout-header">01. INGESTA</div>
+            <h4 className="callout-heading">Datos y Documentos</h4>
+            <p className="callout-desc">
+              Captura estructurada desde correo, WhatsApp, formularios y archivos sin alterar tus repositorios.
+            </p>
+          </div>
+
+          <div className="callout-box gate-box">
+            <div className="callout-header">02. COMPUERTA HUMANA</div>
+            <h4 className="callout-heading">Validación por Supervisor</h4>
+            <p className="callout-desc">
+              La IA formula la recomendación, pero la confirmación final requiere autorización humana explícita.
+            </p>
+          </div>
+
+          <div className="callout-box">
+            <div className="callout-header">03. DESPACHO</div>
+            <h4 className="callout-heading">Sistemas Centrales</h4>
+            <p className="callout-desc">
+              Actualización segura en ERP, CRM o pasarelas mediante conectores controlados y auditables.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="section enterprise-final" id="diagnostico">
-        <p className="eyebrow light">TU PRIMERA CONVERSACIÓN</p><h2>Trae el dolor.<br />Diseñamos la ruta.</h2><p>Agenda 30 minutos para ordenar el contexto, identificar oportunidades y definir un siguiente paso realista. La llamada no confirma una contratación ni requiere pago.</p><div className="contact-options"><a className="button button-primary" href="/agenda">Agendar llamada</a><a className="button button-outline" href={businessFormUrl} target="_blank" rel="noreferrer" data-event="business_form_click">Prefiero enviar el formulario</a></div>
+      {/* Section 4: 3-Step Methodology */}
+      <section className="section-container" style={{ padding: "70px 0" }}>
+        <div className="section-header" style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 50px" }}>
+          <div className="eyebrow">METODOLOGÍA DE ADOPCIÓN</div>
+          <h2 className="section-title">La ruta en 3 etapas hacia la madurez en IA</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            Un camino estructurado para minimizar riesgos y orientar la tecnología hacia el ahorro efectivo de horas de trabajo.
+          </p>
+        </div>
+
+        <div className="steps-grid">
+          <div className="step-card">
+            <div className="step-badge-large">01</div>
+            <h3 className="step-card-title">Diagnóstico y Prueba de Concepto</h3>
+            <p className="step-card-text">
+              Revisamos tus flujos de trabajo actuales para priorizar un prototipo y acordar alcance y plazos según el diagnóstico de tu operación, sin garantías preestablecidas.
+            </p>
+          </div>
+
+          <div className="step-card">
+            <div className="step-badge-large">02</div>
+            <h3 className="step-card-title">Implementación con Supervisión</h3>
+            <p className="step-card-text">
+              Conectamos los modelos con tus herramientas cotidianas y capacitamos a tu equipo en la dirección de agentes y control de compuertas de supervisión.
+            </p>
+          </div>
+
+          <div className="step-card">
+            <div className="step-badge-large">03</div>
+            <h3 className="step-card-title">Autonomía Guiada y Escalamiento</h3>
+            <p className="step-card-text">
+              Tu empresa asume la operación interna asistida. Dejamos documentación técnica completa, métricas de desempeño y protocolos de mantenimiento.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: IA 101 Corp Card */}
+      <section className="corp-training-card" aria-label="Capacitación corporativa">
+        <div>
+          <div className="eyebrow eyebrow-cyan">CAPACITACIÓN EJECUTIVA IN-COMPANY</div>
+          <h2 style={{ fontSize: "28px", fontWeight: 900, color: "var(--text-pure)", marginBottom: "14px" }}>
+            Taller Corporativo IA 101
+          </h2>
+          <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "16px" }}>
+            Sesión intensiva privada para comités ejecutivos y mandos medios. Alineamos a tu liderazgo sobre capacidades reales, riesgos, gobernanza y aplicaciones prioritarias en tu sector.
+          </p>
+          <span className="price-historical-tag">
+            Referencia histórica: desde USD 500 (servicio IA 101 corporativo). Consulta precio y condiciones vigentes antes de coordinar.
+          </span>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "14px", justifyContent: "center" }}>
+          <a href="/agenda/" className="btn btn-gold btn-block">
+            Agendar llamada de diagnóstico
+          </a>
+          <a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer" className="btn btn-glass btn-block">
+            Consultar por WhatsApp
+          </a>
+        </div>
       </section>
 
       <SiteFooter />

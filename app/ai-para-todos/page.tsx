@@ -1,186 +1,406 @@
-import { SiteImage } from "../site-image";
-import { SiteFooter, SiteHeader } from "../site-chrome";
+import type { Metadata } from "next";
+import { SiteHeader, SiteFooter } from "../site-chrome";
 import { registrationFormUrl } from "../site-data";
-import { SessionSchedule } from "../session-schedule";
-import { pageMetadata } from "../seo";
 
-export const metadata = pageMetadata("IA para Todos | Curso de inteligencia artificial en Panamá", "Aprende IA desde cero con Humberto Bouche. Tres horas en vivo, online o presencial en San Francisco, Panamá. Sesiones y reserva por Google Forms.", "/ai-para-todos/", "/images/home-learning-path-v1-1536.webp");
-
-const audiences = [
-  ["01", "Vida diaria", "Aprende, organiza, compara opciones y convierte información en decisiones."],
-  ["02", "Trabajo", "Investiga, analiza, redacta y produce mejor sin perder tu criterio."],
-  ["03", "Contenido", "Pasa de una idea a texto, imagen, voz y video con un proceso claro."],
-  ["04", "Proyectos", "Entiende cómo nacen automatizaciones, agentes, dashboards y aplicaciones."],
-];
-
-const modules = [
-  ["01", "La revolución", "Qué cambió, por qué la IA se volvió accesible y dónde ya está transformando nuestra vida."],
-  ["02", "Cómo funciona", "LLMs, tokens, parámetros, contexto, entrenamiento, multimodalidad y límites."],
-  ["03", "El mapa de herramientas", "Modelos, aplicaciones, creación de contenido, automatización, agentes y programación."],
-  ["04", "Cómo dirigirla", "Objetivo, contexto, referencias, iteración, verificación, privacidad y criterio humano."],
-  ["05", "Qué puedes crear", "Texto, imágenes, video, voz, workflows, dashboards, aplicaciones y agentes."],
-  ["06", "Del caso al resultado", "Una demostración práctica y una ruta personal para comenzar a aplicarla."],
-];
-
-const takeaways = [
-  ["Mapa claro", "Distingues modelos, aplicaciones, agentes y herramientas sin perderte entre nombres."],
-  ["Criterio", "Escoges según la tarea, la calidad, el costo, la velocidad, la privacidad y el control."],
-  ["Método", "Sabes dar dirección, aportar contexto, iterar y verificar antes de utilizar un resultado."],
-  ["Primeros casos", "Sales con oportunidades concretas para tu vida, profesión, contenido o negocio."],
-];
-
-const specialties = [
-  ["IA para Marketing", "/images/home-business-path-v1.png", "Estrategia · campañas · medición"],
-  ["Creación de contenido", "/images/home-content-v1.png", "Texto · imagen · voz · video"],
-  ["IA para Finanzas", "/images/ai-todos-demostracion-v1.png", "Análisis · escenarios · control"],
-  ["IA para Operaciones", "/images/home-implementation-v1.png", "Procesos · datos · automatización"],
-  ["Construye con IA", "/images/home-coding-v1.png", "Apps · dashboards · micro-SaaS"],
-  ["Agentes de IA", "/images/home-agents-v1.png", "Metas · herramientas · acciones"],
-];
-
-const toolGroups = [
-  {
-    n: "01", title: "Conversar e investigar",
-    text: "Aprender, analizar, comparar y convertir información en trabajo útil.",
-    image: "/images/models-hardware-v2.png",
-    brands: [["/brands/openai.png", "ChatGPT"], ["/brands/anthropic.png", "Claude"], ["/brands/google.png", "Gemini"]],
-  },
-  {
-    n: "02", title: "Crear contenido",
-    text: "Texto, imagen, voz, video, edición, adaptación y publicación.",
-    image: "/images/home-content-v1.png",
-    brands: [["/brands/openai.png", "ChatGPT"], ["/brands/google.png", "Flow · Veo"], ["/brands/elevenlabs.svg", "ElevenLabs"], [null, "Higgsfield"], [null, "HeyGen"]],
-  },
-  {
-    n: "03", title: "Construir",
-    text: "Pasar de una necesidad a código, una aplicación o un servicio funcionando.",
-    image: "/images/home-coding-v1.png",
-    brands: [["/brands/openai.png", "Codex"], ["/brands/anthropic.png", "Claude Code"], ["/brands/google.png", "Antigravity"], ["/brands/github.png", "GitHub"]],
-  },
-  {
-    n: "04", title: "Conectar y actuar",
-    text: "Agentes que reciben una meta, utilizan herramientas y ejecutan con control.",
-    image: "/images/home-agents-v1.png",
-    brands: [["/brands/openclaw.png", "OpenClaw"], ["/brands/hermes.png", "Hermes"], ["/brands/openai.png", "Codex"], ["/brands/anthropic.png", "Claude Code"]],
-  },
-];
+export const metadata: Metadata = {
+  title: "IA para Todos | Curso de inteligencia artificial en Panamá",
+  description: "Aprende IA desde cero con Humberto Bouché. Tres horas en vivo, online o presencial en San Francisco, Panamá. Sesiones y reserva por Google Forms.",
+  alternates: { canonical: "https://bee-smart.ai/ai-para-todos/" },
+};
 
 export default function AiParaTodosPage() {
   return (
-    <main className="learn-page">
-      <SiteHeader active="learn" ctaHref="#fechas" ctaLabel="Reservar" />
+    <main className="content-wrapper">
+      <SiteHeader active="learn" ctaHref="/agenda/" ctaLabel="Agendar 30 min" />
 
-      <section className="product-hero learn-hero-v2" id="inicio">
-        <div className="product-hero-copy">
-          <p className="eyebrow">BEE SMART · ENTRENAMIENTO ESENCIAL</p>
-          <h1><span className="display-kicker">IA</span>para<br /><em>Todos.</em></h1>
-          <p>Entiende la revolución. Aprende a usar sus herramientas. Empieza a construir con criterio.</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#fechas">Ver fechas y reservar</a>
-            <a className="text-link" href="#programa">Ver el programa <span>↓</span></a>
+      {/* Hero IA para Todos */}
+      <section className="hero-section">
+        <div>
+          <div className="eyebrow">CURSO FORMATIVO INTENSIVO · PANAMÁ</div>
+          <h1>
+            <span className="hero-title" style={{ display: "block" }}>
+              IA para Todos. <em>En 3 horas en vivo.</em>
+            </span>
+          </h1>
+          <p className="hero-desc">
+            Sesión ejecutiva en vivo con Humberto Bouché. Diseñada para profesionales y directivos que quieren dominar las herramientas clave sin tecnicismos innecesarios.
+          </p>
+
+          <div className="hero-ctas">
+            <a href="#fechas" className="btn btn-gold">
+              Reservar plaza en lista →
+            </a>
+            <a href="#temario" className="btn btn-glass">
+              Ver temario completo ↓
+            </a>
           </div>
         </div>
-        <div className="learn-hero-photo" aria-label="Una persona aprendiendo y trabajando con inteligencia artificial en Ciudad de Panamá">
-          <SiteImage src="/images/home-learning-path-v1.png" alt="Persona trabajando con una computadora en Ciudad de Panamá" loading="eager" fetchPriority="high" />
-          <div className="learn-hero-shade" aria-hidden="true" />
-          <div className="learn-hero-badge"><span>UNA EXPERIENCIA EN VIVO</span><strong>ENTENDER<br />USAR<br />CREAR<br />ACTUAR</strong></div>
-          <div className="learn-hero-note"><span>SIN EXPERIENCIA PREVIA</span><b>Conceptos + herramientas + demostración</b></div>
-        </div>
-      </section>
 
-      <section className="product-facts"><span>3 HORAS</span><span>ONLINE O PRESENCIAL</span><span>EN VIVO</span><span>PRECIO DE LANZAMIENTO · $75</span></section>
-
-      <section className="section sessions-section" id="fechas">
-        <div className="sessions-heading">
-          <div><p className="eyebrow">PRÓXIMAS SESIONES</p><h2>Escoge tu fecha.<br />Reserva tu cupo.</h2></div>
-          <p>Tres horas para entender la IA, aprender a utilizar sus herramientas y comenzar a construir con criterio. No necesitas experiencia previa.</p>
-        </div>
-        <SessionSchedule />
-        <p className="sessions-payment-note">Horarios de Panamá (UTC−5). Completa el formulario y adjunta tu comprobante. BEE SMART confirma tu reserva después de validar el pago.</p>
-        <div className="reservation-steps" aria-label="Cómo reservar">
-          <div><strong>01 · Solicita tu cupo</strong><p>Selecciona la sesión en Google Forms y completa tus datos.</p></div>
-          <div><strong>02 · Adjunta tu comprobante</strong><p>Las instrucciones de transferencia y Yappy están en el formulario. Subir el comprobante requiere iniciar sesión en Google.</p></div>
-          <div><strong>03 · Recibe la confirmación</strong><p>Validamos el pago antes de confirmar tu reserva. La sede exacta de San Francisco todavía está por definir.</p></div>
-        </div>
-      </section>
-
-      <section className="section instructor-summary" aria-labelledby="instructor-title">
-        <SiteImage src="/images/humberto-bouche-ai-para-todos.png" alt="Humberto Bouche · IA para Todos" />
-        <div><p className="eyebrow">QUIÉN TE ACOMPAÑA</p><h2 id="instructor-title">Humberto Bouche</h2><p>Combina experiencia ejecutiva, emprendimiento y construcción de soluciones con inteligencia artificial. Su enfoque es ayudarte a entender, probar y aplicar IA con criterio en tu vida y tu trabajo.</p><a className="text-link" href="/contacto/">Conoce a Humberto y conversemos <span>↗</span></a></div>
-      </section>
-
-      <section className="section audience-section">
-        <div className="section-intro"><p className="eyebrow">PARA QUIÉN ES</p><h2>Una entrada útil,<br />vengas de donde vengas.</h2><p>No necesitas saber programar. Comenzamos con los conceptos esenciales y llegamos hasta lo que ya puedes hacer hoy.</p></div>
-        <div className="learn-audience-grid">{audiences.map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p><i aria-hidden="true" /></article>)}</div>
-      </section>
-
-      <section className="section program-section" id="programa">
-        <div className="program-title"><p className="eyebrow light">EL RECORRIDO</p><h2>Del panorama completo<br />a tu primer resultado.</h2><p>Una experiencia amplia y práctica: profundidad suficiente para entender la tecnología y claridad suficiente para comenzar a utilizarla.</p></div>
-        <div className="program-visual">
-          <SiteImage src="/images/ai-todos-programa-taller-v1.png" alt="Grupo de adultos participando en un taller práctico de inteligencia artificial" />
-          <div className="program-visual-shade" aria-hidden="true" />
-          <div className="program-visual-copy"><span>RECORRIDO COMPLETO</span><strong>Del universo de la IA<br />a una acción que puedes repetir.</strong></div>
-          <div className="program-visual-track" aria-label="Etapas del entrenamiento"><span>ENTENDER</span><i>→</i><span>USAR</span><i>→</i><span>CREAR</span><i>→</i><span>ACTUAR</span></div>
-        </div>
-        <div className="module-grid">{modules.map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-      </section>
-
-      <section className="section learn-tools-section">
-        <div className="section-intro compact"><p className="eyebrow">HERRAMIENTAS REALES</p><h2>Vas a entender<br />quién hace qué.</h2><p>No es una lista de marcas ni un ranking. Es un mapa para reconocer qué herramienta puede ayudarte según lo que quieres lograr.</p></div>
-        <div className="learn-tool-grid">
-          {toolGroups.map((group) => <article className={`learn-tool-card tool-card-${group.n}`} key={group.n}>
-            <div className="learn-tool-visual"><SiteImage src={group.image} alt="" /><div aria-hidden="true" /><span>{group.n}</span></div>
-            <div className="learn-tool-body"><div className="learn-tool-head"><h3>{group.title}</h3></div>
-              <p>{group.text}</p>
-              <div className="learn-brand-cloud">{group.brands.map(([src, name]) => <span key={name}>{src && <SiteImage src={src} alt="" />}<b>{name}</b></span>)}</div>
+        <div>
+          <div className="card-glass" style={{ padding: "30px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--gold-champagne)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Modalidad Flexible
+              </span>
+              <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--cyan-bright)" }}>
+                Panamá / Online
+              </span>
             </div>
-          </article>)}
+            <h3 style={{ fontSize: "20px", fontWeight: 800, color: "var(--text-pure)", marginBottom: "12px" }}>
+              Sesión en Vivo con Acompañamiento
+            </h3>
+            <p style={{ fontSize: "14px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: "20px" }}>
+              Grupos reducidos para interactuar directamente, resolver casos de tu propia profesión y salir con herramientas configuradas.
+            </p>
+            <div style={{ background: "rgba(6, 17, 34, 0.7)", border: "1px solid var(--border-gold)", borderRadius: "var(--radius-sm)", padding: "12px 16px" }}>
+              <span style={{ fontSize: "11px", color: "var(--gold-champagne)", fontWeight: 800, display: "block", marginBottom: "2px" }}>
+                DISPONIBILIDAD:
+              </span>
+              <span style={{ fontSize: "13px", color: "var(--text-pure)", fontWeight: 700 }}>
+                Modalidad bajo demanda / Fechas por confirmar
+              </span>
+            </div>
+          </div>
         </div>
-        <p className="learn-tools-note">Las herramientas evolucionan. El objetivo del entrenamiento es que entiendas el sistema y puedas seguir aprendiendo.</p>
       </section>
 
-      <section className="section learn-experience">
-        <div className="learn-experience-copy"><p className="eyebrow light">APRENDER HACIENDO</p><h2>La teoría aterriza<br />en una demostración.</h2><p>Verás cómo una necesidad se convierte en un resultado tangible: desde organizar información o crear contenido hasta construir un pequeño dashboard o una herramienta.</p></div>
-        <div className="experience-visual">
-          <SiteImage src="/images/ai-todos-demostracion-v1.png" alt="Demostración práctica que transforma datos dispersos en un dashboard" />
-          <div className="experience-visual-shade" aria-hidden="true" />
-          <div><span>EN VIVO</span><strong>Necesidad → contexto → construcción → validación</strong></div>
+      {/* Facts Strip */}
+      <section className="facts-strip" aria-label="Datos clave del curso">
+        <div className="fact-item">
+          <span className="fact-val">3 Horas</span>
+          <span className="fact-lbl">Duración Intensiva</span>
         </div>
-        <div className="experience-process" aria-label="Proceso de la demostración práctica">
-          {[["01", "Necesidad", "Definimos qué debe resolverse."], ["02", "Dirección", "Damos contexto y criterios."], ["03", "Construcción", "La IA produce y conecta."], ["04", "Validación", "Revisamos antes de usar."]].map(([n,title,text]) => <article key={n}><span>{n}</span><strong>{title}</strong><small>{text}</small></article>)}
+        <div className="fact-item">
+          <span className="fact-val gold">$75</span>
+          <span className="fact-lbl">Referencia histórica*</span>
+        </div>
+        <div className="fact-item">
+          <span className="fact-val">6 Módulos</span>
+          <span className="fact-lbl">Temario Práctico</span>
+        </div>
+        <div className="fact-item">
+          <span className="fact-val">En Vivo</span>
+          <span className="fact-lbl">Humberto Bouché</span>
+        </div>
+      </section>
+      <p style={{ fontSize: "12px", color: "var(--text-dim)", textAlign: "center", marginTop: "-45px", marginBottom: "60px" }}>
+        * Referencia histórica de edición previa ($75). Consulta precio y condiciones vigentes antes de inscribirte.
+      </p>
+
+      {/* Instructor Section */}
+      <section className="instructor-card" aria-label="Instructor">
+        <div className="instructor-avatar">
+          <div className="instructor-initials">HB</div>
+          <span className="instructor-tag">Instructor Principal</span>
+        </div>
+        <div>
+          <div className="eyebrow eyebrow-cyan" style={{ marginBottom: "10px" }}>FACILITADOR DEL CURSO</div>
+          <h2 style={{ fontSize: "28px", fontWeight: 900, color: "var(--text-pure)", marginBottom: "6px" }}>
+            Humberto Bouché
+          </h2>
+          <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--cyan-bright)", textTransform: "uppercase", letterSpacing: "0.08em", display: "block", marginBottom: "16px" }}>
+            Consultor de Estrategia e Implementación de IA en Panamá
+          </span>
+          <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: 1.65, marginBottom: "16px" }}>
+            Ayuda a empresas y ejecutivos a integrar herramientas de inteligencia artificial en sus operaciones diarias. Enfoque aplicado a productividad real, sin tecnicismos abstractos.
+          </p>
+          <a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer" className="btn btn-glass" style={{ fontSize: "13px", padding: "8px 16px" }}>
+            Escribir a Humberto por WhatsApp →
+          </a>
         </div>
       </section>
 
-      <section className="section takeaways-section">
-        <div className="section-intro compact"><p className="eyebrow">SALES CON</p><h2>Claridad para<br />seguir avanzando.</h2><p>El objetivo es que reconozcas oportunidades, escojas herramientas y comiences a aplicar IA con confianza y criterio.</p></div>
-        <div className="takeaway-grid">{takeaways.map(([title,text],index)=><article key={title}><span>0{index+1}</span><div className={`takeaway-symbol symbol-${index+1}`} aria-hidden="true"><i /><i /><i /></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+      {/* 4 Audiences */}
+      <section aria-label="A quién va dirigido">
+        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 40px" }}>
+          <div className="eyebrow">PERFIL DE PARTICIPANTES</div>
+          <h2 className="section-title">¿Para quién es este curso?</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            Diseñado para quienes buscan aprovechar la IA como una ventaja competitiva en su carrera o negocio.
+          </p>
+        </div>
+
+        <div className="audience-grid">
+          <div className="audience-card">
+            <span className="audience-num">01 / EJECUTIVOS</span>
+            <h3>Líderes y Directores</h3>
+            <p>Comprende el impacto estratégico de la IA, evalúa herramientas con criterio y dirige a tus equipos hacia la adopción efectiva.</p>
+          </div>
+
+          <div className="audience-card">
+            <span className="audience-num">02 / EMPRENDEDORES</span>
+            <h3>Dueños de Negocios</h3>
+            <p>Automatiza tareas repetitivas, genera propuestas comerciales y optimiza recursos sin necesidad de contratar agencias externas.</p>
+          </div>
+
+          <div className="audience-card">
+            <span className="audience-num">03 / PROFESIONALES</span>
+            <h3>Consultores y Especialistas</h3>
+            <p>Multiplica tu velocidad de investigación, redacción de informes y análisis de datos manteniendo tu estándar de calidad.</p>
+          </div>
+
+          <div className="audience-card">
+            <span className="audience-num">04 / CREADORES</span>
+            <h3>Comunicadores y Ventas</h3>
+            <p>Produce contenido multicanal (artículos, guiones, imágenes y correos) alineado a la identidad de tu marca.</p>
+          </div>
+        </div>
       </section>
 
-      <section className="section school-teaser">
-        <div className="section-intro"><p className="eyebrow">BEE SMART SCHOOL</p><h2>IA para Todos<br />es el comienzo.</h2><p>Después puedes profundizar en el área que más se conecta con tu trabajo, tu negocio o lo que quieres construir.</p></div>
-        <details className="school-details"><summary>Explorar futuras especializaciones · todavía no disponibles</summary><div className="specialty-track">{specialties.map(([title,image,caption],index)=><article key={title}><div className="specialty-visual"><SiteImage src={image} alt="" /><i aria-hidden="true" /><span>0{index+1}</span></div><div className="specialty-copy"><strong>{title}</strong><p>{caption}</p><small>PRÓXIMAMENTE</small></div></article>)}</div></details>
+      {/* 6 Curricular Modules */}
+      <section id="temario" aria-label="Temario completo">
+        <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 50px" }}>
+          <div className="eyebrow eyebrow-cyan">ESTRUCTURA ACADÉMICA</div>
+          <h2 className="section-title">Los 6 Módulos del Programa</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            De los fundamentos a la práctica avanzada en una progresión lógica y accionable.
+          </p>
+        </div>
+
+        <div className="modules-grid">
+          <div className="module-card">
+            <div>
+              <div className="module-num">MÓDULO 01</div>
+              <h3>La revolución de la inteligencia artificial</h3>
+              <p>Qué cambió en el mundo laboral, qué es mito y qué es realidad productiva. Por qué la IA no sustituye al criterio profesional.</p>
+            </div>
+          </div>
+
+          <div className="module-card">
+            <div>
+              <div className="module-num">MÓDULO 02</div>
+              <h3>Cómo funciona realmente un LLM</h3>
+              <p>Tokens, ventanas de contexto, sesgos y alucinaciones. Entiende la mecánica interna para predecir cuándo el modelo acertará y cuándo fallará.</p>
+            </div>
+          </div>
+
+          <div className="module-card">
+            <div>
+              <div className="module-num">MÓDULO 03</div>
+              <h3>El mapa de herramientas actual</h3>
+              <p>Panorama comparativo entre Claude, GPT, Gemini, Perplexity, DeepSeek y herramientas especializadas. Cuándo usar cuál según el objetivo.</p>
+            </div>
+          </div>
+
+          <div className="module-card">
+            <div>
+              <div className="module-num">MÓDULO 04</div>
+              <h3>Cómo dirigir a la IA: prompting estructurado</h3>
+              <p>Frameworks de instrucción profesional: rol, contexto, restricciones, ejemplos y formatos de salida para obtener resultados consistentes.</p>
+            </div>
+          </div>
+
+          <div className="module-card">
+            <div>
+              <div className="module-num">MÓDULO 05</div>
+              <h3>Qué puedes crear: texto, imagen, voz y video</h3>
+              <p>Demostración práctica de generación multimedia: documentos analíticos, creativos gráficos, clonación de voz y videos asistidos.</p>
+            </div>
+          </div>
+
+          <div className="module-card">
+            <div>
+              <div className="module-num">MÓDULO 06</div>
+              <h3>Del caso al resultado: flujo de trabajo integral</h3>
+              <p>Construcción en vivo de un proceso completo: desde la ingesta de un problema real hasta el entregable final listo para presentar.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="section format-section" id="formatos">
-        <div><p className="eyebrow">FORMATO FLEXIBLE</p><h2>El mismo recorrido.<br />Dos maneras de vivirlo.</h2><p className="format-lead">Disponible para personas, grupos privados y equipos que quieren comenzar con una base común.</p></div>
-        <div className="format-options"><article><span>01</span><h3>Online</h3><strong>3 horas en vivo</strong><p>Conéctate desde donde estés. Incluye conceptos, demostración, práctica guiada y preguntas.</p></article><article><span>02</span><h3>Presencial</h3><strong>3 horas en Ciudad de Panamá</strong><p>Una experiencia cercana y práctica para aprender, probar herramientas y resolver dudas en el momento.</p></article></div>
+      {/* 4 Tool Groups */}
+      <section aria-label="Ecosistema de herramientas">
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 40px" }}>
+          <div className="eyebrow">TECNOLOGÍAS QUE DOMINARÁS</div>
+          <h2 className="section-title">El Ecosistema de Herramientas</h2>
+          <p className="section-subtitle" style={{ margin: "0 auto" }}>
+            Aprenderás a operar las herramientas líderes del mercado con soltura y criterio.
+          </p>
+        </div>
+
+        <div className="tools-grid">
+          <div className="tool-group-card">
+            <div className="tool-group-head">
+              <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--gold-champagne)", background: "rgba(245,208,97,0.12)", padding: "4px 10px", borderRadius: "6px" }}>
+                01. LENGUAJE
+              </span>
+              <h3 style={{ fontSize: "19px", fontWeight: 800, color: "var(--text-pure)" }}>
+                Modelos Fundacionales
+              </h3>
+            </div>
+            <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.5 }}>
+              Redacción, análisis de contratos, síntesis de informes y generación de código.
+            </p>
+            <div className="tool-pills-wrap">
+              <span className="tool-pill">ChatGPT (GPT-4o)</span>
+              <span className="tool-pill">Claude 3.5 Sonnet</span>
+              <span className="tool-pill">Google Gemini</span>
+              <span className="tool-pill">DeepSeek</span>
+            </div>
+          </div>
+
+          <div className="tool-group-card">
+            <div className="tool-group-head">
+              <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--cyan-bright)", background: "rgba(0,229,255,0.12)", padding: "4px 10px", borderRadius: "6px" }}>
+                02. MULTIMEDIA
+              </span>
+              <h3 style={{ fontSize: "19px", fontWeight: 800, color: "var(--text-pure)" }}>
+                Imagen, Voz y Video
+              </h3>
+            </div>
+            <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.5 }}>
+              Creación de activos visuales, locuciones corporativas y prototipos audiovisuales.
+            </p>
+            <div className="tool-pills-wrap">
+              <span className="tool-pill">Midjourney</span>
+              <span className="tool-pill">ElevenLabs</span>
+              <span className="tool-pill">Runway Gen-3</span>
+              <span className="tool-pill">Kling AI</span>
+            </div>
+          </div>
+
+          <div className="tool-group-card">
+            <div className="tool-group-head">
+              <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--gold-champagne)", background: "rgba(245,208,97,0.12)", padding: "4px 10px", borderRadius: "6px" }}>
+                03. BÚSQUEDA
+              </span>
+              <h3 style={{ fontSize: "19px", fontWeight: 800, color: "var(--text-pure)" }}>
+                Investigación y Síntesis
+              </h3>
+            </div>
+            <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.5 }}>
+              Exploración de fuentes bibliográficas, competidores y tendencias con citas verificadas.
+            </p>
+            <div className="tool-pills-wrap">
+              <span className="tool-pill">Perplexity Pro</span>
+              <span className="tool-pill">Genspark</span>
+              <span className="tool-pill">NotebookLM</span>
+            </div>
+          </div>
+
+          <div className="tool-group-card">
+            <div className="tool-group-head">
+              <span style={{ fontSize: "11px", fontWeight: 800, color: "var(--cyan-bright)", background: "rgba(0,229,255,0.12)", padding: "4px 10px", borderRadius: "6px" }}>
+                04. AUTOMATIZACIÓN
+              </span>
+              <h3 style={{ fontSize: "19px", fontWeight: 800, color: "var(--text-pure)" }}>
+                Agentes y Conectores
+              </h3>
+            </div>
+            <p style={{ fontSize: "13.5px", color: "var(--text-muted)", lineHeight: 1.5 }}>
+              Flujos autónomos entre correo, hojas de cálculo, mensajería y bases de datos.
+            </p>
+            <div className="tool-pills-wrap">
+              <span className="tool-pill">Make.com</span>
+              <span className="tool-pill">n8n</span>
+              <span className="tool-pill">Claude Projects</span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="section faq-section">
-        <div><p className="eyebrow">PREGUNTAS FRECUENTES</p><h2>Antes de<br />comenzar.</h2></div>
+      {/* 7 FAQs */}
+      <section aria-label="Preguntas frecuentes">
+        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 40px" }}>
+          <div className="eyebrow">RESOLUCIÓN DE DUDAS</div>
+          <h2 className="section-title">Preguntas Frecuentes</h2>
+        </div>
+
         <div className="faq-list">
-          <details open><summary>¿Necesito experiencia previa?</summary><p>No. La sesión comienza desde los fundamentos y avanza con ejemplos claros.</p></details>
-          <details><summary>¿Tengo que saber programar?</summary><p>No. También verás cómo la IA permite construir sin partir de conocimientos técnicos avanzados.</p></details>
-          <details><summary>¿Es para uso personal o profesional?</summary><p>Para ambos. Los casos cubren vida diaria, trabajo, contenido, emprendimiento y negocios.</p></details>
-          <details><summary>¿Puede tomarse en grupo?</summary><p>Sí. Estas sesiones abiertas duran 3 horas y cuestan $75 por persona. <a href="/empresas/#capacitacion">IA 101 corporativo</a> es una capacitación privada de 2½ horas, desde USD 500 según alcance.</p></details>
-          <details><summary>¿Dónde será la sesión presencial?</summary><p>El 3 de octubre de 2026, de 10:00 a. m. a 1:00 p. m., en San Francisco, Ciudad de Panamá. El lugar exacto está por definir. Si necesitas confirmar este detalle antes de pagar, <a href="/contacto/">consúltanos</a>.</p></details>
-          <details><summary>¿Qué necesito para participar?</summary><p>Una computadora, conexión a internet y curiosidad. Antes de la sesión recibirás una guía sencilla de preparación.</p></details>
-          <details><summary>¿Cómo garantizo mi cupo?</summary><p>Completa el formulario, paga por Yappy o transferencia bancaria y adjunta tu comprobante. Te confirmaremos la reserva después de validar el pago.</p></details>
+          <details className="faq-item">
+            <summary>¿Necesito conocimientos previos de programación o matemáticas?</summary>
+            <div className="faq-content">
+              No, en lo absoluto. El curso está diseñado para usuarios no técnicos. La interacción con los modelos se realiza íntegramente mediante lenguaje natural en español.
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary>¿Qué formato tiene la sesión y dónde se imparte?</summary>
+            <div className="faq-content">
+              Ofrecemos dos modalidades: sesión virtual interactiva por Google Meet o taller presencial en Ciudad de Panamá. Ambas modalidades son en vivo con Humberto Bouché.
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary>¿Entregan grabación y material de apoyo?</summary>
+            <div className="faq-content">
+              Sí. Todos los participantes reciben la grabación íntegra de la sesión, la guía PDF de prompts ejecutivos y acceso a la lista de recursos recomendados.
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary>¿Qué cuentas de herramientas necesito tener listas antes del curso?</summary>
+            <div className="faq-content">
+              Con una cuenta gratuita de ChatGPT y Google es suficiente para aprovechar el 100% de los ejercicios. Durante la sesión te mostraremos cuándo vale la pena pagar planes premium.
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary>¿Puedo pagar con Yappy o transferencia local en Panamá?</summary>
+            <div className="faq-content">
+              Sí, aceptamos pagos locales vía Yappy Comercial y transferencia bancaria directa (ACH / Banco General). Las instrucciones de pago se coordinan al confirmar la cohorte.
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary>¿Ofrecen capacitaciones privadas para empresas o comités ejecutivos?</summary>
+            <div className="faq-content">
+              Sí. Para grupos corporativos ofrecemos el programa in-company IA 101 adaptado a los procesos específicos de tu sector. Puedes ver más detalles en la sección de Empresas.
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary>¿Cómo confirmo la fecha de la próxima sesión?</summary>
+            <div className="faq-content">
+              Las sesiones se abren bajo demanda en grupos reducidos. Regístrate en el formulario inferior o escribe por WhatsApp para unirte a la lista de la próxima fecha confirmada.
+            </div>
+          </details>
         </div>
       </section>
 
-      <section className="section final-cta learn-final" id="reserva">
-        <p className="eyebrow light">TU SIGUIENTE PASO</p><h2>Ya tenemos fechas.<br />Escoge la tuya.</h2><p>Sesiones online y presencial en San Francisco, Ciudad de Panamá. Completa el formulario y adjunta tu comprobante; confirmaremos tu cupo después de validar el pago.</p><div className="contact-options"><a className="button button-primary" href={registrationFormUrl} target="_blank" rel="noreferrer" data-event="registration_click">Reservar mi cupo</a><a className="button button-outline" href="/contacto#empresas">Busco la versión empresarial</a></div>
+      {/* Inscription Form Section */}
+      <section id="fechas" className="inscription-card" aria-label="Inscripción y convocatoria">
+        <div id="inscribir" style={{ position: "relative", top: "-20px" }} />
+        <div style={{ textAlign: "center", marginBottom: "30px" }}>
+          <div className="eyebrow">LISTA DE ESPERA & CONVOCATORIAS</div>
+          <h2 style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-pure)", marginBottom: "8px" }}>
+            Reserva tu plaza en Google Forms
+          </h2>
+          <p style={{ fontSize: "14.5px", color: "var(--text-muted)" }}>
+            La reserva de plaza se confirma formalmente después de validar el pago correspondiente.
+          </p>
+        </div>
+
+        <div style={{ background: "rgba(7, 21, 43, 0.75)", padding: "24px", borderRadius: "var(--radius-md)", border: "1px solid var(--border-gold)", marginBottom: "28px", textAlign: "center" }}>
+          <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--gold-champagne)", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "8px" }}>
+            PRÓXIMAS FECHAS POR CONFIRMAR
+          </span>
+          <strong style={{ fontSize: "22px", color: "var(--text-pure)", display: "block", marginBottom: "6px" }}>
+            Consulta de Fechas · Próximas Convocatorias por Confirmar
+          </strong>
+          <span style={{ fontSize: "15px", color: "var(--text-high)", display: "block", marginBottom: "4px" }}>
+            Modalidad Online y Presencial en San Francisco, Ciudad de Panamá
+          </span>
+          <span style={{ fontSize: "13px", color: "var(--text-dim)", display: "block", marginTop: "8px" }}>
+            Referencia histórica de sesión previa: 3 de octubre de 2026 (Finalizada)
+          </span>
+        </div>
+
+        <div style={{ textAlign: "center" }}>
+          <a
+            href={registrationFormUrl}
+            target="_blank"
+            rel="noreferrer"
+            data-event="registration_click"
+            className="btn btn-gold btn-block"
+            style={{ fontSize: "15px", padding: "14px 24px" }}
+          >
+            Abrir formulario oficial de inscripción en Google Forms ↗
+          </a>
+          <p style={{ fontSize: "12px", color: "var(--text-dim)", marginTop: "14px" }}>
+            El formulario oficial recopila nombre, correo, teléfono y comprobante para formalizar tu registro sin intermediarios.
+          </p>
+        </div>
       </section>
 
       <SiteFooter />

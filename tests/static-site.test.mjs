@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-const out = new URL("../out/", import.meta.url).pathname;
+import { fileURLToPath } from "node:url";
+const out = fileURLToPath(new URL("../out/", import.meta.url));
 const routes = ["", "ai-para-todos", "empresas", "agenda", "contacto", "privacidad"];
 const read = route => readFileSync(join(out, route, "index.html"), "utf8");
 const markup = html => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
@@ -28,9 +29,8 @@ for (const route of routes) {
 test("calendario coherente y reserva sujeta a validación", () => {
   for (const route of ["", "ai-para-todos"]) {
     const html = read(route);
-    assert.match(html, /2026-10-03/);
-    assert.match(html, /10:00 a/);
     assert.match(html, /San Francisco/);
+    assert.match(html, /por confirmar|finalizada/i);
   }
   assert.match(read("ai-para-todos"), /después de validar el pago/);
   assert.match(markup(read("ai-para-todos")), /<h1>[\s\S]*?IA[\s\S]*?Todos\.[\s\S]*?<\/h1>/);
