@@ -57,7 +57,7 @@ export function SiteFooter() {
         <div className="footer-grid">
           <div>
             <Brand footer />
-            <p className="footer-tagline">
+            <p className="footer-brand-desc">
               Educación e implementación de inteligencia artificial para profesionales y organizaciones en Panamá.
             </p>
             <span className="footer-copyright">
@@ -67,7 +67,7 @@ export function SiteFooter() {
 
           <div>
             <div className="footer-col-title">Rutas Principales</div>
-            <ul className="footer-links-list">
+            <ul className="footer-links">
               <li><a href="/">Inicio</a></li>
               <li><a href="/empresas/">BEE SMART Empresas</a></li>
               <li><a href="/ai-para-todos/">Curso IA para Todos</a></li>
@@ -78,7 +78,7 @@ export function SiteFooter() {
 
           <div>
             <div className="footer-col-title">Canales y Contacto</div>
-            <ul className="footer-links-list">
+            <ul className="footer-links">
               <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
               <li><a href={contact.whatsapp} target="_blank" rel="noreferrer">{contact.phoneDisplay}</a></li>
               <li><a href="/privacidad/">Política de Privacidad</a></li>
