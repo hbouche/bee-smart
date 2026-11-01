@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>BEE SMART Empresas · Soluciones e Implementación de IA en Panamá</title>
+  <meta name="description" content="Arquitectura de agentes e inteligencia artificial para operaciones empresariales. Compuertas de supervisión humana, integración a sistemas de gestión y acompañamiento estratégico.">
+  <link rel="stylesheet" href="/propuesta-v4/assets/css/site.css">
+  <style>
+    /* Specific Empresas Styles */
+    .hero-section {
+      padding: 60px 0 50px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-headline {
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text-pure);
+      margin-bottom: 22px;
+    }
+    .hero-headline em {
+      font-style: normal;
+      background: linear-gradient(135deg, #FFFFFF 20%, #A9D5FF 60%, var(--cyan-bright) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subhead {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+    .hero-facts-bar {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+    .fact-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .fact-number {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-pure);
+      letter-spacing: -0.02em;
+    }
+    .fact-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hero Right Visual: Pipeline Card */
+    .hero-visual-card {
+      background: linear-gradient(145deg, rgba(16, 42, 80, 0.70) 0%, rgba(9, 23, 46, 0.85) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .visual-card-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cyan-bright);
+      text-transform: uppercase;
+    }
+    .visual-card-badge span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+    }
+    .pipeline-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(7, 21, 43, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+    .pipeline-step.active-gate {
+      border-color: var(--gold-champagne);
+      background: rgba(245, 208, 97, 0.08);
+      box-shadow: 0 0 20px rgba(245, 208, 97, 0.15);
+    }
+    .step-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--sapphire);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-pure);
+      flex-shrink: 0;
+    }
+    .pipeline-step.active-gate .step-icon {
+      background: var(--gold-champagne);
+      color: #061122;
+    }
+    .step-body {
+      flex: 1;
+    }
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-pure);
+    }
+    .step-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .step-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 12px;
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan-bright);
+    }
+    .pipeline-step.active-gate .step-badge {
+      background: var(--gold-champagne);
+      color: #061122;
+    }
+
+    /* 6 Opportunities */
+    .opportunities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .opp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .opp-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-active);
+      transform: translateY(-4px);
+    }
+    .opp-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--gold-champagne);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .opp-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+    .opp-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 10px;
+    }
+    .opp-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Anatomy Section */
+    .anatomy-section {
+      background: linear-gradient(180deg, rgba(8, 22, 43, 0.4) 0%, rgba(13, 33, 62, 0.8) 50%, rgba(8, 22, 43, 0.4) 100%);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 80px 0;
+      margin: 60px 0;
+    }
+    .anatomy-canvas-container {
+      background: #040A14;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      position: relative;
+      margin-top: 36px;
+    }
+    .canvas-hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 22px;
+      background: rgba(10, 26, 50, 0.90);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-dim);
+    }
+    .canvas-hud-title {
+      color: var(--gold-champagne);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .canvas-hud-title::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--cyan-bright);
+      border-radius: 50%;
+    }
+    #anatomyCanvas {
+      display: block;
+      width: 100%;
+      height: 440px;
+      background: #061122;
+    }
+    .anatomy-callouts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+    .callout-box {
+      background: rgba(9, 25, 48, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    .callout-box.gate-box {
+      border-color: var(--gold-champagne);
+      background: rgba(245, 208, 97, 0.05);
+    }
+    .callout-header {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold-champagne);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .callout-heading {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 6px;
+    }
+    .callout-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* 3-Step Methodology */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 30px 24px;
+      position: relative;
+    }
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+      border-radius: 2px;
+    }
+    .step-badge-large {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--gold-champagne);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .step-card-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 10px;
+    }
+    .step-card-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* IA 101 Corp Banner */
+    .corp-training-card {
+      background: linear-gradient(145deg, rgba(16, 44, 82, 0.85) 0%, rgba(10, 24, 46, 0.95) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      padding: 40px 32px;
+      margin: 60px 0;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .price-historical-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-champagne);
+      background: rgba(245, 208, 97, 0.12);
+      border: 1px solid var(--border-gold);
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-section { grid-template-columns: 1fr; gap: 36px; padding: 40px 0 30px; }
+      .opportunities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .anatomy-callouts-grid { grid-template-columns: 1fr; }
+      .corp-training-card { grid-template-columns: 1fr; padding: 28px 20px; }
+      #anatomyCanvas { height: 360px; }
+    }
+    @media (max-width: 600px) {
+      .opportunities-grid { grid-template-columns: 1fr; }
+      .hero-visual-card { padding: 18px; }
+      #anatomyCanvas { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="studio-bg"></div>
+
+  <!-- Review Banner -->
+  <aside class="review-banner" aria-label="Aviso de revisión">
+    <span class="review-badge">Propuesta V4</span>
+    <span>Formularios y controles en modo de demostración · Consulta los canales oficiales para envíos reales</span>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="content-wrapper header-container">
+      <a href="/propuesta-v4/" class="brand" aria-label="BEE SMART - Inicio">
+        <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
+          <path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
+          <path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
+          <path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+        </svg>
+        <span>BEE SMART</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="/propuesta-v4/">Inicio</a>
+        <a href="/propuesta-v4/empresas/" class="active" aria-current="page">Empresas</a>
+        <a href="/propuesta-v4/ai-para-todos/">IA para Todos</a>
+        <a href="/propuesta-v4/agenda/">Agenda</a>
+        <a href="/propuesta-v4/contacto/">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-header-cta">Agendar 30 min</a>
+        <button class="mobile-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menú móvil">
+    <ul class="mobile-nav-list">
+      <li><a href="/propuesta-v4/">Inicio <span>/</span></a></li>
+      <li><a href="/propuesta-v4/empresas/" class="active" aria-current="page">Empresas <span>/empresas/</span></a></li>
+      <li><a href="/propuesta-v4/ai-para-todos/">IA para Todos <span>/ai-para-todos/</span></a></li>
+      <li><a href="/propuesta-v4/agenda/">Agenda una llamada <span>/agenda/</span></a></li>
+      <li><a href="/propuesta-v4/contacto/">Contacto Directo <span>/contacto/</span></a></li>
+      <li><a href="/propuesta-v4/privacidad/">Política de Privacidad <span>/privacidad/</span></a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block">Agendar 30 min en Google Meet</a>
+      <p style="font-size: 12px; color: var(--text-dim); text-align: center;">
+        Panamá · Humberto Bouché · <a href="mailto:hb@bee-smart.ai" style="color: var(--cyan-bright); text-decoration: none;">hb@bee-smart.ai</a>
+      </p>
+    </div>
+  </div>
+
+  <main class="content-wrapper">
+
+    <!-- Section 1: Hero Empresas -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="eyebrow">BEE SMART EMPRESAS · PANAMÁ</div>
+        <h1 class="hero-headline">
+          Arquitectura de IA con supervisión humana para <em>operaciones críticas.</em>
+        </h1>
+        <p class="hero-subhead">
+          Diseñamos e implementamos sistemas de agentes y flujos de inteligencia artificial con compuertas de validación por tu equipo, integrados de forma gradual a tus herramientas y bases de datos actuales.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="/propuesta-v4/agenda/" class="btn btn-gold">Solicitar diagnóstico operativo →</a>
+          <a href="#mecanismo" class="btn btn-glass">Ver cómo funciona ↓</a>
+        </div>
+
+        <div class="hero-facts-bar">
+          <div class="fact-item">
+            <span class="fact-number" style="font-size: 18px;">Control</span>
+            <span class="fact-label">Supervisión Humana Activa</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-number" style="font-size: 18px;">Gradual</span>
+            <span class="fact-label">Integración Sobre Tus Herramientas</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-number" style="font-size: 18px;">Panamá</span>
+            <span class="fact-label">Sede & Acompañamiento</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-card">
+          <div class="visual-card-badge">
+            <span>Orquestador Modular</span>
+            <span><span class="pulse-dot"></span> Operación Asistida</span>
+          </div>
+
+          <div class="pipeline-preview">
+            <div class="pipeline-step">
+              <div class="step-icon">01</div>
+              <div class="step-body">
+                <div class="step-title">Ingesta y Normalización</div>
+                <div class="step-desc">Facturas, correos, inventario y solicitudes</div>
+              </div>
+              <span class="step-badge">Flujo Activo</span>
+            </div>
+
+            <div class="pipeline-step active-gate">
+              <div class="step-icon">⚡</div>
+              <div class="step-body">
+                <div class="step-title">Compuerta de Supervisión Humana</div>
+                <div class="step-desc">Aprobación obligatoria antes de ejecutar</div>
+              </div>
+              <span class="step-badge">Control Crítico</span>
+            </div>
+
+            <div class="pipeline-step">
+              <div class="step-icon">03</div>
+              <div class="step-body">
+                <div class="step-title">Despacho hacia Sistemas Centrales</div>
+                <div class="step-desc">ERP, CRM, contabilidad y mensajería</div>
+              </div>
+              <span class="step-badge">Salida Guiada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 6 Operational Opportunities -->
+    <section class="section-container" style="padding: 70px 0;">
+      <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 50px;">
+        <div class="eyebrow eyebrow-cyan">OPORTUNIDADES DE IMPACTO</div>
+        <h2 class="section-title">6 áreas donde la IA genera resultados tangibles</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">No reemplazamos a tu personal: eliminamos la fricción administrativa para que tu equipo se concentre en decisiones estratégicas.</p>
+      </div>
+
+      <div class="opportunities-grid">
+        <div class="opp-card">
+          <div class="opp-num">01 / ATENCIÓN & TRIAJE</div>
+          <h3 class="opp-title">Atención al cliente 24/7</h3>
+          <p class="opp-text">Agentes que responden consultas frecuentes, recopilan datos de clientes y escalan casos sensibles a supervisores humanos con historial completo.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-num">02 / COTIZACIONES</div>
+          <h3 class="opp-title">Cotizaciones y propuestas</h3>
+          <p class="opp-text">Generación automática de presupuestos basados en listas de precios, inventario en tiempo real y reglas de margen preaprobadas por gerencia.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-num">03 / DOCUMENTOS</div>
+          <h3 class="opp-title">Procesamiento de facturas</h3>
+          <p class="opp-text">Lectura, extracción y conciliación de documentos de compra y venta contra órdenes existentes sin captura manual de datos.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-num">04 / COMPRAS & STOCK</div>
+          <h3 class="opp-title">Gestión de inventario</h3>
+          <p class="opp-text">Predicción de reposición según estacionalidad y generación de borradores de órdenes de compra con umbrales de seguridad.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-num">05 / EQUIPO</div>
+          <h3 class="opp-title">Onboarding y capacitación</h3>
+          <p class="opp-text">Sistemas de consulta interna entrenados exclusivamente sobre los manuales, políticas y procedimientos operativos de tu negocio.</p>
+        </div>
+
+        <div class="opp-card">
+          <div class="opp-num">06 / CONTROL</div>
+          <h3 class="opp-title">Auditoría y cumplimiento</h3>
+          <p class="opp-text">Supervisión continua de transacciones para detectar desviaciones, anomalías o incumplimiento de directivas internas en tiempo real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Anatomy Canvas (Orquestador con Compuerta Humana) -->
+    <section class="anatomy-section" id="mecanismo" aria-label="Mecanismo de supervisión">
+      <div class="content-wrapper">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+          <div class="eyebrow">EL MECANISMO DE CONTROL</div>
+          <h2 class="section-title">Anatomía del Orquestador Modular</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Representación esquemática conceptual en Canvas 2D. La compuerta humana actúa como cortafuegos operativo impidiendo acciones no supervisadas en tus sistemas centrales.
+          </p>
+        </div>
+
+        <div class="anatomy-canvas-container">
+          <div class="canvas-hud">
+            <span class="canvas-hud-title">Diagrama Axonométrico Conceptual 2D</span>
+            <span id="canvasStatusText" style="color: var(--cyan-bright);">Supervisión Humana Activa</span>
+          </div>
+
+          <canvas id="anatomyCanvas" role="img" aria-label="Diagrama axonométrico del flujo de datos con compuerta de supervisión humana"></canvas>
+        </div>
+
+        <div class="anatomy-callouts-grid">
+          <div class="callout-box">
+            <div class="callout-header">01. INGESTA</div>
+            <h4 class="callout-heading">Datos y Documentos</h4>
+            <p class="callout-desc">Captura estructurada desde correo, WhatsApp, formularios y archivos sin alterar tus repositorios.</p>
+          </div>
+
+          <div class="callout-box gate-box">
+            <div class="callout-header">02. COMPUERTA HUMANA</div>
+            <h4 class="callout-heading">Validación por Supervisor</h4>
+            <p class="callout-desc">La IA formula la recomendación, pero la confirmación final requiere autorización humana explícita.</p>
+          </div>
+
+          <div class="callout-box">
+            <div class="callout-header">03. DESPACHO</div>
+            <h4 class="callout-heading">Sistemas Centrales</h4>
+            <p class="callout-desc">Actualización segura en ERP, CRM o pasarelas mediante conectores controlados y auditables.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 3-Step Methodology -->
+    <section class="section-container" style="padding: 70px 0;">
+      <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 50px;">
+        <div class="eyebrow">METODOLOGÍA DE ADOPCIÓN</div>
+        <h2 class="section-title">La ruta en 3 etapas hacia la madurez en IA</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Un camino estructurado para minimizar riesgos y garantizar que la tecnología se traduzca en ahorro real de horas hombre.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge-large">01</div>
+          <h3 class="step-card-title">Diagnóstico y Prueba de Concepto</h3>
+          <p class="step-card-text">
+            Auditamos tus flujos de trabajo actuales e identificamos el proceso de mayor rentabilidad para desplegar un prototipo funcional en menos de 3 semanas.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge-large">02</div>
+          <h3 class="step-card-title">Implementación con Supervisión</h3>
+          <p class="step-card-text">
+            Conectamos los modelos con tus herramientas cotidianas y capacitamos a tu equipo en la dirección de agentes y control de compuertas de supervisión.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge-large">03</div>
+          <h3 class="step-card-title">Autonomía Guiada y Escalamiento</h3>
+          <p class="step-card-text">
+            Tu empresa asume la operación interna asistida. Dejamos documentación técnica completa, métricas de desempeño y protocolos de mantenimiento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: IA 101 Corp Card -->
+    <section class="corp-training-card" aria-label="Capacitación corporativa">
+      <div>
+        <div class="eyebrow eyebrow-cyan">CAPACITACIÓN EJECUTIVA IN-COMPANY</div>
+        <h2 style="font-size: 28px; font-weight: 900; color: var(--text-pure); margin-bottom: 14px;">Taller Corporativo IA 101</h2>
+        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+          Sesión intensiva privada para comités ejecutivos y mandos medios. Alineamos a tu liderazgo sobre capacidades reales, riesgos, gobernanza y aplicaciones prioritarias en tu sector.
+        </p>
+        <span class="price-historical-tag">Precio de referencia histórica: $500 (pendiente de confirmación vigente por Humberto Bouché)</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; justify-content: center;">
+        <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block">Agendar llamada de diagnóstico</a>
+        <a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-block">Consultar por WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="content-wrapper">
+      <div class="footer-grid">
+        <div>
+          <a href="/propuesta-v4/" class="brand" style="margin-bottom: 12px;">
+            <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
+              <path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
+              <path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
+              <path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+            </svg>
+            <span>BEE SMART</span>
+          </a>
+          <p class="footer-brand-desc">
+            Capacitación e implementación de inteligencia artificial en Panamá. Arquitectura de sistemas asistidos por IA y formación ejecutiva con supervisión humana.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Rutas Principales</div>
+          <ul class="footer-links">
+            <li><a href="/propuesta-v4/">Inicio</a></li>
+            <li><a href="/propuesta-v4/empresas/">Empresas</a></li>
+            <li><a href="/propuesta-v4/ai-para-todos/">IA para Todos</a></li>
+            <li><a href="/propuesta-v4/agenda/">Agenda una llamada</a></li>
+            <li><a href="/propuesta-v4/contacto/">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal & Acuses</div>
+          <ul class="footer-links">
+            <li><a href="/propuesta-v4/privacidad/">Política de Privacidad</a></li>
+            <li><a href="/propuesta-v4/contacto/gracias/">Página de Acuse</a></li>
+            <li><a href="mailto:hb@bee-smart.ai">hb@bee-smart.ai</a></li>
+            <li><a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer">+507 6430-1378</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Dirección Ejecutiva</div>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Humberto Bouché · Consultor de Estrategia e Implementación de IA en Panamá.
+          </p>
+          <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block" style="font-size: 12px; padding: 8px 14px;">Solicitar diagnóstico 30 min</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 BEE SMART · Todos los derechos reservados</span>
+        <span>Entorno de Revisión Técnica Local · <a href="/propuesta-v4/privacidad/" style="color: var(--cyan-bright); text-decoration: none;">Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/propuesta-v4/assets/js/site.js"></script>
+  <script>
+    /**
+     * Canvas 2D Orquestador Modular con control estricto de prefers-reduced-motion
+     */
+    (function() {
+      const canvas = document.getElementById('anatomyCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const statusText = document.getElementById('canvasStatusText');
+
+      let startTime = performance.now();
+      let animFrameId = null;
+      const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = (rect.height || 440) * dpr;
+        ctx.resetTransform();
+        ctx.scale(dpr, dpr);
+      }
+
+      function drawAxonBlock(cx, cy, bw, bh, depth, baseColor, tag, label, isGate, pulseState) {
+        ctx.save();
+        ctx.fillStyle = 'rgba(0, 4, 12, 0.6)';
+        ctx.beginPath();
+        ctx.ellipse(cx, cy + bh * 0.5 + 16, bw * 0.65, 16, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const left = cx - bw * 0.5;
+        const top = cy - bh * 0.5;
+
+        ctx.fillStyle = baseColor;
+        ctx.strokeStyle = isGate ? '#F5D061' : 'rgba(0, 229, 255, 0.35)';
+        ctx.lineWidth = isGate ? 2 : 1;
+
+        ctx.beginPath();
+        if (ctx.roundRect) {
+          ctx.roundRect(left, top, bw, bh, 8);
+        } else {
+          ctx.rect(left, top, bw, bh);
+        }
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isGate ? 'rgba(245, 208, 97, 0.20)' : 'rgba(0, 229, 255, 0.12)';
+        ctx.beginPath();
+        ctx.moveTo(left, top);
+        ctx.lineTo(left + 16, top - 16);
+        ctx.lineTo(left + bw + 16, top - 16);
+        ctx.lineTo(left + bw, top);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isGate ? '#F5D061' : '#00E5FF';
+        ctx.font = '800 11px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(tag, cx, top + 26);
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '700 13px -apple-system, sans-serif';
+        ctx.fillText(label, cx, top + 46);
+
+        if (isGate) {
+          ctx.fillStyle = pulseState ? '#10B981' : '#F5D061';
+          ctx.beginPath();
+          ctx.arc(cx - 60, top + 66, 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+          ctx.font = '600 10px -apple-system, sans-serif';
+          ctx.textAlign = 'left';
+          ctx.fillText(pulseState ? 'VALIDADO POR SUPERVISOR' : 'REVISIÓN PENDIENTE', cx - 50, top + 69);
+        }
+
+        ctx.restore();
+      }
+
+      function drawDataFlow(x1, y1, x2, y2, time, color, isStatic) {
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.setLineDash([4, 6]);
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        if (!isStatic) {
+          const progress = (time % 1.5) / 1.5;
+          const px = x1 + (x2 - x1) * progress;
+          const py = y1 + (y2 - y1) * progress;
+
+          ctx.fillStyle = color;
+          ctx.shadowColor = color;
+          ctx.shadowBlur = 10;
+          ctx.beginPath();
+          ctx.arc(px, py, 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+
+      function drawAnatomy(t, isStatic) {
+        const rect = canvas.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height || 440;
+
+        ctx.clearRect(0, 0, w, h);
+
+        const grad = ctx.createRadialGradient(w * 0.5, h * 0.55, 30, w * 0.5, h * 0.55, w * 0.5);
+        grad.addColorStop(0, 'rgba(16, 52, 100, 0.45)');
+        grad.addColorStop(0.5, 'rgba(10, 30, 60, 0.25)');
+        grad.addColorStop(1, 'rgba(6, 17, 34, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.strokeStyle = 'rgba(0, 229, 255, 0.08)';
+        ctx.lineWidth = 1;
+        const gridSpacing = 40;
+        for (let x = -w; x < w * 2; x += gridSpacing) {
+          ctx.beginPath();
+          ctx.moveTo(x, h);
+          ctx.lineTo(x + h * 0.7, 0);
+          ctx.stroke();
+        }
+
+        const bY = h * 0.52;
+        const bW = Math.min(150, w * 0.26);
+        const bH = 80;
+
+        // Block 1: Ingesta
+        drawAxonBlock(w * 0.20, bY, bW, bH, 50, '#0E2A54', '01. INGESTA', 'Datos & Documentos', false);
+
+        // Block 2: Compuerta Humana
+        const gateActive = isStatic ? true : (Math.sin(t * 2) > 0);
+        drawAxonBlock(w * 0.50, bY - 15, Math.min(180, w * 0.32), bH + 10, 60, '#173B6E', '02. COMPUERTA', 'Supervisión Humana', true, gateActive);
+
+        // Block 3: Despacho
+        drawAxonBlock(w * 0.80, bY, bW, bH, 50, '#0E2A54', '03. DESPACHO', 'Sistemas de Ejemplo', false);
+
+        // Flujos
+        drawDataFlow(w * 0.20 + bW * 0.5, bY, w * 0.50 - Math.min(180, w * 0.32) * 0.5, bY - 15, t, '#00E5FF', isStatic);
+        drawDataFlow(w * 0.50 + Math.min(180, w * 0.32) * 0.5, bY - 15, w * 0.80 - bW * 0.5, bY, t + 0.5, '#F5D061', isStatic);
+      }
+
+      function updateCanvasLoop() {
+        if (reducedMotionQuery.matches) {
+          // DETENER BUCLE TOTALMENTE: Cancelar requestAnimationFrame
+          if (animFrameId) {
+            cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+          }
+          // Dibujar estado esquemático estático de alta legibilidad
+          drawAnatomy(0.5, true);
+          if (statusText) statusText.textContent = 'Modo Estático (Movimiento Reducido Detectado)';
+        } else {
+          if (statusText) statusText.textContent = 'Supervisión Humana Activa';
+          if (!animFrameId) {
+            function loop(now) {
+              if (reducedMotionQuery.matches) {
+                drawAnatomy(0.5, true);
+                animFrameId = null;
+                return;
+              }
+              const elapsed = (now - startTime) / 1000;
+              drawAnatomy(elapsed, false);
+              animFrameId = requestAnimationFrame(loop);
+            }
+            animFrameId = requestAnimationFrame(loop);
+          }
+        }
+      }
+
+      reducedMotionQuery.addEventListener('change', updateCanvasLoop);
+      window.addEventListener('resize', function() {
+        resizeCanvas();
+        if (reducedMotionQuery.matches) {
+          drawAnatomy(0.5, true);
+        }
+      });
+
+      resizeCanvas();
+      updateCanvasLoop();
+    })();
+  </script>
+</body>
+</html>

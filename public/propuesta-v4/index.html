@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>BEE SMART · Capacitación e Implementación de Inteligencia Artificial en Panamá</title>
+  <meta name="description" content="Aprende a dirigir modelos y agentes o construye capacidad técnica interna en tu empresa. Formación ejecutiva e implementación a la medida de tu operación en Panamá.">
+  <link rel="stylesheet" href="/propuesta-v4/assets/css/site.css">
+  <style>
+    /* Specific Home Styles */
+    .home-hero {
+      padding: 60px 0 50px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: clamp(34px, 4.2vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-pure);
+      margin-bottom: 22px;
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #FFFFFF 20%, #A9D5FF 60%, var(--cyan-bright) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: clamp(16px, 1.8vw, 18px);
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Kinetic Video Card */
+    .hero-motion-card {
+      background: linear-gradient(145deg, rgba(14, 38, 72, 0.8) 0%, rgba(8, 20, 40, 0.9) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .motion-hud {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .motion-stage-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #040914;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-video-v3 {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-md);
+    }
+    .motion-controls-strip {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .motion-phase-indicators {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .phase-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.3s;
+    }
+    .phase-dot.active {
+      background: var(--cyan-bright);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+    .video-ctrl-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-card);
+      color: var(--text-high);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .video-ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--cyan-bright);
+      color: var(--text-pure);
+    }
+
+    /* Clients Bar */
+    .clients-section {
+      padding: 50px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(8, 22, 43, 0.35);
+      text-align: center;
+    }
+    .clients-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+    .clients-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .client-badge {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s;
+    }
+    .client-badge:hover {
+      color: var(--text-pure);
+      border-color: var(--gold-champagne);
+      background: rgba(245, 208, 97, 0.08);
+    }
+    .client-badge small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    /* Pillars */
+    .pillars-section {
+      padding: 80px 0;
+    }
+    .pillars-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 26px 20px;
+      transition: all 0.25s;
+    }
+    .pillar-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-4px);
+    }
+    .pillar-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold-champagne);
+      margin-bottom: 12px;
+    }
+    .pillar-heading {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 10px;
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Routes Track */
+    .routes-section {
+      padding: 70px 0;
+      background: linear-gradient(180deg, rgba(8, 22, 43, 0.4) 0%, rgba(12, 30, 58, 0.7) 100%);
+    }
+    .routes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .route-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .route-card.highlight {
+      border-color: var(--border-gold);
+      background: linear-gradient(145deg, rgba(16, 42, 80, 0.85) 0%, rgba(10, 26, 52, 0.95) 100%);
+    }
+    .route-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text-pure);
+      margin-bottom: 12px;
+    }
+    .route-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .route-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .route-feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-high);
+    }
+    .route-feature-list li::before {
+      content: '✓';
+      color: var(--gold-champagne);
+      font-weight: 900;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 980px) {
+      .home-hero { grid-template-columns: 1fr; gap: 36px; padding: 40px 0 30px; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .routes-grid { grid-template-columns: 1fr; gap: 24px; }
+      .route-card { padding: 30px 24px; }
+    }
+    @media (max-width: 600px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .hero-motion-card { padding: 16px; }
+      .motion-stage-container {
+        aspect-ratio: 9 / 12;
+        max-height: 480px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Studio Background Ambient Lights -->
+  <div class="studio-bg"></div>
+
+  <!-- Review Banner -->
+  <aside class="review-banner" aria-label="Aviso de revisión">
+    <span class="review-badge">Propuesta V4</span>
+    <span>Formularios y controles en modo de demostración · Consulta los canales oficiales para envíos reales</span>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="content-wrapper header-container">
+      <a href="/propuesta-v4/" class="brand" aria-label="BEE SMART - Inicio">
+        <!-- Logo Oficial Canónico de 4 bloques azules -->
+        <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
+          <path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
+          <path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
+          <path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+        </svg>
+        <span>BEE SMART</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="/propuesta-v4/" class="active" aria-current="page">Inicio</a>
+        <a href="/propuesta-v4/empresas/">Empresas</a>
+        <a href="/propuesta-v4/ai-para-todos/">IA para Todos</a>
+        <a href="/propuesta-v4/agenda/">Agenda</a>
+        <a href="/propuesta-v4/contacto/">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-header-cta">Agendar 30 min</a>
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menú móvil">
+    <ul class="mobile-nav-list">
+      <li><a href="/propuesta-v4/" class="active" aria-current="page">Inicio <span>/</span></a></li>
+      <li><a href="/propuesta-v4/empresas/">Empresas <span>/empresas/</span></a></li>
+      <li><a href="/propuesta-v4/ai-para-todos/">IA para Todos <span>/ai-para-todos/</span></a></li>
+      <li><a href="/propuesta-v4/agenda/">Agenda una llamada <span>/agenda/</span></a></li>
+      <li><a href="/propuesta-v4/contacto/">Contacto Directo <span>/contacto/</span></a></li>
+      <li><a href="/propuesta-v4/privacidad/">Política de Privacidad <span>/privacidad/</span></a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block">Agendar 30 min en Google Meet</a>
+      <p style="font-size: 12px; color: var(--text-dim); text-align: center;">
+        Panamá · Humberto Bouché · <a href="mailto:hb@bee-smart.ai" style="color: var(--cyan-bright); text-decoration: none;">hb@bee-smart.ai</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="content-wrapper">
+
+    <!-- Home Hero -->
+    <section class="home-hero">
+      <div class="hero-left">
+        <div class="eyebrow">CAPACITACIÓN & IMPLEMENTACIÓN EN PANAMÁ</div>
+        <h1 class="hero-title">
+          Inteligencia artificial aplicada, <em>con criterio humano.</em>
+        </h1>
+        <p class="hero-desc">
+          Aprende a dirigir modelos y agentes o construye capacidad técnica interna en tu empresa. Formación ejecutiva e implementación a la medida de tu operación.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="/propuesta-v4/empresas/" class="btn btn-gold">Explorar Empresas →</a>
+          <a href="/propuesta-v4/ai-para-todos/" class="btn btn-glass">Curso IA para Todos ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-motion-card">
+          <div class="motion-hud">
+            <span>Recorrido Cinemático V3</span>
+            <span>4 Fases Narrativas</span>
+          </div>
+          
+          <div class="motion-stage-container">
+            <!-- Video V3 Real (4 Fases Canónicas: Silos, Conexión, Escultura, Orquestador) -->
+            <video id="heroVideoDesktop" class="hero-video-v3 js-hero-video" autoplay loop muted playsinline poster="/propuesta-v4/assets/images/motion-v3-desktop-hero.png">
+              <source src="/propuesta-v4/assets/videos/bee-smart-motion-v3-desktop.mp4" type="video/mp4">
+              <source src="/propuesta-v4/assets/videos/bee-smart-motion-v3-desktop.webm" type="video/webm">
+              <!-- Fallback estático de alta resolución -->
+              <img src="/propuesta-v4/assets/images/motion-v3-desktop-hero.png" alt="Escultura Cinemática V3" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+            </video>
+          </div>
+          
+          <div class="motion-controls-strip">
+            <div class="motion-phase-indicators" aria-label="Indicadores de fases">
+              <span class="phase-dot active" title="Fase 1: Silos"></span>
+              <span class="phase-dot active" title="Fase 2: Conexión"></span>
+              <span class="phase-dot active" title="Fase 3: Escultura"></span>
+              <span class="phase-dot active" title="Fase 4: Supervisión"></span>
+            </div>
+            <button id="videoToggleBtn" class="video-ctrl-btn" type="button" aria-label="Pausar video">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" rx="1"/>
+                <rect x="14" y="4" width="4" height="16" rx="1"/>
+              </svg>
+              <span>Pausar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Bar -->
+    <section class="clients-section" aria-label="Empresas asesoradas">
+      <div class="clients-label">EMPRESAS Y PROYECTOS QUE HAN CONFIADO EN NUESTRA VISIÓN</div>
+      <div class="clients-grid">
+        <div class="client-badge">
+          INGREDIENTA
+          <small>Alimentos & Operaciones</small>
+        </div>
+        <div class="client-badge">
+          CASA MAHANA
+          <small>Hospitalidad</small>
+        </div>
+        <div class="client-badge">
+          SURF SHACK
+          <small>Turismo & Retail</small>
+        </div>
+        <div class="client-badge">
+          SOLUCIONES EXPRESS
+          <small>Servicios Corporativos</small>
+        </div>
+        <div class="client-badge">
+          MAHANA TOURS
+          <small>Turismo Receptivo</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Capabilities -->
+    <section class="pillars-section" aria-label="Capacidades centrales">
+      <div class="pillars-header">
+        <div class="eyebrow eyebrow-cyan">CAPACIDADES CENTRALES</div>
+        <h2 class="section-title">Lo que desbloqueamos en tu equipo</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Cuatro frentes de trabajo complementarios para transformar conocimiento disperso en ejecución sistemática.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">01 / ESTRATEGIA</div>
+          <h3 class="pillar-heading">Aprender y organizar</h3>
+          <p class="pillar-desc">Investigar, resumir fuentes complejas, planificar proyectos y convertir flujos de datos en decisiones ejecutivas precisas.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">02 / PRODUCCIÓN</div>
+          <h3 class="pillar-heading">Crear contenido</h3>
+          <p class="pillar-desc">Pasar de una idea a texto, imagen, voz, video y publicación multicanal manteniendo identidad de marca y tono editorial.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">03 / CONTROL</div>
+          <h3 class="pillar-heading">Automatizar trabajo</h3>
+          <p class="pillar-desc">Conectar herramientas existentes (ERP, CRM, correo, hojas) y ejecutar procesos repetitivos con reglas y validación humana.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">04 / INGENIERÍA</div>
+          <h3 class="pillar-heading">Construir soluciones</h3>
+          <p class="pillar-desc">Desarrollar paneles de control a medida, micro-aplicaciones internas, flujos de agentes y productos asistidos por IA.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 Main Tracks -->
+    <section class="routes-section" aria-label="Rutas formativas y de implementación">
+      <div class="routes-grid">
+        <!-- Track 1: Empresas -->
+        <div class="route-card highlight">
+          <div>
+            <div class="eyebrow">PARA EMPRESAS & EQUIPOS</div>
+            <h2 class="route-title">BEE SMART Empresas</h2>
+            <p class="route-desc">
+              Transformamos la operación de tu negocio mediante arquitectura ad hoc, compuertas de supervisión y formación del responsable interno.
+            </p>
+            <ul class="route-feature-list">
+              <li>Diagnóstico operativo y levantamiento de flujos</li>
+              <li>Orquestador Modular con supervisión humana</li>
+              <li>Integración a sistemas de gestión existentes</li>
+              <li>Acompañamiento directivo continuo</li>
+            </ul>
+          </div>
+          <a href="/propuesta-v4/empresas/" class="btn btn-gold">Conoce la propuesta para empresas →</a>
+        </div>
+
+        <!-- Track 2: IA para Todos -->
+        <div class="route-card">
+          <div>
+            <div class="eyebrow eyebrow-cyan">CURSO FORMATIVO INTENSIVO</div>
+            <h2 class="route-title">IA para Todos</h2>
+            <p class="route-desc">
+              Aprende a dirigir herramientas y modelos de inteligencia artificial desde cero en una sesión ejecutiva de 3 horas en vivo con Humberto Bouché.
+            </p>
+            <ul class="route-feature-list">
+              <li>Modalidad online o presencial en Ciudad de Panamá</li>
+              <li>Modelos de lenguaje, visión, agentes y automatización</li>
+              <li>Ejemplos prácticos aplicados a tu día a día</li>
+              <li>Sesiones reducidas con resolución de dudas</li>
+            </ul>
+          </div>
+          <a href="/propuesta-v4/ai-para-todos/" class="btn btn-glass">Ver temario y fechas →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="content-wrapper">
+      <div class="footer-grid">
+        <div>
+          <a href="/propuesta-v4/" class="brand" style="margin-bottom: 12px;">
+            <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
+              <path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
+              <path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
+              <path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+            </svg>
+            <span>BEE SMART</span>
+          </a>
+          <p class="footer-brand-desc">
+            Capacitación e implementación de inteligencia artificial en Panamá. Arquitectura de sistemas asistidos por IA y formación ejecutiva con supervisión humana.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Rutas Principales</div>
+          <ul class="footer-links">
+            <li><a href="/propuesta-v4/">Inicio</a></li>
+            <li><a href="/propuesta-v4/empresas/">Empresas</a></li>
+            <li><a href="/propuesta-v4/ai-para-todos/">IA para Todos</a></li>
+            <li><a href="/propuesta-v4/agenda/">Agenda una llamada</a></li>
+            <li><a href="/propuesta-v4/contacto/">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal & Acuses</div>
+          <ul class="footer-links">
+            <li><a href="/propuesta-v4/privacidad/">Política de Privacidad</a></li>
+            <li><a href="/propuesta-v4/contacto/gracias/">Página de Acuse</a></li>
+            <li><a href="mailto:hb@bee-smart.ai">hb@bee-smart.ai</a></li>
+            <li><a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer">+507 6430-1378</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Dirección Ejecutiva</div>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Humberto Bouché · Consultor de Estrategia e Implementación de IA en Panamá.
+          </p>
+          <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block" style="font-size: 12px; padding: 8px 14px;">Solicitar diagnóstico 30 min</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 BEE SMART · Todos los derechos reservados</span>
+        <span>Entorno de Revisión Técnica Local · <a href="/propuesta-v4/privacidad/" style="color: var(--cyan-bright); text-decoration: none;">Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/propuesta-v4/assets/js/site.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      window.initHeroVideoPlayer('#heroVideoDesktop', '#videoToggleBtn');
+    });
+  </script>
+</body>
+</html>

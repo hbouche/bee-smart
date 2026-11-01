@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>IA para Todos · Curso Intensivo de Inteligencia Artificial en Panamá · BEE SMART</title>
+  <meta name="description" content="Aprende a dirigir herramientas y modelos de inteligencia artificial desde cero. Sesión ejecutiva intensiva de 3 horas con Humberto Bouché en Ciudad de Panamá.">
+  <link rel="stylesheet" href="/propuesta-v4/assets/css/site.css">
+  <style>
+    /* Specific IA para Todos Styles */
+    .hero-section {
+      padding: 60px 0 40px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text-pure);
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #FFFFFF 20%, #A9D5FF 60%, var(--cyan-bright) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 30px;
+      max-width: 580px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    /* Facts Strip */
+    .facts-strip {
+      margin: 30px 0 60px;
+      background: rgba(11, 26, 48, 0.7);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 22px 16px;
+      text-align: center;
+      gap: 16px;
+    }
+    .fact-item {
+      padding: 0 14px;
+      position: relative;
+    }
+    .fact-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: var(--border-subtle);
+    }
+    .fact-val {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--text-pure);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .fact-val.gold {
+      color: var(--gold-champagne);
+    }
+    .fact-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Instructor Card */
+    .instructor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+    .instructor-avatar {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--border-gold);
+      background: radial-gradient(circle at center, rgba(245, 208, 97, 0.25) 0%, #061122 75%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+    }
+    .instructor-initials {
+      font-size: 58px;
+      font-weight: 900;
+      color: var(--gold-champagne);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .instructor-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-high);
+      background: rgba(6, 17, 34, 0.9);
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* 4 Audiences */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 70px;
+    }
+    .audience-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 26px 20px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .audience-card:hover {
+      border-color: var(--cyan-bright);
+      transform: translateY(-3px);
+    }
+    .audience-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold-champagne);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .audience-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 8px;
+    }
+    .audience-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* 6 Curricular Modules */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 70px;
+    }
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .module-card:hover {
+      border-color: var(--cyan-bright);
+      transform: translateY(-3px);
+    }
+    .module-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--cyan-bright);
+      background: rgba(0, 229, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    .module-card h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-pure);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .module-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* 4 Tool Groups */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-bottom: 70px;
+    }
+    .tool-group-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+    }
+    .tool-group-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .tool-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .tool-pill {
+      background: rgba(6, 17, 34, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-high);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tool-pill:hover {
+      border-color: var(--cyan-bright);
+      color: var(--cyan-bright);
+    }
+
+    /* FAQ Accordions */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 860px;
+      margin: 0 auto 70px;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 18px 22px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-pure);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--gold-champagne);
+      font-weight: 800;
+    }
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+    .faq-content {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Inscription Form Card */
+    .inscription-card {
+      background: linear-gradient(145deg, rgba(16, 44, 82, 0.85) 0%, rgba(10, 24, 46, 0.95) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto 70px;
+      text-align: center;
+    }
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(6, 17, 34, 0.85);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      color: var(--text-pure);
+      font-size: 14px;
+      font-family: var(--font-sans);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--cyan-bright);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-section { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 20px; }
+      .facts-strip { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .fact-item:not(:last-child)::after { display: none; }
+      .instructor-card { grid-template-columns: 1fr; gap: 24px; padding: 26px; }
+      .instructor-avatar { max-width: 180px; margin: 0 auto; }
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .modules-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .form-group-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .audience-grid { grid-template-columns: 1fr; }
+      .facts-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="studio-bg"></div>
+
+  <!-- Review Banner -->
+  <aside class="review-banner" aria-label="Aviso de revisión">
+    <span class="review-badge">Propuesta V4</span>
+    <span>Formularios y controles en modo de demostración · Consulta los canales oficiales para envíos reales</span>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="content-wrapper header-container">
+      <a href="/propuesta-v4/" class="brand" aria-label="BEE SMART - Inicio">
+        <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
+          <path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
+          <path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
+          <path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+        </svg>
+        <span>BEE SMART</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="/propuesta-v4/">Inicio</a>
+        <a href="/propuesta-v4/empresas/">Empresas</a>
+        <a href="/propuesta-v4/ai-para-todos/" class="active" aria-current="page">IA para Todos</a>
+        <a href="/propuesta-v4/agenda/">Agenda</a>
+        <a href="/propuesta-v4/contacto/">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-header-cta">Agendar 30 min</a>
+        <button class="mobile-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menú móvil">
+    <ul class="mobile-nav-list">
+      <li><a href="/propuesta-v4/">Inicio <span>/</span></a></li>
+      <li><a href="/propuesta-v4/empresas/">Empresas <span>/empresas/</span></a></li>
+      <li><a href="/propuesta-v4/ai-para-todos/" class="active" aria-current="page">IA para Todos <span>/ai-para-todos/</span></a></li>
+      <li><a href="/propuesta-v4/agenda/">Agenda una llamada <span>/agenda/</span></a></li>
+      <li><a href="/propuesta-v4/contacto/">Contacto Directo <span>/contacto/</span></a></li>
+      <li><a href="/propuesta-v4/privacidad/">Política de Privacidad <span>/privacidad/</span></a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block">Agendar 30 min en Google Meet</a>
+      <p style="font-size: 12px; color: var(--text-dim); text-align: center;">
+        Panamá · Humberto Bouché · <a href="mailto:hb@bee-smart.ai" style="color: var(--cyan-bright); text-decoration: none;">hb@bee-smart.ai</a>
+      </p>
+    </div>
+  </div>
+
+  <main class="content-wrapper">
+
+    <!-- Hero IA para Todos -->
+    <section class="hero-section">
+      <div>
+        <div class="eyebrow">CURSO FORMATIVO INTENSIVO · PANAMÁ</div>
+        <h1 class="hero-title">
+          Aprende a dirigir la inteligencia artificial <em>en 3 horas.</em>
+        </h1>
+        <p class="hero-desc">
+          Sesión ejecutiva en vivo con Humberto Bouché. Diseñada para profesionales y directivos que quieren dominar las herramientas clave sin tecnicismos innecesarios.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#inscribir" class="btn btn-gold">Reservar plaza en lista →</a>
+          <a href="#temario" class="btn btn-glass">Ver temario completo ↓</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="card-glass" style="padding: 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span style="font-size: 11px; font-weight: 800; color: var(--gold-champagne); letter-spacing: 0.1em; text-transform: uppercase;">Modalidad Flexible</span>
+            <span style="font-size: 11px; font-weight: 700; color: var(--cyan-bright);">Panamá / Online</span>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--text-pure); margin-bottom: 12px;">Sesión en Vivo con Acompañamiento</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+            Grupos reducidos para interactuar directamente, resolver casos de tu propia profesión y salir con herramientas configuradas.
+          </p>
+          <div style="background: rgba(6, 17, 34, 0.7); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); padding: 12px 16px;">
+            <span style="font-size: 11px; color: var(--gold-champagne); font-weight: 800; display: block; margin-bottom: 2px;">DISPONIBILIDAD:</span>
+            <span style="font-size: 13px; color: var(--text-pure); font-weight: 700;">Modalidad bajo demanda / Fechas por confirmar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts Strip -->
+    <section class="facts-strip" aria-label="Datos clave del curso">
+      <div class="fact-item">
+        <span class="fact-val">3 Horas</span>
+        <span class="fact-lbl">Duración Intensiva</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-val gold">$75</span>
+        <span class="fact-lbl">Precio histórico referencial*</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-val">6 Módulos</span>
+        <span class="fact-lbl">Temario Práctico</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-val">En Vivo</span>
+        <span class="fact-lbl">Humberto Bouché</span>
+      </div>
+    </section>
+    <p style="font-size: 12px; color: var(--text-dim); text-align: center; margin-top: -45px; margin-bottom: 60px;">
+      * Nota: El valor de $75 corresponde a una referencia histórica tomada del código base y se encuentra pendiente de confirmación vigente por Humberto Bouché.
+    </p>
+
+    <!-- Instructor Section -->
+    <section class="instructor-card" aria-label="Instructor">
+      <div class="instructor-avatar">
+        <div class="instructor-initials">HB</div>
+        <span class="instructor-tag">Instructor Principal</span>
+      </div>
+      <div>
+        <div class="eyebrow eyebrow-cyan" style="margin-bottom: 10px;">FACILITADOR DEL CURSO</div>
+        <h2 style="font-size: 28px; font-weight: 900; color: var(--text-pure); margin-bottom: 6px;">Humberto Bouché</h2>
+        <span style="font-size: 14px; font-weight: 700; color: var(--cyan-bright); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 16px;">
+          Consultor de Estrategia e Implementación de IA en Panamá
+        </span>
+        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px;">
+          Ayuda a empresas y ejecutivos a integrar herramientas de inteligencia artificial en sus operaciones diarias. Enfoque 100% aplicado a productividad real, sin jerga abstracta.
+        </p>
+        <a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer" class="btn btn-glass" style="font-size: 13px; padding: 8px 16px;">
+          Escribir a Humberto por WhatsApp →
+        </a>
+      </div>
+    </section>
+
+    <!-- 4 Audiences -->
+    <section aria-label="A quién va dirigido">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 40px;">
+        <div class="eyebrow">PERFIL DE PARTICIPANTES</div>
+        <h2 class="section-title">¿Para quién es este curso?</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Diseñado para quienes buscan aprovechar la IA como una ventaja competitiva en su carrera o negocio.</p>
+      </div>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <span class="audience-num">01 / EJECUTIVOS</span>
+          <h3>Líderes y Directores</h3>
+          <p>Comprende el impacto estratégico de la IA, evalúa herramientas con criterio y dirige a tus equipos hacia la adopción efectiva.</p>
+        </div>
+
+        <div class="audience-card">
+          <span class="audience-num">02 / EMPRENDEDORES</span>
+          <h3>Dueños de Negocios</h3>
+          <p>Automatiza tareas repetitivas, genera propuestas comerciales y optimiza recursos sin necesidad de contratar agencias externas.</p>
+        </div>
+
+        <div class="audience-card">
+          <span class="audience-num">03 / PROFESIONALES</span>
+          <h3>Consultores y Especialistas</h3>
+          <p>Multiplica tu velocidad de investigación, redacción de informes y análisis de datos manteniendo tu estándar de calidad.</p>
+        </div>
+
+        <div class="audience-card">
+          <span class="audience-num">04 / CREADORES</span>
+          <h3>Comunicadores y Ventas</h3>
+          <p>Produce contenido multicanal (artículos, guiones, imágenes y correos) alineado a la identidad de tu marca.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Curricular Modules -->
+    <section id="temario" aria-label="Temario completo">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 50px;">
+        <div class="eyebrow eyebrow-cyan">ESTRUCTURA ACADÉMICA</div>
+        <h2 class="section-title">Los 6 Módulos del Programa</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">De los fundamentos a la práctica avanzada en una progresión lógica y accionable.</p>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <div>
+            <div class="module-num">MÓDULO 01</div>
+            <h3>La revolución de la inteligencia artificial</h3>
+            <p>Qué cambió en el mundo laboral, qué es mito y qué es realidad productiva. Por qué la IA no sustituye al criterio profesional.</p>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <div class="module-num">MÓDULO 02</div>
+            <h3>Cómo funciona realmente un LLM</h3>
+            <p>Tokens, ventanas de contexto, sesgos y alucinaciones. Entiende la mecánica interna para predecir cuándo el modelo acertará y cuándo fallará.</p>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <div class="module-num">MÓDULO 03</div>
+            <h3>El mapa de herramientas actual</h3>
+            <p>Panorama comparativo entre Claude, GPT, Gemini, Perplexity, DeepSeek y herramientas especializadas. Cuándo usar cuál según el objetivo.</p>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <div class="module-num">MÓDULO 04</div>
+            <h3>Cómo dirigir a la IA: prompting estructurado</h3>
+            <p>Frameworks de instrucción profesional: rol, contexto, restricciones, ejemplos y formatos de salida para obtener resultados consistentes.</p>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <div class="module-num">MÓDULO 05</div>
+            <h3>Qué puedes crear: texto, imagen, voz y video</h3>
+            <p>Demostración práctica de generación multimedia: documentos analíticos, creativos gráficos, clonación de voz y videos asistidos.</p>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div>
+            <div class="module-num">MÓDULO 06</div>
+            <h3>Del caso al resultado: flujo de trabajo integral</h3>
+            <p>Construcción en vivo de un proceso completo: desde la ingesta de un problema real hasta el entregable final listo para presentar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Tool Groups -->
+    <section aria-label="Ecosistema de herramientas">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+        <div class="eyebrow">TECNOLOGÍAS QUE DOMINARÁS</div>
+        <h2 class="section-title">El Ecosistema de Herramientas</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Aprenderás a operar las herramientas líderes del mercado con soltura y criterio.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-group-card">
+          <div class="tool-group-head">
+            <span style="font-size: 11px; font-weight: 800; color: var(--gold-champagne); background: rgba(245,208,97,0.12); padding: 4px 10px; border-radius: 6px;">01. LENGUAJE</span>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--text-pure);">Modelos Fundacionales</h3>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5;">Redacción, análisis de contratos, síntesis de informes y generación de código.</p>
+          <div class="tool-pills-wrap">
+            <span class="tool-pill">ChatGPT (GPT-4o)</span>
+            <span class="tool-pill">Claude 3.5 Sonnet</span>
+            <span class="tool-pill">Google Gemini</span>
+            <span class="tool-pill">DeepSeek</span>
+          </div>
+        </div>
+
+        <div class="tool-group-card">
+          <div class="tool-group-head">
+            <span style="font-size: 11px; font-weight: 800; color: var(--cyan-bright); background: rgba(0,229,255,0.12); padding: 4px 10px; border-radius: 6px;">02. MULTIMEDIA</span>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--text-pure);">Imagen, Voz y Video</h3>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5;">Creación de activos visuales, locuciones corporativas y prototipos audiovisuales.</p>
+          <div class="tool-pills-wrap">
+            <span class="tool-pill">Midjourney</span>
+            <span class="tool-pill">ElevenLabs</span>
+            <span class="tool-pill">Runway Gen-3</span>
+            <span class="tool-pill">Kling AI</span>
+          </div>
+        </div>
+
+        <div class="tool-group-card">
+          <div class="tool-group-head">
+            <span style="font-size: 11px; font-weight: 800; color: var(--gold-champagne); background: rgba(245,208,97,0.12); padding: 4px 10px; border-radius: 6px;">03. BÚSQUEDA</span>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--text-pure);">Investigación y Síntesis</h3>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5;">Exploración de fuentes bibliográficas, competidores y tendencias con citas verificadas.</p>
+          <div class="tool-pills-wrap">
+            <span class="tool-pill">Perplexity Pro</span>
+            <span class="tool-pill">Genspark</span>
+            <span class="tool-pill">NotebookLM</span>
+          </div>
+        </div>
+
+        <div class="tool-group-card">
+          <div class="tool-group-head">
+            <span style="font-size: 11px; font-weight: 800; color: var(--cyan-bright); background: rgba(0,229,255,0.12); padding: 4px 10px; border-radius: 6px;">04. AUTOMATIZACIÓN</span>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--text-pure);">Agentes y Conectores</h3>
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5;">Flujos autónomos entre correo, hojas de cálculo, mensajería y bases de datos.</p>
+          <div class="tool-pills-wrap">
+            <span class="tool-pill">Make.com</span>
+            <span class="tool-pill">n8n</span>
+            <span class="tool-pill">Claude Projects</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQs -->
+    <section aria-label="Preguntas frecuentes">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 40px;">
+        <div class="eyebrow">RESOLUCIÓN DE DUDAS</div>
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Necesito conocimientos previos de programación o matemáticas?</summary>
+          <div class="faq-content">
+            No, en lo absoluto. El curso está diseñado para usuarios no técnicos. La interacción con los modelos se realiza íntegramente mediante lenguaje natural en español.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Qué formato tiene la sesión y dónde se imparte?</summary>
+          <div class="faq-content">
+            Ofrecemos dos modalidades: sesión virtual interactiva por Google Meet o taller presencial en Ciudad de Panamá. Ambas modalidades son en vivo con Humberto Bouché.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Entregan grabación y material de apoyo?</summary>
+          <div class="faq-content">
+            Sí. Todos los participantes reciben la grabación íntegra de la sesión, la guía PDF de prompts ejecutivos y acceso a la lista de recursos recomendados.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Qué cuentas de herramientas necesito tener listas antes del curso?</summary>
+          <div class="faq-content">
+            Con una cuenta gratuita de ChatGPT y Google es suficiente para aprovechar el 100% de los ejercicios. Durante la sesión te mostraremos cuándo vale la pena pagar planes premium.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Puedo pagar con Yappy o transferencia local en Panamá?</summary>
+          <div class="faq-content">
+            Sí, aceptamos pagos locales vía Yappy Comercial y transferencia bancaria directa (ACH / Banco General). Las instrucciones de pago se coordinan al confirmar la cohorte.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Ofrecen capacitaciones privadas para empresas o comités ejecutivos?</summary>
+          <div class="faq-content">
+            Sí. Para grupos corporativos ofrecemos el programa in-company IA 101 adaptado a los procesos específicos de tu sector. Puedes ver más detalles en la sección de Empresas.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cómo confirmo la fecha de la próxima sesión?</summary>
+          <div class="faq-content">
+            Las sesiones se abren bajo demanda para garantizar grupos reducidos. Regístrate en el formulario inferior o escribe por WhatsApp para unirte a la lista de la próxima fecha confirmada.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Inscription Form (Review Mode) -->
+    <section class="inscription-card" id="inscribir" aria-label="Registro en lista de espera">
+      <div class="eyebrow">CONVOCATORIA BAJO DEMANDA</div>
+      <h2 style="font-size: 28px; font-weight: 900; color: var(--text-pure); margin-bottom: 10px;">Únete a la lista de la próxima edición</h2>
+      <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6; max-width: 580px; margin: 0 auto 20px;">
+        Déjanos tus datos para avisarte tan pronto como se abra la próxima fecha de IA para Todos o coordinar una sesión privada.
+      </p>
+
+      <form class="js-review-form" data-action-name="Inscripción IA para Todos">
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="ai-nombre" class="form-label">Nombre completo</label>
+            <input id="ai-nombre" name="nombre" type="text" class="form-input" placeholder="Tu nombre y apellido" required>
+          </div>
+          <div class="form-group">
+            <label for="ai-email" class="form-label">Correo electrónico corporativo</label>
+            <input id="ai-email" name="email" type="email" class="form-input" placeholder="tu@empresa.com" required>
+          </div>
+        </div>
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="ai-tel" class="form-label">Teléfono / WhatsApp</label>
+            <input id="ai-tel" name="telefono" type="tel" class="form-input" placeholder="+507 6000-0000">
+          </div>
+          <div class="form-group">
+            <label for="ai-modalidad" class="form-label">Modalidad preferida</label>
+            <select id="ai-modalidad" name="modalidad" class="form-input" style="color: var(--text-high);">
+              <option value="online">Virtual interactiva (Google Meet)</option>
+              <option value="presencial">Presencial (Ciudad de Panamá)</option>
+              <option value="in-company">Modalidad privada In-Company (Empresas)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block" style="padding: 14px; font-size: 15px;">
+          Probar formulario (Modo Demostración · No envía datos)
+        </button>
+      </form>
+      <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-subtle); text-align: center;">
+        <span style="font-size: 12px; color: var(--text-dim); display: block; margin-bottom: 8px;">
+          ¿Deseas formalizar tu inscripción real en el curso?
+        </span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcJrolmjXe4thTcWSdB0weAgMqS1qknes9tA8mRw3HmPxFKg/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-block" style="font-size: 13px; padding: 10px;">
+          Abrir formulario oficial de inscripción en Google Forms ↗
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="content-wrapper">
+      <div class="footer-grid">
+        <div>
+          <a href="/propuesta-v4/" class="brand" style="margin-bottom: 12px;">
+            <svg class="brand-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
+              <path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
+              <path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
+              <path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+            </svg>
+            <span>BEE SMART</span>
+          </a>
+          <p class="footer-brand-desc">
+            Capacitación e implementación de inteligencia artificial en Panamá. Arquitectura de sistemas asistidos por IA y formación ejecutiva con supervisión humana.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Rutas Principales</div>
+          <ul class="footer-links">
+            <li><a href="/propuesta-v4/">Inicio</a></li>
+            <li><a href="/propuesta-v4/empresas/">Empresas</a></li>
+            <li><a href="/propuesta-v4/ai-para-todos/">IA para Todos</a></li>
+            <li><a href="/propuesta-v4/agenda/">Agenda una llamada</a></li>
+            <li><a href="/propuesta-v4/contacto/">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal & Acuses</div>
+          <ul class="footer-links">
+            <li><a href="/propuesta-v4/privacidad/">Política de Privacidad</a></li>
+            <li><a href="/propuesta-v4/contacto/gracias/">Página de Acuse</a></li>
+            <li><a href="mailto:hb@bee-smart.ai">hb@bee-smart.ai</a></li>
+            <li><a href="https://wa.me/50764301378" target="_blank" rel="noopener noreferrer">+507 6430-1378</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Dirección Ejecutiva</div>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Humberto Bouché · Consultor de Estrategia e Implementación de IA en Panamá.
+          </p>
+          <a href="/propuesta-v4/agenda/" class="btn btn-gold btn-block" style="font-size: 12px; padding: 8px 14px;">Solicitar diagnóstico 30 min</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 BEE SMART · Todos los derechos reservados</span>
+        <span>Entorno de Revisión Técnica Local · <a href="/propuesta-v4/privacidad/" style="color: var(--cyan-bright); text-decoration: none;">Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/propuesta-v4/assets/js/site.js"></script>
+</body>
+</html>
